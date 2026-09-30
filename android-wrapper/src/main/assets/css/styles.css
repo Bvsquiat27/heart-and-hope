@@ -3239,3 +3239,61 @@ a:hover { color: var(--accent); }
     transform: none;
   }
 }
+
+
+/* —— Scripture glass (1.6.14.4) —— */
+.scripture-strip {
+  margin: 0.85rem 0 1.15rem;
+  padding: 1rem 1.15rem;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--glass-bg, rgba(255, 252, 254, 0.72));
+  backdrop-filter: blur(var(--glass-blur, 18px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 18px));
+  border: 1px solid var(--glass-border, rgba(155, 134, 196, 0.22));
+  box-shadow: 0 8px 28px rgba(120, 100, 160, 0.08);
+}
+.scripture-strip .scripture-text {
+  margin: 0;
+  font-size: 1.02rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+  color: #3d4a5c;
+}
+.scripture-strip .scripture-ref {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: normal;
+  color: #5a6b8a;
+  letter-spacing: 0.01em;
+}
+.scripture-glass {
+  margin: 0.85rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(232, 224, 246, 0.55);
+  border: 1px solid rgba(155, 134, 196, 0.28);
+}
+.scripture-glass p {
+  margin: 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: #3d4a5c;
+}
+.scripture-glass cite {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #5a6b8a;
+}
+.ember-night .scripture-strip {
+  background: rgba(18, 28, 48, 0.72);
+  border-color: rgba(180, 200, 230, 0.18);
+}
+.ember-night .scripture-strip .scripture-text { color: #e8eef8; }
+.ember-night .scripture-strip .scripture-ref { color: #c9daf5; }
