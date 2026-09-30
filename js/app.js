@@ -508,11 +508,12 @@
       const ranked = exactMatches.slice().sort((a, b) => {
         const sa = a.split("|")[1], sb = b.split("|")[1];
         const score = (st) => {
-          /* Major metro preference must beat alphabetical (dallas|NC before dallas|TX) */
+          /* Explicit state ("las vegas nm") beats metro prefer (NV) and density */
           if (stateHint && st === stateHint) return 0;
-          if (preferState[cityPart] && st === preferState[cityPart]) return 0;
-          if (centerCounts[st]) return 1;
-          return 2;
+          /* Major metro preference must beat alphabetical (dallas|NC before dallas|TX) */
+          if (preferState[cityPart] && st === preferState[cityPart]) return 1;
+          if (centerCounts[st]) return 2;
+          return 3;
         };
         const ca = centerCounts[sa] || 0;
         const cb = centerCounts[sb] || 0;
