@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.4
+ * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.5
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
-const VERSION = "1.7.4";
+const VERSION = "1.7.5";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -14,6 +14,10 @@ const TOKEN_TTL_MS = 90 * 24 * 3600 * 1000;
 const LEGACY_ALL = "all";
 const IDX_BEACONS = "idx:beacons";
 const IDX_HOPE = "idx:hope";
+const IDX_FLAGS = "idx:flags";
+const MAX_FLAGS = 2000;
+const MAX_CENTER_ID = 80;
+const MAX_FLAG_REASON = 200;
 
 const ALLOWED_ORIGINS = [
   "https://bvsquiat27.github.io",
@@ -28,6 +32,7 @@ const RATE = {
   "post-beacons": { max: 5, window: 600 },
   "post-notes": { max: 20, window: 600 },
   "post-hope": { max: 10, window: 600 },
+  "post-flags": { max: 15, window: 600 },
   signup: { max: 5, window: 3600 },
   login: { max: 20, window: 900 }
 };
@@ -447,6 +452,73 @@ async function addHopeId(kv, id) {
 }
 
 
+
+/* ——— KV: center flags (review queue; never auto-deletes listings) ——— */
+
+async function getFlagIndex(kv) {
+  const idx = await kv.get(IDX_FLAGS, "json");
+  return Array.isArray(idx) ? idx : [];
+}
+
+async function setFlagIndex(kv, ids) {
+  await kv.put(IDX_FLAGS, JSON.stringify(ids));
+}
+
+async function mutateFlagIndex(kv, mutator, verify) {
+  const MAX = 8;
+  for (let attempt = 0; attempt < MAX; attempt++) {
+    const ids = await getFlagIndex(kv);
+    const next = mutator(ids.slice());
+    await setFlagIndex(kv, next);
+    const after = await getFlagIndex(kv);
+    if (verify(after)) return after;
+    await sleep(15 + attempt * 25);
+  }
+  const ids = await getFlagIndex(kv);
+  const next = mutator(ids.slice());
+  await setFlagIndex(kv, next);
+  return next;
+}
+
+async function addFlagId(kv, id) {
+  return mutateFlagIndex(
+    kv,
+    (ids) => {
+      const next = ids.slice();
+      if (!next.includes(id)) next.push(id);
+      while (next.length > MAX_FLAGS) next.shift();
+      return next;
+    },
+    (after) => after.includes(id)
+  );
+}
+
+function sanitizeCenterId(raw) {
+  const id = String(raw || "").trim().slice(0, MAX_CENTER_ID);
+  if (!id) return "";
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,79}$/.test(id)) return "";
+  return id;
+}
+
+async function listFlagsMap(kv) {
+  const ids = await getFlagIndex(kv);
+  const out = [];
+  for (const id of ids) {
+    try {
+      const row = await kv.get(`flag:${id}`, "json");
+      if (row && typeof row === "object" && row.centerId) {
+        out.push({
+          id,
+          centerId: row.centerId,
+          reason: row.reason || "",
+          createdAt: row.createdAt || 0
+        });
+      }
+    } catch (_) {}
+  }
+  return out;
+}
+
 function extractAdminSecret(req) {
   const h = String(req.headers.get("X-Hearth-Admin") || "").trim();
   if (h) return h;
@@ -864,6 +936,7 @@ export default {
           "/hope",
           "/hope/:id",
           "/admin/hope/clear",
+          "/flags",
           "/health",
           "/auth/signup",
           "/auth/login",
@@ -1046,6 +1119,49 @@ export default {
       if (!admin.ok) return json(request, { error: "auth" }, 401, noStore);
       await clearAllHope(env.HOPE);
       return json(request, { ok: true, cleared: true }, 200, noStore);
+    }
+
+
+    /* ——— Center flags (moderated review queue) ——— */
+    if (p === "/flags" && request.method === "POST") {
+      const limited = await checkRate(env, request, "post-flags");
+      if (limited) return rateResponse(request, limited.retryAfter);
+      const parsed = await readJsonCapped(request);
+      if (parsed.tooLarge) return json(request, { error: "too large" }, 413);
+      const body = parsed.value || {};
+      const centerId = sanitizeCenterId(body.centerId);
+      if (!centerId) return json(request, { error: "centerId" }, 400);
+      let reason = String((body && body.reason) || "").trim().slice(0, MAX_FLAG_REASON);
+      if (reason && contentBlocked(reason)) return json(request, { error: "blocked" }, 400);
+      const id = newId();
+      const ipHash = await sha256HexTrunc(clientIp(request), 16);
+      const row = {
+        centerId,
+        reason: reason || "",
+        createdAt: Date.now(),
+        ipHash
+      };
+      await env.HOPE.put(`flag:${id}`, JSON.stringify(row));
+      const before = await getFlagIndex(env.HOPE);
+      const after = await addFlagId(env.HOPE, id);
+      const keep = new Set(after);
+      for (const old of before) {
+        if (!keep.has(old) && old !== id) {
+          try {
+            await env.HOPE.delete(`flag:${old}`);
+          } catch (_) {}
+        }
+      }
+      /* Queued for review — does NOT remove live listings automatically. */
+      return json(request, { id, ok: true, queued: true }, 201);
+    }
+
+    if (p === "/flags" && request.method === "GET") {
+      const admin = verifyHopeAdmin(request, env);
+      if (admin.reason === "unset") return json(request, { error: "admin unset" }, 503, noStore);
+      if (!admin.ok) return json(request, { error: "auth" }, 401, noStore);
+      const flags = await listFlagsMap(env.HOPE);
+      return json(request, { flags, count: flags.length }, 200, noStore);
     }
 
     /* ——— Accounts ——— */
