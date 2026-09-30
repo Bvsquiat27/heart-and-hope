@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.1
+ * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.2
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
-const VERSION = "1.7.1";
+const VERSION = "1.7.2";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -32,8 +32,56 @@ const RATE = {
   login: { max: 20, window: 900 }
 };
 
-const CONTENT_BLOCK =
-  /\b(kill|murder|rape|suicide|bomb|shoot|fuck|shit|bitch|cunt|nigg|faggot|https?:\/\/|www\.|@[a-z0-9_]{3,}|\d{3}[-.\s]?\d{3}[-.\s]?\d{4})\b/i;
+/* Hope/notes block — aligned with js/support.js filterHopeText + js/beacon.js filterNote.
+ * fuck\w* covers fucking/etc. @handle is OUTSIDE \b (word-boundary never fires before @). */
+const CONTENT_BLOCK = [
+  /\b(kill|murder|rape|suicide|kms|kys|die\s*bitch|hurt\s*you|stalk|bomb|shoot)\b/i,
+  /\bfuck\w*\b/i,
+  /\b(shit|bitch|asshole|cunt|slut|whore|nigg\w*|faggot|retard)\b/i,
+  /\b(sex|sexy|nude|porn|onlyfans)\b/i,
+  /\b(kill\s*yourself|hang\s*yourself|cut\s*yourself)\b/i,
+  /\b(https?:\/\/|www\.|\.com\b|\.net\b|\.org\b)/i,
+  /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i,
+  /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/,
+  /(?:^|[^\w])@[a-z0-9_]{3,}/i,
+  /\b(snapchat|instagram|tiktok|discord|telegram|whatsapp|dm\s*me|text\s*me|call\s*me)\b/i
+];
+
+/** NFKC + strip Unicode Cf (zero-width / format) before CONTENT_BLOCK matching. */
+function prepContent(text) {
+  let t = String(text || "").normalize("NFKC");
+  try {
+    t = t.replace(/\p{Cf}/gu, "");
+  } catch (_) {
+    t = t.replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF\u180E]/g, "");
+  }
+  return t;
+}
+
+/** Modest leetspeak + spaced/punctuated letter collapse (f.u.c.k / f u c k). */
+function normalizeForBlock(text) {
+  let t = prepContent(text).toLowerCase();
+  t = t
+    .replace(/0/g, "o")
+    .replace(/1/g, "i")
+    .replace(/3/g, "e")
+    .replace(/4/g, "a")
+    .replace(/5/g, "s")
+    .replace(/\$/g, "s")
+    .replace(/!/g, "i");
+  t = t.replace(/([a-z])(?:[\s._*\-"'`·]{1,3})(?=[a-z])/g, "$1");
+  return t;
+}
+
+function contentBlocked(text) {
+  const prepared = prepContent(text);
+  const collapsed = normalizeForBlock(text);
+  for (let i = 0; i < CONTENT_BLOCK.length; i++) {
+    const re = CONTENT_BLOCK[i];
+    if (re.test(prepared) || re.test(collapsed)) return true;
+  }
+  return false;
+}
 
 function corsHeaders(request, extra) {
   const origin = String(request.headers.get("Origin") || "");
@@ -282,17 +330,44 @@ async function listBeaconsMap(kv) {
   return out;
 }
 
-async function addBeaconId(kv, id) {
-  const ids = await getBeaconIndex(kv);
-  if (!ids.includes(id)) {
-    ids.push(id);
-    await setBeaconIndex(kv, ids);
+/**
+ * Best-effort KV index mutation with verify-and-retry merge (H3).
+ * Workers KV has no CAS; we re-read after put and retry if our id was lost/overwritten.
+ * Durable Object serialization remains the proper follow-up.
+ */
+async function mutateBeaconIndex(kv, mutator, verify) {
+  const MAX = 8;
+  for (let attempt = 0; attempt < MAX; attempt++) {
+    const ids = await getBeaconIndex(kv);
+    const next = mutator(ids.slice());
+    await setBeaconIndex(kv, next);
+    const after = await getBeaconIndex(kv);
+    if (verify(after)) return after;
+    await sleep(15 + attempt * 25);
   }
+  const ids = await getBeaconIndex(kv);
+  const next = mutator(ids.slice());
+  await setBeaconIndex(kv, next);
+  return next;
+}
+
+async function addBeaconId(kv, id) {
+  await mutateBeaconIndex(
+    kv,
+    (ids) => {
+      if (!ids.includes(id)) ids.push(id);
+      return ids;
+    },
+    (after) => after.includes(id)
+  );
 }
 
 async function dropBeaconId(kv, id) {
-  const ids = (await getBeaconIndex(kv)).filter((x) => x !== id);
-  await setBeaconIndex(kv, ids);
+  await mutateBeaconIndex(
+    kv,
+    (ids) => ids.filter((x) => x !== id),
+    (after) => !after.includes(id)
+  );
 }
 
 /* ——— KV: hope ——— */
@@ -325,6 +400,37 @@ async function setHopeIndex(kv, ids) {
   await kv.put(IDX_HOPE, JSON.stringify(ids));
 }
 
+async function mutateHopeIndex(kv, mutator, verify) {
+  const MAX = 8;
+  for (let attempt = 0; attempt < MAX; attempt++) {
+    const ids = await getHopeIndex(kv);
+    const next = mutator(ids.slice());
+    await setHopeIndex(kv, next);
+    const after = await getHopeIndex(kv);
+    if (verify(after)) return after;
+    await sleep(15 + attempt * 25);
+  }
+  const ids = await getHopeIndex(kv);
+  const next = mutator(ids.slice());
+  await setHopeIndex(kv, next);
+  return next;
+}
+
+async function addHopeId(kv, id) {
+  return mutateHopeIndex(
+    kv,
+    (ids) => {
+      const next = ids.slice();
+      if (!next.includes(id)) next.push(id);
+      while (next.length > MAX_HOPE_POSTS) {
+        next.shift(); /* caller deletes pruned h: keys separately when possible */
+      }
+      return next;
+    },
+    (after) => after.includes(id)
+  );
+}
+
 
 function extractAdminSecret(req) {
   const h = String(req.headers.get("X-Hearth-Admin") || "").trim();
@@ -338,13 +444,11 @@ function verifyHopeAdmin(request, env) {
   const configured = String((env && env.HOPE_ADMIN_SECRET) || "").trim();
   if (!configured) return { ok: false, reason: "unset" };
   const provided = extractAdminSecret(request);
-  if (!provided || provided !== configured) return { ok: false, reason: "auth" };
+  if (!provided || !timingSafeEqualStr(provided, configured)) return { ok: false, reason: "auth" };
   return { ok: true };
 }
 
 async function deleteHopePost(kv, id) {
-  const ids = await getHopeIndex(kv);
-  const next = ids.filter((x) => x !== id);
   try {
     await kv.delete(`h:${id}`);
   } catch (_) {}
@@ -356,7 +460,11 @@ async function deleteHopePost(kv, id) {
       await kv.put(LEGACY_ALL, JSON.stringify(legacy));
     }
   } catch (_) {}
-  await setHopeIndex(kv, next);
+  await mutateHopeIndex(
+    kv,
+    (ids) => ids.filter((x) => x !== id),
+    (after) => !after.includes(id)
+  );
 }
 
 async function clearAllHope(kv) {
@@ -513,11 +621,33 @@ function sanitizeBeacon(body, existing) {
   if (expiresAt <= now) return { error: "expired" };
   const createdAt =
     existing && existing.createdAt ? existing.createdAt : now; /* L5 server-ish for create path */
-  const coarseZip = String((body && (body.coarseZip || body.zip)) || "").slice(0, 10);
-  let state = String((body && body.state) || "")
-    .trim()
-    .toUpperCase()
-    .slice(0, 2);
+  const bodyObj = body && typeof body === "object" ? body : {};
+  const hasZip =
+    Object.prototype.hasOwnProperty.call(bodyObj, "coarseZip") ||
+    Object.prototype.hasOwnProperty.call(bodyObj, "zip");
+  const hasState = Object.prototype.hasOwnProperty.call(bodyObj, "state");
+  let coarseZip;
+  if (hasZip) {
+    coarseZip = String(bodyObj.coarseZip || bodyObj.zip || "").slice(0, 10);
+  } else if (existing) {
+    coarseZip = String(existing.coarseZip || "").slice(0, 10);
+  } else {
+    coarseZip = "";
+  }
+  let state;
+  if (hasState) {
+    state = String(bodyObj.state || "")
+      .trim()
+      .toUpperCase()
+      .slice(0, 2);
+  } else if (existing) {
+    state = String(existing.state || "")
+      .trim()
+      .toUpperCase()
+      .slice(0, 2);
+  } else {
+    state = "";
+  }
   if (state && !/^[A-Z]{2}$/.test(state)) state = "";
   const out = {
     lat: Math.round(lat * 10000) / 10000,
@@ -566,7 +696,8 @@ function validEmail(e) {
 
 function validPassword(p) {
   const s = String(p || "");
-  return s.length >= 6 && s.length <= 72;
+  /* 1.7.2: min 10 (was 6). Existing shorter accounts still login; only new signups enforced. */
+  return s.length >= 10 && s.length <= 72;
 }
 
 async function hashPassword(password, saltB64) {
@@ -589,7 +720,7 @@ async function hashPassword(password, saltB64) {
 
 async function verifyPassword(password, saltB64, hashB64) {
   const { hash } = await hashPassword(password, saltB64);
-  return hash === hashB64;
+  return timingSafeEqualStr(hash, String(hashB64 || ""));
 }
 
 function publicUser(u) {
@@ -813,7 +944,7 @@ export default {
         .trim()
         .slice(0, MAX_NOTE);
       if (!text) return json(request, { error: "empty" }, 400);
-      if (CONTENT_BLOCK.test(text)) return json(request, { error: "blocked" }, 400);
+      if (contentBlocked(text)) return json(request, { error: "blocked" }, 400);
       const nid = newId();
       if (!b.notes) b.notes = {};
       b.notes[nid] = {
@@ -853,19 +984,31 @@ export default {
         String((body && body.fromLabel) || "A mom")
           .trim()
           .slice(0, 40) || "A mom";
-      if (CONTENT_BLOCK.test(textBody)) return json(request, { error: "blocked" }, 400);
+      if (contentBlocked(textBody)) return json(request, { error: "blocked" }, 400);
       const id = newId();
       const post = { text: textBody, createdAt: Date.now(), fromLabel };
       await env.HOPE.put(`h:${id}`, JSON.stringify(post));
-      const ids = await getHopeIndex(env.HOPE);
-      ids.push(id);
-      while (ids.length > MAX_HOPE_POSTS) {
-        const old = ids.shift();
-        try {
-          await env.HOPE.delete(`h:${old}`);
-        } catch (_) {}
+      const before = await getHopeIndex(env.HOPE);
+      const after = await addHopeId(env.HOPE, id);
+      /* delete keys pruned by index cap (best-effort) */
+      const keep = new Set(after);
+      for (const old of before) {
+        if (!keep.has(old) && old !== id) {
+          try {
+            await env.HOPE.delete(`h:${old}`);
+          } catch (_) {}
+        }
       }
-      await setHopeIndex(env.HOPE, ids);
+      if (after.length > MAX_HOPE_POSTS) {
+        const trimmed = after.slice(after.length - MAX_HOPE_POSTS);
+        const drop = after.slice(0, after.length - MAX_HOPE_POSTS);
+        await setHopeIndex(env.HOPE, trimmed);
+        for (const old of drop) {
+          try {
+            await env.HOPE.delete(`h:${old}`);
+          } catch (_) {}
+        }
+      }
       return json(request, { id }, 201);
     }
 

@@ -207,6 +207,7 @@
     }
     setToken("");
     setEmail("");
+    try { localStorage.removeItem("hearth_beacon_secrets"); } catch (e) {}
     refreshUI();
     setStatus("Signed out. Guest mode still works on this phone.");
     setSyncStatus("");
