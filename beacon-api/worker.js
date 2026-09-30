@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.3
+ * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.4
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
-const VERSION = "1.7.3";
+const VERSION = "1.7.4";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -80,9 +80,17 @@ function normalizeForBlock(text) {
   return t;
 }
 
+/** Compact morph after leet map — client filterHopeText parity (fvck/phuck)
+ * plus digit-aware f0ck→fock. Does not re-glue multi-word phrases. */
+function fuckMorphBlocked(collapsed) {
+  const compact = String(collapsed || "").replace(/[\s.\-_/\\|'"´`·*]+/g, "");
+  return /f[uov]+c+k/.test(compact) || /fc+k/.test(compact) || /phuck/.test(compact);
+}
+
 function contentBlocked(text) {
   const prepared = prepContent(text);
   const collapsed = normalizeForBlock(text);
+  if (fuckMorphBlocked(collapsed)) return true;
   for (let i = 0; i < CONTENT_BLOCK.length; i++) {
     const re = CONTENT_BLOCK[i];
     if (re.test(prepared) || re.test(collapsed)) return true;

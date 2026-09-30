@@ -3,7 +3,7 @@ main = "worker.js"
 compatibility_date = "2026-09-01"
 account_id = "9dfa3f6855e752c53df1b9b8632cf51e"
 
-# Secure 1.7.3 deploy on Paisiosphilotimo account (reachable via wrangler OAuth).
+# Secure 1.7.4 deploy on Paisiosphilotimo account (reachable via wrangler OAuth).
 # Old Piquant Filament host remains 1.6.0 until that account is accessible — app will switch restBaseUrl.
 
 [[kv_namespaces]]

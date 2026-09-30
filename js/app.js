@@ -385,27 +385,33 @@
       if (hit) return { lat: hit.lat, lng: hit.lng, zip: z, state: hit.state, city: hit.city, source: "zip-center", label: `${hit.city}, ${hit.state} ${z}` };
       if (zipCoords[z]) {
         const [lat, lng] = zipCoords[z];
-        const near = nearestZipRec(z);
-        let city = near ? near.rec.city : null;
-        let state = near ? near.rec.state : null;
-        /* PR / territories: zip-coords only — honest territory label, no fake mainland city */
-        if (!state && lat != null && lng != null) {
-          if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
-            city = city || "Puerto Rico";
-            state = "PR";
+        /* HI 967/968: reject Midway/Samoa/ocean centroids outside Hawaii bbox so resolve falls through to zip3-nearest */
+        const hiPrefix = z.startsWith("967") || z.startsWith("968");
+        const inHawaiiBbox =
+          lat >= 18.5 && lat <= 22.5 && lng >= -161 && lng <= -154;
+        if (!(hiPrefix && !inHawaiiBbox)) {
+          const near = nearestZipRec(z);
+          let city = near ? near.rec.city : null;
+          let state = near ? near.rec.state : null;
+          /* PR / territories: zip-coords only — honest territory label, no fake mainland city */
+          if (!state && lat != null && lng != null) {
+            if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
+              city = city || "Puerto Rico";
+              state = "PR";
+            }
           }
+          const label = city && state ? `${city}, ${state} ${z}` : `ZIP ${z}`;
+          return {
+            lat,
+            lng,
+            zip: z,
+            state,
+            city,
+            source: "zip",
+            label,
+            matchedZip: near ? near.key : null
+          };
         }
-        const label = city && state ? `${city}, ${state} ${z}` : `ZIP ${z}`;
-        return {
-          lat,
-          lng,
-          zip: z,
-          state,
-          city,
-          source: "zip",
-          label,
-          matchedZip: near ? near.key : null
-        };
       }
       return null;
     }
@@ -478,7 +484,7 @@
     }
 
     let cityPart = q.replace(/\b\d{5}(?:-\d{4})?\b/g, "").trim();
-    const knownStates = "AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY".split(" ");
+    const knownStates = "AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA PR RI SC SD TN TX UT VT VA WA WV WI WY GU VI AS MP".split(" ");
     let stateHint = null;
     const stateMatch = cityPart.match(/\b([a-z]{2})$/i);
     if (stateMatch) {
@@ -519,11 +525,19 @@
         const cb = centerCounts[sb] || 0;
         return score(sa) - score(sb) || cb - ca || a.localeCompare(b);
       });
-      for (const key of ranked) {
+      const rankedForHint = stateHint
+        ? ranked.filter((k) => k.split("|")[1] === stateHint)
+        : ranked;
+      const cityZipKeys = rankedForHint.length ? rankedForHint : (stateHint ? [] : ranked);
+      for (const key of cityZipKeys) {
         const z = cityMap[key];
         if (z) {
           const got = fromZip(z);
-          if (got) return { ...got, city: cityPart, source: "city-zip", label: got.city ? `${got.city}, ${got.state}` : cityPart };
+          if (got) {
+            const st = got.state || stateHint || "";
+            const labelCity = got.city || cityPart;
+            return { ...got, city: cityPart, state: st || got.state, source: "city-zip", label: st ? `${labelCity}, ${st}` : (labelCity || cityPart) };
+          }
         }
       }
     }
@@ -580,7 +594,7 @@
         dist = Infinity;
       } else if (resolved && resolved.zip && c.zip === resolved.zip) tier = 0;
       else if (resolved && resolved.zip && c.zip.slice(0, 3) === resolved.zip.slice(0, 3)) tier = 1;
-      else if (resolved && resolved.city && c.city.toLowerCase() === String(resolved.city).toLowerCase()) tier = 2;
+      else if (resolved && resolved.city && c.city.toLowerCase() === String(resolved.city).toLowerCase() && (!resolved.state || c.state === resolved.state)) tier = 2;
       else if (resolved && resolved.state && c.state === resolved.state && dist <= LOCAL_MILES) tier = 3;
       else if (dist <= LOCAL_MILES) tier = 4;
       else if (resolved && resolved.state && c.state === resolved.state) tier = 5;
@@ -768,7 +782,7 @@
     const geo = geoForQuery(q);
     const queryForRank = isNearMeQuery(q) ? "" : q;
     const dirNeeds = selectedDirNeeds();
-    /* Rank with aliases (e.g. diapers→supplies); cards still show honest services only */
+    /* Rank with exact NEED_ALIASES (no supplies fallback); cards show honest services only */
     const rankNeeds = (typeof expandNeeds === "function") ? expandNeeds(dirNeeds) : dirNeeds;
     const result = rankCenters(queryForRank, rankNeeds, { type, limit: 40, geo: geo });
     const list = result.items;
@@ -783,7 +797,21 @@
     } else if (usingGps) {
       setDirMatchNote("Using your current location — showing nearest centers.");
     } else if (resolved && resolved.lat != null && (result.mode === "exact" || result.mode === "local")) {
-      setDirMatchNote("Showing nearest centers near " + (resolved.label || q) + (dirNeeds.length ? " · matching selected needs" : "") + ".");
+      const label = resolved.label || q;
+      if (!dirNeeds.length) {
+        setDirMatchNote("Showing nearest centers near " + label + ".");
+      } else {
+        const anyExact = list.some((c) => {
+          const cn = c.needs || [];
+          return dirNeeds.some((n) => cn.includes(n));
+        });
+        if (anyExact) {
+          setDirMatchNote("Showing nearest centers near " + label + " · matching selected needs.");
+        } else {
+          const needNames = dirNeeds.map((n) => (OFFER_NEED_LABELS && OFFER_NEED_LABELS[n]) || n).slice(0, 3).join("/");
+          setDirMatchNote("Showing nearest centers near " + label + ". No listings tagged for " + needNames + " near you — services below; ask what they can offer.");
+        }
+      }
     } else if (result.mode === "in-state" || String(result.mode).startsWith("in-state")) {
       setDirMatchNote("Few centers right here — showing in-state options plus nearby and national backups.");
     } else if (result.mode === "national" || String(result.mode).includes("national") || String(result.mode).includes("backup")) {
@@ -919,8 +947,11 @@
         btn.classList.remove("is-active");
       } else {
         btn.hidden = false;
-        btn.removeAttribute("aria-hidden");
-        if (n <= 2) btn.title = "Few listings nationwide for this need";
+        if (typeof btn.removeAttribute === "function") btn.removeAttribute("aria-hidden");
+        if (n <= 2) {
+          const sparse = { diapers: "Diapers — only a few centers list this specifically", formula: "Formula — only a few centers list this specifically", food: "Food help — only a few centers list this specifically" };
+          btn.title = sparse[id] || "Few listings nationwide for this need";
+        }
       }
     });
     document.querySelectorAll('#help-form input[name="needs"]').forEach((input) => {
@@ -935,7 +966,10 @@
       } else {
         label.hidden = false;
         input.disabled = false;
-        if (n <= 2) label.title = "Few listings nationwide for this need";
+        if (n <= 2) {
+          const sparse = { diapers: "Diapers — only a few centers list this specifically", formula: "Formula — only a few centers list this specifically", food: "Food help — only a few centers list this specifically" };
+          label.title = sparse[id] || "Few listings nationwide for this need";
+        }
       }
     });
   }
@@ -1053,9 +1087,13 @@
       if (n === "adoption") return /adoption/.test(sk);
       if (n === "talk") return /mentor|counsel|listen|talk|hotline/.test(sk);
       if (n === "housing") return /hous/.test(sk);
-      if (n === "supplies" || n === "diapers" || n === "formula" || n === "clothes" || n === "food" || n === "car-seat") {
-        return /baby\s*supplies|\bsupplies\b/.test(sk);
-      }
+      /* Exact need / explicit service text only — never treat generic supplies as diapers/formula/clothes/food/car-seat */
+      if (n === "supplies") return /baby\s*supplies|\bsupplies\b|material\s*support/.test(sk);
+      if (n === "diapers") return /\bdiapers?\b|\bwipes\b/.test(sk);
+      if (n === "formula") return /\bformula\b/.test(sk);
+      if (n === "clothes") return /\b(clothes|clothing)\b/.test(sk);
+      if (n === "food") return /\bfood\b|pantry/.test(sk);
+      if (n === "car-seat") return /car\s*seats?/.test(sk);
       return sk.indexOf(String(n).replace(/-/g, " ")) >= 0 || sk.indexOf(n) >= 0;
     }
 
@@ -1435,6 +1473,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
 
     const matchMode = centers._matchMode || "";
     const nationalFirst = bestIsNational && /national/i.test(String(matchMode));
+    const anyExactHelp = !!(data.needs || []).length && centers.some((c) => exactNeedMatches(c, data.needs).length > 0);
     const leadNear = nationalFirst
       ? (placeLabel
         ? `No local centers within 100 miles near ${escapeHtml(placeLabel)} — national helplines`
@@ -1442,9 +1481,14 @@ Thank you for the work you do. Please contact me at your earliest convenience.
       : (placeLabel
         ? `Near ${escapeHtml(placeLabel)}`
         : "Near you");
+    const leadNeed = !(data.needs || []).length
+      ? " — support"
+      : (anyExactHelp
+        ? ` — help for ${escapeHtml(needPhrase)}`
+        : ` — nearby centers (none tagged for ${escapeHtml(needPhrase)}; ask what they can offer)`);
     matchEl.innerHTML = `
       <div class="match-live">
-        <p class="match-lead"><strong>${leadNear} — help for ${escapeHtml(needPhrase)}.</strong> Tap to connect.</p>
+        <p class="match-lead"><strong>${leadNear}${leadNeed}.</strong> Tap to connect.</p>
         ${cards}
       </div>`;
 
@@ -1891,6 +1935,7 @@ ${msg.sms}`;
   /* Boot */
 
   populateTypeFilter();
+  hideEmptyNeedOptions();
   renderResources();
   renderCenters();
   updatePreview();
