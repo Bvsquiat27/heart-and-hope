@@ -350,6 +350,30 @@
 
     const zip = extractZip(q);
 
+    function nearestZipRec(z) {
+      /* 4-digit then 3-digit (SCF) neighbor in HEARTH_ZIPS — matches HearthGeo */
+      if (!zipObj || !z) return null;
+      const zipNum = parseInt(z, 10);
+      if (!isFinite(zipNum)) return null;
+      const prefixes = [z.slice(0, 4), z.slice(0, 3)];
+      for (let pi = 0; pi < prefixes.length; pi++) {
+        const p = prefixes[pi];
+        if (!p || p.length < 3) continue;
+        let bestKey = null;
+        let bestDist = Infinity;
+        for (const zk of Object.keys(zipObj)) {
+          if (!zk.startsWith(p)) continue;
+          const d = Math.abs(parseInt(zk, 10) - zipNum);
+          if (d < bestDist) {
+            bestDist = d;
+            bestKey = zk;
+          }
+        }
+        if (bestKey && zipObj[bestKey]) return { key: bestKey, rec: zipObj[bestKey] };
+      }
+      return null;
+    }
+
     function fromZip(z) {
       // Prefer a listed center at this ZIP (more accurate than some large ZCTA centroids)
       const hit = getCenters().find((c) => c.zip === z && c.lat != null);
@@ -361,7 +385,27 @@
       if (hit) return { lat: hit.lat, lng: hit.lng, zip: z, state: hit.state, city: hit.city, source: "zip-center", label: `${hit.city}, ${hit.state} ${z}` };
       if (zipCoords[z]) {
         const [lat, lng] = zipCoords[z];
-        return { lat, lng, zip: z, state: null, city: null, source: "zip", label: `ZIP ${z}` };
+        const near = nearestZipRec(z);
+        let city = near ? near.rec.city : null;
+        let state = near ? near.rec.state : null;
+        /* PR / territories: zip-coords only — honest territory label, no fake mainland city */
+        if (!state && lat != null && lng != null) {
+          if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
+            city = city || "Puerto Rico";
+            state = "PR";
+          }
+        }
+        const label = city && state ? `${city}, ${state} ${z}` : `ZIP ${z}`;
+        return {
+          lat,
+          lng,
+          zip: z,
+          state,
+          city,
+          source: "zip",
+          label,
+          matchedZip: near ? near.key : null
+        };
       }
       return null;
     }
@@ -455,16 +499,24 @@
         const [c] = k.split("|");
         return c === cityPart;
       });
-      const centerStates = new Set(getCenters().filter((c) => c.city.toLowerCase() === cityPart).map((c) => c.state));
+      const centerCounts = Object.create(null);
+      getCenters().forEach((c) => {
+        if ((c.city || "").toLowerCase() !== cityPart) return;
+        const st = c.state;
+        centerCounts[st] = (centerCounts[st] || 0) + 1;
+      });
       const ranked = exactMatches.slice().sort((a, b) => {
         const sa = a.split("|")[1], sb = b.split("|")[1];
         const score = (st) => {
+          /* Major metro preference must beat alphabetical (dallas|NC before dallas|TX) */
           if (stateHint && st === stateHint) return 0;
-          if (preferState[cityPart] && st === preferState[cityPart]) return 1;
-          if (centerStates.has(st)) return 2;
-          return 3;
+          if (preferState[cityPart] && st === preferState[cityPart]) return 0;
+          if (centerCounts[st]) return 1;
+          return 2;
         };
-        return score(sa) - score(sb) || a.localeCompare(b);
+        const ca = centerCounts[sa] || 0;
+        const cb = centerCounts[sb] || 0;
+        return score(sa) - score(sb) || cb - ca || a.localeCompare(b);
       });
       for (const key of ranked) {
         const z = cityMap[key];
@@ -575,14 +627,16 @@
       list = local;
       mode = local.some((s) => s.tier <= 2) ? "exact" : "local";
     } else {
-      const inState = scored.filter((s) => resolved && resolved.state && s.c.state === resolved.state);
-      if (inState.length) {
-        list = inState;
-        mode = "in-state";
-      } else {
-        list = scored;
-        mode = "national";
-      }
+      /* No contactable non-national within LOCAL_MILES — nationals first as Best.
+         Far mainland/in-state may follow with honest miles; never promote Miami-as-Best. */
+      const isNat = (s) =>
+        (s.c.type || "").toLowerCase().includes("national") ||
+        s.c.zip === "00000" ||
+        (s.c.city || "").toLowerCase() === "nationwide";
+      const nationals = scored.filter(isNat);
+      const farNonNationals = scored.filter((s) => !isNat(s));
+      list = nationals.length ? nationals.concat(farNonNationals) : farNonNationals;
+      mode = "national";
     }
 
     // Thin-state / sparse results: never leave a mom with nothing — pad with
@@ -596,16 +650,30 @@
         const nationals = scored
           .filter((s) => (s.c.type || "").toLowerCase().includes("national") || s.c.zip === "00000")
           .map((s) => ({ ...s.c, _dist: s.dist, _tier: s.tier }));
-        const nearestExtra = scored
-          .filter((s) => !have.has(s.c.id))
-          .slice(0, Math.max(0, 8 - items.length))
-          .map((s) => ({ ...s.c, _dist: s.dist, _tier: s.tier }));
-        for (const c of nearestExtra) {
-          if (!have.has(c.id)) { items.push(c); have.add(c.id); }
-        }
+        /* Nationals before far mainland when sparse / national mode */
         for (const c of nationals) {
           if (!have.has(c.id) && items.length < Math.max(limit, 8)) {
             items.push(c); have.add(c.id);
+          }
+        }
+        if (mode !== "national") {
+          const nearestExtra = scored
+            .filter((s) => !have.has(s.c.id))
+            .slice(0, Math.max(0, 8 - items.length))
+            .map((s) => ({ ...s.c, _dist: s.dist, _tier: s.tier }));
+          for (const c of nearestExtra) {
+            if (!have.has(c.id)) { items.push(c); have.add(c.id); }
+          }
+        } else {
+          /* Still allow a few honest far options after nationals */
+          const farExtra = scored
+            .filter((s) => !have.has(s.c.id) && !((s.c.type || "").toLowerCase().includes("national") || s.c.zip === "00000"))
+            .slice(0, Math.max(0, 3))
+            .map((s) => ({ ...s.c, _dist: s.dist, _tier: s.tier }));
+          for (const c of farExtra) {
+            if (!have.has(c.id) && items.length < Math.max(limit, 8)) {
+              items.push(c); have.add(c.id);
+            }
           }
         }
         if (thin && mode !== "browse") mode = mode === "national" ? "national" : (mode + "+backup");
@@ -717,8 +785,8 @@
       setDirMatchNote("Showing nearest centers near " + (resolved.label || q) + (dirNeeds.length ? " · matching selected needs" : "") + ".");
     } else if (result.mode === "in-state" || String(result.mode).startsWith("in-state")) {
       setDirMatchNote("Few centers right here — showing in-state options plus nearby and national backups.");
-    } else if (result.mode === "national" || String(result.mode).includes("backup")) {
-      setDirMatchNote("Limited local listings — showing the nearest life-affirming centers plus national helplines.");
+    } else if (result.mode === "national" || String(result.mode).includes("national") || String(result.mode).includes("backup")) {
+      setDirMatchNote("No local centers within 100 miles — showing national helplines first, then farther centers with distance.");
     } else if (hasQuery && resolved && resolved.lat != null) {
       setDirMatchNote("Showing nearest centers near " + (resolved.label || q) + ".");
     } else if (!hasQuery) {
@@ -1077,40 +1145,30 @@
     let chosen = [];
     let mode = result.mode || "browse";
 
-    if (locals.length) {
-      chosen = softSortLocals(locals);
-      mode = (resolved && resolved.zip && chosen[0] && chosen[0].c.zip === resolved.zip) ? "exact" : "local";
-    } else if (resolved && resolved.state) {
-      const inState = allContactable
-        .filter((s) => !s.national && s.c.state === resolved.state)
-        .sort((a, b) => a.dist - b.dist || b.overlap - a.overlap || a.c.name.localeCompare(b.c.name));
-      if (inState.length) {
-        chosen = inState;
-        mode = "in-state";
-      }
-    }
-
-    if (!chosen.length && resolved && resolved.lat != null) {
-      const byDist = allContactable
-        .filter((s) => !s.national)
-        .sort((a, b) => a.dist - b.dist || b.overlap - a.overlap);
-      if (byDist.length) {
-        chosen = byDist;
-        mode = "national-geo";
-      }
-    }
-
-    /* Nationals only after locals — never Best match when a contactable local exists */
+    /* Nationals sorted once — used when no local ≤100 and as trail after locals */
     const nationals = allContactable
       .filter((s) => s.national)
       .sort((a, b) => b.overlap - a.overlap || a.c.name.localeCompare(b.c.name));
 
+    if (locals.length) {
+      chosen = softSortLocals(locals);
+      mode = (resolved && resolved.zip && chosen[0] && chosen[0].c.zip === resolved.zip) ? "exact" : "local";
+    } else {
+      /* No local ≤ LOCAL_MILES — nationals first; far mainland after with honest miles.
+         Never promote nearest finite-mile mainland (e.g. Miami for PR) as Best. */
+      const farNonNationals = allContactable
+        .filter((s) => !s.national)
+        .sort((a, b) => a.dist - b.dist || b.overlap - a.overlap || a.c.name.localeCompare(b.c.name));
+      chosen = nationals.length ? nationals.concat(farNonNationals) : farNonNationals;
+      mode = nationals.length ? "national" : (farNonNationals.length ? "national-geo" : "national");
+    }
+
     let list;
-    if (chosen.length) {
+    if (locals.length) {
       list = chosen.concat(nationals.filter((n) => !chosen.some((x) => x.c.id === n.c.id)));
     } else {
-      list = nationals.length ? nationals : allContactable.sort((a, b) => b.overlap - a.overlap);
-      mode = "national";
+      list = chosen.length ? chosen : allContactable.sort((a, b) => b.overlap - a.overlap);
+      if (!nationals.length && !chosen.length) mode = "national";
     }
 
     const mapped = list.map((s) => {
@@ -1119,7 +1177,8 @@
       c._overlap = s.overlap;
       c._dist = s.dist;
       c._national = s.national;
-      c._isLocalBest = !s.national && (mode === "local" || mode === "exact" || mode === "in-state");
+      /* Far mainland never gets local-best styling — only true local/exact */
+      c._isLocalBest = !s.national && (mode === "local" || mode === "exact");
       return c;
     });
 
@@ -1274,10 +1333,14 @@ Thank you for the work you do. Please contact me at your earliest convenience.
       let badge;
       if (nat) {
         badge = `<span class="match-badge quiet">National line</span>`;
-      } else if (idx === 0) {
+      } else if (idx === 0 && c._isLocalBest) {
         badge = `<span class="match-badge">Best match</span>`;
-      } else {
+      } else if (idx === 0) {
+        badge = `<span class="match-badge quiet">Farther option</span>`;
+      } else if (c._isLocalBest) {
         badge = `<span class="match-badge quiet">Also nearby</span>`;
+      } else {
+        badge = `<span class="match-badge quiet">Farther option</span>`;
       }
       /* Display: services are source of truth; exact need matches only (no soft alias claims). */
       const exact = exactNeedMatches(c, data.needs);
@@ -1315,9 +1378,15 @@ Thank you for the work you do. Please contact me at your earliest convenience.
         </article>`;
     }).join("");
 
-    const leadNear = placeLabel
-      ? `Near ${escapeHtml(placeLabel)}`
-      : "Near you";
+    const matchMode = centers._matchMode || "";
+    const nationalFirst = bestIsNational && /national/i.test(String(matchMode));
+    const leadNear = nationalFirst
+      ? (placeLabel
+        ? `No local centers within 100 miles near ${escapeHtml(placeLabel)} — national helplines`
+        : "No local centers within 100 miles — national helplines")
+      : (placeLabel
+        ? `Near ${escapeHtml(placeLabel)}`
+        : "Near you");
     matchEl.innerHTML = `
       <div class="match-live">
         <p class="match-lead"><strong>${leadNear} — help for ${escapeHtml(needPhrase)}.</strong> Tap to connect.</p>
