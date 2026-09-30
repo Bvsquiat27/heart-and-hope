@@ -21,7 +21,7 @@
   var lastDotPositions = []; /* {id,x,y,mine,state} for hit testing / clusters */
 
   var SUGGESTED = [
-    "You're not alone tonight",
+    "Thinking of you tonight",
     "Praying quiet strength for you",
     "You're a good mom",
     "This hard night will pass",
@@ -416,7 +416,7 @@
     if (title) {
       title.textContent =
         others.length + mine.length > 1
-          ? (others.length + mine.length) + " moms here — pick one"
+          ? (others.length + mine.length) + " moms nearby — tap to choose"
           : "Pick an ember";
     }
     var html = "";
@@ -461,7 +461,7 @@
     }
     if (nearby.length > 1 && (others.length > 1 || (others.length >= 1 && hasMine))) {
       showClusterPicker(nearby);
-      setStatus("A few embers glow together here — pick one.");
+      setStatus("A few embers glow together here — tap one to choose.");
       return;
     }
     if (others.length === 1) {
