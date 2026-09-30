@@ -3499,3 +3499,11 @@ a, button, [role="button"], summary, .card, .hub-tile, .dir-need-chip {
     box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.55);
   }
 }
+
+/* Kebab (three-dot) menu glyph used in the install instructions — SVG so it
+   renders the same on every device instead of a flaky unicode character. */
+.kebab-icon {
+  display: inline-block;
+  vertical-align: -2px;
+  color: var(--ink);
+}
