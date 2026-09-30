@@ -2,11 +2,12 @@
 
 Public HTTPS REST backend for the Postpartum **Ember** live map + Hope board + private accounts.
 
-## Center flags (1.7.5)
+## Center flags (1.7.6)
 
-- `POST /flags` `{ "centerId": "...", "reason": "optional" }` → `201 { id, ok, queued }` — durable KV review queue; **does not** auto-remove listings.
-- `GET /flags` — admin only (`X-Hearth-Admin`).
-- Rate: `post-flags` 15 / 600s.
+- `POST /flags` anonymous JSON: `centerId` (required), `name`, `city`, `state`, `reason` (default `abortion_provider`), `source` (`directory`|`get_help`), `note` (≤280).
+- → `201 { ok:true, id, queued:true }`; 4xx `{ ok:false, error }` (`centerId`|`source`|`blocked`|`too large`|`rate`).
+- Durable KV review queue — **does not** auto-remove listings. `GET /flags` admin only.
+
 
 ## Live URL
 

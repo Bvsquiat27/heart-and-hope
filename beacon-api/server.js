@@ -1,5 +1,5 @@
 /**
- * Hearth & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.5
+ * Hearth & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.6
  * Mirrors Worker security: owner secrets, CORS allowlist, rate limits, body caps,
  * hashed tokens, sync caps, quiet health. File-backed Maps instead of KV.
  */
@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const VERSION = "1.7.5";
+const VERSION = "1.7.6";
 const PORT = Number(process.env.PORT || 8765);
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const DATA_FILE = process.env.DATA_FILE || path.join(DATA_DIR, "beacons.json");
@@ -19,6 +19,11 @@ const FLAGS_FILE = process.env.FLAGS_FILE || path.join(DATA_DIR, "flags.json");
 const MAX_FLAGS = 2000;
 const MAX_CENTER_ID = 80;
 const MAX_FLAG_REASON = 200;
+const MAX_FLAG_NAME = 120;
+const MAX_FLAG_CITY = 80;
+const MAX_FLAG_STATE = 40;
+const MAX_FLAG_NOTE = 280;
+const FLAG_SOURCES = new Set(["directory", "get_help"]);
 const USERS_FILE = process.env.USERS_FILE || path.join(DATA_DIR, "users.json");
 const TOKENS_FILE = process.env.TOKENS_FILE || path.join(DATA_DIR, "tokens.json");
 
@@ -777,22 +782,38 @@ app.post("/flags", (req, res) => {
   const limited = checkRate(req, "post-flags");
   if (limited) {
     res.setHeader("Retry-After", String(limited.retryAfter));
-    return res.status(429).json({ error: "rate" });
+    return res.status(429).json({ ok: false, error: "rate" });
   }
-  const centerId = sanitizeCenterId(req.body && req.body.centerId);
-  if (!centerId) return res.status(400).json({ error: "centerId" });
-  let reason = String((req.body && req.body.reason) || "").trim().slice(0, MAX_FLAG_REASON);
-  if (reason && contentBlocked(reason)) return res.status(400).json({ error: "blocked" });
+  const body = req.body || {};
+  const centerId = sanitizeCenterId(body.centerId);
+  if (!centerId) return res.status(400).json({ ok: false, error: "centerId" });
+  const name = String(body.name || "").trim().slice(0, MAX_FLAG_NAME);
+  const city = String(body.city || "").trim().slice(0, MAX_FLAG_CITY);
+  const state = String(body.state || "").trim().slice(0, MAX_FLAG_STATE);
+  let reason = String(body.reason || "").trim().slice(0, MAX_FLAG_REASON);
+  let note = String(body.note || "").trim().slice(0, MAX_FLAG_NOTE);
+  let source = String(body.source || "").trim();
+  if (source && !FLAG_SOURCES.has(source)) {
+    return res.status(400).json({ ok: false, error: "source" });
+  }
+  if (name && contentBlocked(name)) return res.status(400).json({ ok: false, error: "blocked" });
+  if (reason && contentBlocked(reason)) return res.status(400).json({ ok: false, error: "blocked" });
+  if (note && contentBlocked(note)) return res.status(400).json({ ok: false, error: "blocked" });
   const id = newId();
   flagPosts[id] = {
     centerId,
-    reason: reason || "",
+    name,
+    city,
+    state,
+    reason: reason || "abortion_provider",
+    source,
+    note,
     createdAt: Date.now(),
     ipHash: "local"
   };
   pruneFlags();
   saveFlags();
-  res.status(201).json({ id, ok: true, queued: true });
+  res.status(201).json({ ok: true, id, queued: true });
 });
 
 app.get("/flags", (req, res) => {
@@ -803,7 +824,12 @@ app.get("/flags", (req, res) => {
   const flags = Object.entries(flagPosts).map(([id, row]) => ({
     id,
     centerId: row.centerId,
+    name: row.name || "",
+    city: row.city || "",
+    state: row.state || "",
     reason: row.reason || "",
+    source: row.source || "",
+    note: row.note || "",
     createdAt: row.createdAt || 0
   }));
   flags.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
