@@ -656,7 +656,10 @@
         return;
       }
     } catch (e) {}
-    softHaptic(ms);
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (navigator.vibrate) navigator.vibrate(Math.max(8, Math.min(15, ms || 10)));
+    } catch (e2) {}
   }
 
   var _dirRenderTimer = null;
@@ -861,22 +864,22 @@
     expecting: ["expecting"],
     "new-mom": ["new-mom"],
     housing: ["housing"],
-    /* Exact tags only — no supplies fallbacks that over-promise diapers/formula/clothes */
-    food: ["food"],
-    diapers: ["diapers"],
-    formula: ["formula"],
-    clothes: ["clothes"],
-    "car-seat": ["car-seat"],
+    /* Specific supply needs prefer exact tags, then generic supplies */
+    food: ["food", "supplies"],
+    diapers: ["diapers", "supplies"],
+    formula: ["formula", "supplies"],
+    clothes: ["clothes", "supplies"],
+    "car-seat": ["car-seat", "supplies"],
     supplies: ["supplies"],
-    parenting: ["parenting"],
-    childcare: ["childcare"],
-    job: ["job"],
-    ultrasound: ["ultrasound"],
-    ride: ["ride"],
-    mentor: ["mentor"],
+    parenting: ["parenting", "new-mom"],
+    childcare: ["childcare", "new-mom", "supplies"],
+    job: ["job", "apply", "talk"],
+    ultrasound: ["expecting"],
+    ride: ["expecting"],
+    mentor: ["talk"],
     talk: ["talk"],
     counseling: ["counseling"],
-    apply: ["apply"],
+    apply: ["apply", "expecting", "new-mom"],
     adoption: ["adoption"]
   };
 

@@ -7,16 +7,20 @@
 
   var PULSE_MS = 10;
 
-  function pulse() {
+  function pulse(ms) {
     try {
       if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
-        navigator.vibrate(PULSE_MS);
+        navigator.vibrate(Math.max(8, Math.min(20, ms || PULSE_MS)));
       }
     } catch (_) {
       /* ignore */
     }
   }
+
+  window.HearthHaptics = {
+    tap: function (ms) { pulse(ms); }
+  };
 
   function isNeedsToggle(el) {
     if (!el || !el.closest) return false;

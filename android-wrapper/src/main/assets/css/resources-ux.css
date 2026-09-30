@@ -1,0 +1,118 @@
+/* Resources / Directory / Get Help — additive watery UX (avoid fighting global pastel theme) */
+
+.dir-needs {
+  margin: 0.35rem 0 0.85rem;
+}
+
+.dir-need-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.dir-need-chip {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(240, 234, 248, 0.85);
+  color: var(--accent-deep, #6e5a96);
+  border: 1px solid rgba(143, 123, 184, 0.22);
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(110, 90, 150, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.dir-need-chip:active {
+  transform: scale(0.97);
+}
+
+.dir-need-chip.chip-hope {
+  background: rgba(232, 246, 240, 0.9);
+  color: #2d6b52;
+  border-color: rgba(93, 154, 126, 0.28);
+}
+
+.dir-need-chip.chip-help {
+  background: rgba(232, 241, 250, 0.9);
+  color: #2a5a7a;
+  border-color: rgba(79, 127, 150, 0.25);
+}
+
+.dir-need-chip.is-active,
+.dir-need-chip[aria-pressed="true"] {
+  background: var(--accent-deep, #6e5a96);
+  color: #fff;
+  border-color: var(--accent-deep, #6e5a96);
+  box-shadow: 0 4px 14px rgba(110, 90, 150, 0.28);
+}
+
+.center-card {
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 28px rgba(110, 90, 150, 0.08);
+}
+
+.offer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.55rem 0 0.35rem;
+}
+
+.service-pill,
+.offer-service,
+.offer-need {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(232, 246, 240, 0.92);
+  color: #2d6b52;
+  border: 1px solid rgba(93, 154, 126, 0.22);
+  box-shadow: 0 2px 8px rgba(45, 107, 82, 0.06);
+}
+
+.offer-need {
+  background: rgba(240, 234, 248, 0.92);
+  color: #5a4a7a;
+  border-color: rgba(143, 123, 184, 0.22);
+}
+
+.service-pill.is-match,
+.offer-service.is-match,
+.offer-need.is-match {
+  background: rgba(110, 90, 150, 0.14);
+  color: var(--accent-deep, #6e5a96);
+  border-color: rgba(110, 90, 150, 0.45);
+  box-shadow: 0 0 0 2px rgba(110, 90, 150, 0.12);
+}
+
+.match-card .offer-tags {
+  margin-top: 0.35rem;
+}
+
+.match-preview-slot .match-card {
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.toolbar-friendly .filter-input,
+.toolbar-friendly .select-input {
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-need-chip {
+    transition: none;
+  }
+}
