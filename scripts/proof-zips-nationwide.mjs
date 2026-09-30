@@ -204,53 +204,167 @@ if (nonsenseHit && !scfNeighborExists(nonsense) && !(globalThis.HEARTH_ZIP_COORD
   console.log("OK  00000 resolved via available data");
 }
 
-// Nationals-first gate for FAR ZIPs (PR etc.): use app.js rankCenters when available via companion,
-// or re-check with a minimal national-aware sort here.
+// ---------------------------------------------------------------------------
+// PR / FAR gate: FAIL if Get Help Best is far mainland (~1000mi Miami).
+// Loads app.js with DOM stubs; asserts HearthHelp.matchCenters nationals-first.
+// ---------------------------------------------------------------------------
 const farRows = rows.filter((r) => r.far);
-if (farRows.length) {
-  const nationals = centers.filter(
-    (c) =>
-      (c.type || "").toLowerCase().includes("national") ||
-      c.zip === "00000" ||
-      (c.city || "").toLowerCase() === "nationwide"
+
+function isNatCenter(c) {
+  return (
+    (c.type || "").toLowerCase().includes("national") ||
+    c.zip === "00000" ||
+    (c.city || "").toLowerCase() === "nationwide"
   );
-  if (!nationals.length) {
-    console.error("FAIL: FAR ZIPs present but directory has no national helplines");
-    failed = true;
-  } else {
-    /* Simulate Get Help national mode: nationals before far mainland */
-    for (const fr of farRows) {
-      const hit = globalThis.HearthGeo.lookupZip(fr.zip);
-      const origin = hit;
-      const farSorted = centers
-        .filter((c) => c.lat != null && !((c.type || "").toLowerCase().includes("national") || c.zip === "00000"))
-        .map((c) => ({ c, miles: globalThis.HearthGeo.haversineMiles(origin, c) }))
-        .sort((a, b) => a.miles - b.miles);
-      const nationalFirst = nationals[0];
-      const mainlandFirst = farSorted[0];
-      /* Honest label: FAR is OK when we would show nationals first (not Miami as Best) */
-      if (!nationalFirst) {
-        console.error(`FAIL ${fr.zip}: no national to lead FAR results`);
-        failed = true;
-      } else if (mainlandFirst && mainlandFirst.miles <= 100) {
-        console.error(`FAIL ${fr.zip}: marked FAR but local ≤100 exists`);
-        failed = true;
-      } else {
-        console.log(
-          `OK  FAR ${fr.zip}: nationals-first (${nationalFirst.name}); nearest mainland ` +
-            `${mainlandFirst.miles.toFixed(1)}mi ${mainlandFirst.c.city} must not be labeled Best/local`
-        );
-        fr.ok = true;
-        fr.nationalsFirst = true;
-      }
+}
+
+function loadAppForMatchCenters() {
+  class El {
+    constructor(tag, id) {
+      this.tagName = (tag || "div").toUpperCase();
+      this.id = id || "";
+      this.children = [];
+      this.style = {};
+      this.classList = { add() {}, remove() {}, toggle() {}, contains() { return false; } };
+      this.attributes = {};
+      this.value = "";
+      this.hidden = false;
+      this.textContent = "";
+      this.innerHTML = "";
+      this.checked = false;
+      this._listeners = {};
+      this.elements = [];
     }
-    /* Clear failed if all far rows recovered via nationals-first honesty */
-    if (farRows.every((r) => r.ok) && rows.filter((r) => !r.ok && !r.skipped).length === 0) {
-      failed = false;
-    } else if (farRows.every((r) => r.ok)) {
-      /* recompute failed from non-far failures only */
+    setAttribute(k, v) { this.attributes[k] = String(v); }
+    getAttribute(k) { return this.attributes[k] ?? null; }
+    addEventListener(t, fn) { (this._listeners[t] ||= []).push(fn); }
+    removeEventListener() {}
+    appendChild(c) { this.children.push(c); return c; }
+    querySelector() { return null; }
+    querySelectorAll() { return []; }
+    closest() { return null; }
+    focus() {}
+    click() {}
+    scrollIntoView() {}
+    reset() {}
+  }
+  const byId = {};
+  function el(id, tag) {
+    if (!byId[id]) byId[id] = new El(tag || "div", id);
+    return byId[id];
+  }
+  [
+    "resource-chips","resource-list","resource-detail","resource-detail-title","resource-detail-body",
+    "loc-filter","type-filter","center-list","dir-match-note","dir-needs",
+    "use-my-location-dir","use-my-location-help","help-form","message-preview","match-preview",
+    "form-error","form-success","copy-message","help-geo-note","location","firstName","message",
+    "help-primary-btn","help-call-btn","help-sms-btn","install-banner","install-btn",
+    "ios-install-steps","install-banner-hint","install-dismiss","about-install-btn","offline-toast",
+    "nav","views","toast"
+  ].forEach((id) => el(id, id === "help-form" ? "form" : "div"));
+
+  const document = {
+    getElementById: (id) => el(id),
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    createElement: (tag) => new El(tag),
+    body: el("body", "body"),
+    documentElement: el("html", "html"),
+    addEventListener() {}
+  };
+  document.body.classList = { add() {}, remove() {}, toggle() {}, contains() { return false; } };
+
+  const window = globalThis;
+  window.window = window;
+  window.document = document;
+  window.location = {
+    hash: "", href: "http://localhost/", pathname: "/", hostname: "localhost",
+    protocol: "http:", origin: "http://localhost"
+  };
+  window.navigator = {
+    geolocation: null, vibrate: null,
+    serviceWorker: { register: async () => ({}) },
+    userAgent: "node", onLine: true
+  };
+  window.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} });
+  window.sessionStorage = { getItem: () => null, setItem() {}, removeItem() {} };
+  window.localStorage = { getItem: () => null, setItem() {}, removeItem() {} };
+  window.addEventListener = () => {};
+  window.removeEventListener = () => {};
+  window.history = { replaceState() {}, pushState() {} };
+  window.HTMLElement = El;
+  window.HTMLFormElement = El;
+  window.Node = function () {};
+  window.CustomEvent = function (n, o) { this.type = n; this.detail = o && o.detail; };
+  window.fetch = async () => ({ ok: false, json: async () => ({}) });
+  window.alert = () => {};
+  window.confirm = () => false;
+  window.scrollTo = () => {};
+  window.FormData = class {
+    constructor() { this._m = new Map(); }
+    get(k) { return this._m.has(k) ? this._m.get(k) : ""; }
+    set(k, v) { this._m.set(k, v); }
+    append(k, v) { this._m.set(k, v); }
+    entries() { return this._m.entries(); }
+  };
+  window.IntersectionObserver = class { observe() {} disconnect() {} };
+  window.ResizeObserver = class { observe() {} disconnect() {} };
+
+  for (const f of ["js/haptics.js", "js/app.js"]) {
+    vm.runInThisContext(fs.readFileSync(path.join(root, f), "utf8"), { filename: f });
+  }
+  if (!window.HearthHelp || typeof window.HearthHelp.matchCenters !== "function") {
+    throw new Error("HearthHelp.matchCenters not available");
+  }
+  return window.HearthHelp;
+}
+
+if (farRows.length) {
+  console.log(`\n=== PR / FAR gate (${farRows.length} ZIP(s) with no local ≤100mi) ===`);
+  let help = null;
+  try {
+    help = loadAppForMatchCenters();
+  } catch (e) {
+    console.error("FAIL PR gate: could not load matchCenters:", e && e.message ? e.message : e);
+    failed = true;
+  }
+  if (help) {
+    let farGateOk = true;
+    for (const fr of farRows) {
+      const top = help.matchCenters(fr.zip, ["counseling", "expecting"]);
+      const best = top && top[0];
+      const mode = top && top._matchMode;
+      if (!best) {
+        console.error(`FAIL ${fr.zip}: matchCenters returned empty`);
+        failed = true;
+        farGateOk = false;
+        fr.ok = false;
+        continue;
+      }
+      const bestIsNat = isNatCenter(best);
+      const bestIsFarMainland = !bestIsNat && isFinite(best._dist) && best._dist > 100;
+      if (bestIsFarMainland || !bestIsNat) {
+        console.error(
+          `FAIL ${fr.zip}: Best must be national when no local ≤100; got ` +
+            `${best.city}, ${best.state} ${isFinite(best._dist) ? Number(best._dist).toFixed(1) + "mi" : ""} ` +
+            `(${best.name}) mode=${mode}`
+        );
+        failed = true;
+        farGateOk = false;
+        fr.ok = false;
+        continue;
+      }
+      console.log(
+        `PASS PR gate ${fr.zip}: Best=${best.name} (national) mode=${mode}; ` +
+          `nearest mainland ${Number(fr.nearestMi).toFixed(1)}mi NOT labeled Best`
+      );
+      fr.ok = true;
+      fr.nationalsFirst = true;
+      fr.bestName = best.name;
+      fr.mode = mode;
+    }
+    if (farGateOk && farRows.every((r) => r.ok)) {
       failed = rows.some((r) => r.ok === false && !r.far && !r.skipped);
-      if (!failed && farRows.every((r) => r.ok)) failed = false;
     }
   }
 }
@@ -278,4 +392,4 @@ if (failed) {
   console.error("FAIL: nationwide ZIP proof");
   process.exit(1);
 }
-console.log("PASS: nationwide ZIP lookup + finite miles + life-affirming top lists + FAR nationals-first honesty");
+console.log("PASS: nationwide ZIP lookup + finite miles + life-affirming top lists + PR/FAR nationals-first gate");

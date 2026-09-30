@@ -1154,22 +1154,31 @@
     if (locals.length) {
       chosen = softSortLocals(locals);
       mode = (resolved && resolved.zip && chosen[0] && chosen[0].c.zip === resolved.zip) ? "exact" : "local";
-    } else {
-      /* No local ≤ LOCAL_MILES — nationals first; far mainland after with honest miles.
-         Never promote nearest finite-mile mainland (e.g. Miami for PR) as Best. */
+    } else if (resolved && resolved.state) {
+      const inState = allContactable
+        .filter((s) => !s.national && s.c.state === resolved.state)
+        .sort((a, b) => a.dist - b.dist || b.overlap - a.overlap || a.c.name.localeCompare(b.c.name));
+      if (inState.length) {
+        chosen = softSortLocals(inState);
+        mode = "in-state";
+      }
+    }
+    if (!chosen.length) {
+      /* No local ≤100mi and no in-state — nationals first; far mainland after.
+         Never promote Miami ~1000mi (PR 00601) as Best. */
       const farNonNationals = allContactable
         .filter((s) => !s.national)
         .sort((a, b) => a.dist - b.dist || b.overlap - a.overlap || a.c.name.localeCompare(b.c.name));
       chosen = nationals.length ? nationals.concat(farNonNationals) : farNonNationals;
-      mode = nationals.length ? "national" : (farNonNationals.length ? "national-geo" : "national");
+      mode = nationals.length ? "national" : (farNonNationals.length ? "far" : "national");
     }
 
     let list;
-    if (locals.length) {
+    if (mode === "local" || mode === "exact" || mode === "in-state") {
       list = chosen.concat(nationals.filter((n) => !chosen.some((x) => x.c.id === n.c.id)));
     } else {
-      list = chosen.length ? chosen : allContactable.sort((a, b) => b.overlap - a.overlap);
-      if (!nationals.length && !chosen.length) mode = "national";
+      list = chosen.length ? chosen : (nationals.length ? nationals : allContactable.sort((a, b) => b.overlap - a.overlap));
+      if (!mode || mode === "browse") mode = "national";
     }
 
     const mapped = list.map((s) => {
@@ -1178,8 +1187,7 @@
       c._overlap = s.overlap;
       c._dist = s.dist;
       c._national = s.national;
-      /* Far mainland never gets local-best styling — only true local/exact */
-      c._isLocalBest = !s.national && (mode === "local" || mode === "exact");
+      c._isLocalBest = !s.national && (mode === "local" || mode === "exact" || mode === "in-state");
       return c;
     });
 
@@ -1333,15 +1341,16 @@ Thank you for the work you do. Please contact me at your earliest convenience.
       const nat = isNational(c);
       let badge;
       if (nat) {
-        badge = `<span class="match-badge quiet">National line</span>`;
-      } else if (idx === 0 && c._isLocalBest) {
+        badge = idx === 0
+          ? `<span class="match-badge">National line</span>`
+          : `<span class="match-badge quiet">National line</span>`;
+      } else if (c._isLocalBest && idx === 0) {
         badge = `<span class="match-badge">Best match</span>`;
-      } else if (idx === 0) {
-        badge = `<span class="match-badge quiet">Farther option</span>`;
       } else if (c._isLocalBest) {
         badge = `<span class="match-badge quiet">Also nearby</span>`;
       } else {
-        badge = `<span class="match-badge quiet">Farther option</span>`;
+        const farLab = dist ? `Nearest mainland · ${dist}` : "National / far";
+        badge = `<span class="match-badge quiet">${farLab}</span>`;
       }
       /* Display: services are source of truth; exact need matches only (no soft alias claims). */
       const exact = exactNeedMatches(c, data.needs);
@@ -1368,7 +1377,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
         ? "Nationwide"
         : `${escapeHtml(c.city)}${c.state && c.state !== "US" ? ", " + escapeHtml(c.state) : ""}${dist ? " · " + escapeHtml(dist) : ""}`;
       return `
-        <article class="match-card${idx === 0 && !nat ? " match-card-best" : ""}" data-center-id="${escapeAttr(c.id)}">
+        <article class="match-card${idx === 0 && !nat && c._isLocalBest ? " match-card-best" : ""}" data-center-id="${escapeAttr(c.id)}">
           <header class="match-card-head">${badge}
             <h3>${escapeHtml(c.name)}</h3>
           </header>
