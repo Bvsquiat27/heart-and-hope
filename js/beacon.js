@@ -55,7 +55,9 @@
     NJ:[40.2,-74.6],NM:[34.4,-106.1],NY:[42.9,-75.5],NC:[35.6,-79.4],ND:[47.5,-100.5],
     OH:[40.3,-82.8],OK:[35.6,-97.5],OR:[44.0,-120.5],PA:[40.9,-77.2],RI:[41.7,-71.6],
     SC:[33.9,-80.9],SD:[44.4,-100.2],TN:[35.9,-86.3],TX:[31.5,-99.3],UT:[39.3,-111.7],
-    VT:[44.1,-72.7],VA:[37.5,-78.8],WA:[47.4,-120.5],WV:[38.6,-80.6],WI:[44.6,-89.8],WY:[43.0,-107.6]
+    VT:[44.1,-72.7],VA:[37.5,-78.8],WA:[47.4,-120.5],WV:[38.6,-80.6],WI:[44.6,-89.8],WY:[43.0,-107.6],
+    /* Territories — Light My Ember accepts these ZIPs via geo lookup */
+    PR:[18.2,-66.5],GU:[13.4,144.8],VI:[18.3,-64.8],AS:[-14.3,-170.7],MP:[15.2,145.8]
   };
 
 
@@ -133,6 +135,29 @@
     return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
   }
 
+  /** Nearest HEARTH_ZIPS / territory bbox → state code (for coord-only hits). */
+  function nearestStateFromLatLng(lat, lng) {
+    if (lat == null || lng == null || !isFinite(lat) || !isFinite(lng)) return null;
+    if (lat === 0 && lng === 0) return null;
+    if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) return "PR";
+    if (lat >= 17.6 && lat <= 18.5 && lng >= -65.2 && lng <= -64.5) return "VI";
+    if (lat >= 13.0 && lat <= 13.9 && lng >= -65.2 && lng <= -64.5) return "VI";
+    if (lat >= 13.2 && lat <= 14.3 && lng >= 144.4 && lng <= 145.1) return "GU";
+    if (lat >= -14.6 && lat <= -14.1 && lng >= -171.0 && lng <= -169.3) return "AS";
+    if (lat >= 14.0 && lat <= 15.4 && lng >= 145.0 && lng <= 146.2) return "MP";
+    if (lat >= 18.5 && lat <= 22.5 && lng >= -161 && lng <= -154) return "HI";
+    if (lat >= 51 && lng < -130) return "AK";
+    var zips = window.HEARTH_ZIPS || {};
+    var best = null, bestD = Infinity;
+    for (var zk in zips) {
+      var z = zips[zk];
+      if (!z || z.lat == null || !z.state) continue;
+      var d = haversineMiles({ lat: lat, lng: lng }, z);
+      if (d < bestD) { bestD = d; best = String(z.state).toUpperCase(); }
+    }
+    return best && STATE_CENTROID[best] ? best : null;
+  }
+
   /** Resolve ZIP/city/geo → US state only. Never exact home. */
   function resolveState(queryOrCoords, cb) {
     function done(state, zip, lat, lng) {
@@ -193,9 +218,37 @@
     if (window.HearthGeo && HearthGeo.lookupZip) hit = HearthGeo.lookupZip(q);
     if (hit && hit.state) return done(String(hit.state).toUpperCase(), hit.zip || "", hit.lat, hit.lng);
     var zOnly = q.replace(/\D/g, "").slice(0, 5);
-    if (/^\d{5}$/.test(zOnly) && window.HEARTH_ZIPS && window.HEARTH_ZIPS[zOnly]) {
-      var zz = window.HEARTH_ZIPS[zOnly];
-      return done(String(zz.state).toUpperCase(), zOnly, zz.lat, zz.lng);
+    if (/^\d{5}$/.test(zOnly)) {
+      if (hit && hit.lat != null && hit.lng != null) {
+        var inferred = nearestStateFromLatLng(hit.lat, hit.lng);
+        if (inferred) return done(inferred, hit.zip || zOnly, hit.lat, hit.lng);
+      }
+      if (window.HEARTH_ZIPS && window.HEARTH_ZIPS[zOnly]) {
+        var zz = window.HEARTH_ZIPS[zOnly];
+        return done(String(zz.state).toUpperCase(), zOnly, zz.lat, zz.lng);
+      }
+      if (window.HEARTH_ZIP_COORDS && window.HEARTH_ZIP_COORDS[zOnly]) {
+        var pair = window.HEARTH_ZIP_COORDS[zOnly];
+        var clat = Array.isArray(pair) ? pair[0] : pair.lat;
+        var clng = Array.isArray(pair) ? pair[1] : pair.lng;
+        if (!(clat === 0 && clng === 0)) {
+          var st = nearestStateFromLatLng(clat, clng);
+          if (st) return done(st, zOnly, clat, clng);
+        }
+      }
+      if (window.HEARTH_ZIPS) {
+        var zipsAll = window.HEARTH_ZIPS;
+        var zipNum = parseInt(zOnly, 10);
+        var bestKey = null, bestDist = Infinity;
+        for (var zk in zipsAll) {
+          var d = Math.abs(parseInt(zk, 10) - zipNum);
+          if (d < bestDist) { bestDist = d; bestKey = zk; }
+        }
+        if (bestKey && zipsAll[bestKey] && zipsAll[bestKey].state) {
+          var zr = zipsAll[bestKey];
+          return done(String(zr.state).toUpperCase(), zOnly, zr.lat, zr.lng);
+        }
+      }
     }
     cb(new Error("Could not find that ZIP or city. Try e.g. 10001 or Dallas, TX."));
   }

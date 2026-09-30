@@ -62,7 +62,7 @@
    * Resolve a query string (ZIP, "City, ST", or "City ST") to
    * {lat,lng,city,state,zip, matchedZip?}.
    * For PO Box / unique ZIPs missing from HEARTH_ZIPS, falls back to nearest
-   * 4-digit then 3-digit (SCF) neighbor. `.zip` stays the user-typed ZIP;
+   * 4-digit then 3-digit (SCF) neighbor, then nearest numeric ZIP nationwide. `.zip` stays the user-typed ZIP;
    * `.matchedZip` is the centroid ZIP actually used when they differ.
    */
   function lookupZip(query) {
@@ -80,27 +80,58 @@
       }
 
       // Exact miss in HEARTH_ZIPS: prefer zip-coords centroid when present,
-      // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng.
+      // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng;
+      // last resort nearest numeric ZIP nationwide (never fail-close a 5-digit).
       var near = nearestZipByPrefix(zipOnly, zips);
+      function territoryState(lat, lng) {
+        if (lat == null || lng == null) return null;
+        if (lat === 0 && lng === 0) return null;
+        if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) return { city: "Puerto Rico", state: "PR" };
+        if (lat >= 17.6 && lat <= 18.5 && lng >= -65.2 && lng <= -64.5) return { city: "US Virgin Islands", state: "VI" };
+        if (lat >= 13.0 && lat <= 13.9 && lng >= -65.2 && lng <= -64.5) return { city: "St. Croix", state: "VI" };
+        if (lat >= 13.2 && lat <= 14.3 && lng >= 144.4 && lng <= 145.1) return { city: "Guam", state: "GU" };
+        if (lat >= -14.6 && lat <= -14.1 && lng >= -171.0 && lng <= -169.3) return { city: "American Samoa", state: "AS" };
+        if (lat >= 14.0 && lat <= 15.4 && lng >= 145.0 && lng <= 146.2) return { city: "Northern Mariana Islands", state: "MP" };
+        if (lat >= 18.5 && lat <= 22.5 && lng >= -161 && lng <= -154) return { city: "Hawaii", state: "HI" };
+        if (lat >= 51 && lng < -130) return { city: "Alaska", state: "AK" };
+        return null;
+      }
+      function nearestNumericZip(zipOnly, zips) {
+        var zipNum = parseInt(zipOnly, 10);
+        if (!isFinite(zipNum)) return null;
+        var bestKey = null, bestDist = Infinity;
+        for (var zk in zips) {
+          var d = Math.abs(parseInt(zk, 10) - zipNum);
+          if (d < bestDist) { bestDist = d; bestKey = zk; }
+        }
+        return bestKey && zips[bestKey] ? { key: bestKey, rec: zips[bestKey] } : null;
+      }
       if (zipCoords[zipOnly]) {
         var pair = zipCoords[zipOnly];
         var lat = Array.isArray(pair) ? pair[0] : pair.lat;
         var lng = Array.isArray(pair) ? pair[1] : pair.lng;
-        if (lat != null && lng != null) {
+        var nullIsland = lat === 0 && lng === 0;
+        if (lat != null && lng != null && isFinite(lat) && isFinite(lng) && !nullIsland) {
           var city = near ? near.rec.city : null;
           var state = near ? near.rec.state : null;
-          if (!state && lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
-            city = city || "Puerto Rico";
-            state = "PR";
+          if (!state) {
+            var terr = territoryState(lat, lng);
+            if (terr) { city = city || terr.city; state = terr.state; }
           }
-          return {
-            lat: lat,
-            lng: lng,
-            city: city,
-            state: state,
-            zip: zipOnly,
-            matchedZip: near ? near.key : null
-          };
+          if (!state) {
+            var fill = near || nearestNumericZip(zipOnly, zips);
+            if (fill) { city = city || fill.rec.city; state = fill.rec.state; }
+          }
+          if (state) {
+            return {
+              lat: lat,
+              lng: lng,
+              city: city,
+              state: state,
+              zip: zipOnly,
+              matchedZip: near ? near.key : null
+            };
+          }
         }
       }
       if (near) {
@@ -113,7 +144,17 @@
           matchedZip: near.key
         };
       }
-      // Valid 5-digit with no SCF neighbor in DB — fail closed (no city parse)
+      var nationwide = nearestNumericZip(zipOnly, zips);
+      if (nationwide) {
+        return {
+          lat: nationwide.rec.lat,
+          lng: nationwide.rec.lng,
+          city: nationwide.rec.city,
+          state: nationwide.rec.state,
+          zip: zipOnly,
+          matchedZip: nationwide.key
+        };
+      }
       return null;
     }
 
