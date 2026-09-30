@@ -290,13 +290,102 @@
     if (t && !isNearMeQuery(t)) clearGeoMode();
   }
 
+  /* Flag = mark listing for review (abortion / Planned Parenthood). Durable via Worker; local soft-hide. */
+  const FLAG_LS_KEY = "hearth-flagged-centers";
+  const FLAG_REASON = "abortion_or_pp";
+
+  function emberRestBase() {
+    const cfg = window.HEARTH_FIREBASE || {};
+    return String(cfg.restBaseUrl || "").replace(/\/$/, "");
+  }
+
+  function readFlaggedIds() {
+    try {
+      const raw = localStorage.getItem(FLAG_LS_KEY);
+      const arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.map(String).filter(Boolean) : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function rememberFlaggedId(centerId) {
+    const id = String(centerId || "").trim();
+    if (!id) return;
+    const cur = readFlaggedIds();
+    if (cur.indexOf(id) === -1) cur.push(id);
+    try {
+      localStorage.setItem(FLAG_LS_KEY, JSON.stringify(cur.slice(-500)));
+    } catch (_) {}
+  }
+
+  function isLocallyFlagged(centerId) {
+    return readFlaggedIds().indexOf(String(centerId || "")) !== -1;
+  }
+
+  function flagButtonHtml(centerId) {
+    const id = String(centerId || "").trim();
+    if (!id) return "";
+    if (isLocallyFlagged(id)) {
+      return `<button type="button" class="btn-flag is-flagged" disabled aria-disabled="true">Flagged</button>`;
+    }
+    return `<button type="button" class="btn-flag" data-flag-center="${escapeAttr(id)}">Flag</button>`;
+  }
+
+  function postCenterFlag(centerId) {
+    const base = emberRestBase();
+    const body = JSON.stringify({ centerId: String(centerId || ""), reason: FLAG_REASON });
+    if (!base) return Promise.resolve({ ok: false, offline: true });
+    return fetch(base + "/flags", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: body,
+      mode: "cors",
+      credentials: "omit"
+    })
+      .then((r) => r.json().catch(() => ({})).then((j) => ({ status: r.status, body: j })))
+      .catch(() => ({ ok: false, offline: true }));
+  }
+
+  function wireFlagButtons(root) {
+    const scope = root || document;
+    scope.querySelectorAll("[data-flag-center]").forEach((btn) => {
+      if (btn.dataset.flagWired === "1") return;
+      btn.dataset.flagWired = "1";
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-flag-center");
+        if (!id) return;
+        btn.disabled = true;
+        btn.textContent = "…";
+        rememberFlaggedId(id);
+        postCenterFlag(id).then((res) => {
+          btn.textContent = "Flagged";
+          btn.classList.add("is-flagged");
+          btn.removeAttribute("data-flag-center");
+          const card = btn.closest("article.center-card, article.match-card");
+          if (card) {
+            card.classList.add("is-flagged-out");
+            window.setTimeout(() => {
+              try { card.remove(); } catch (_) {}
+            }, 450);
+          }
+          /* Soft-suppress for this device; server stores for review — not an instant global delete. */
+          void res;
+        });
+      });
+    });
+  }
+
   function getCenters() {
     const all = window.HEARTH_CENTERS || [];
     const f = window.HearthCentersFilter;
+    let list = all;
     if (f && typeof f.filterLifeAffirming === "function") {
-      return f.filterLifeAffirming(all);
+      list = f.filterLifeAffirming(all);
     }
-    return all;
+    const flagged = new Set(readFlaggedIds());
+    if (!flagged.size) return list;
+    return list.filter((c) => c && !flagged.has(String(c.id || "")));
   }
 
   function toRad(d) { return (d * Math.PI) / 180; }
@@ -832,8 +921,10 @@
             const actions = [];
             if (c.phone) actions.push(`<a class="btn-call" href="tel:${escapeAttr(c.phone)}">Call ${escapeHtml(c.phone)}</a>`);
             if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
-            return `<article class="center-card"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
+            actions.push(flagButtonHtml(c.id));
+            return `<article class="center-card" data-center-id="${escapeAttr(c.id)}"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
           }).join("");
+        wireFlagButtons(centerList);
         return;
       }
       if (nationals.length && hasQuery) {
@@ -842,8 +933,10 @@
             const actions = [];
             if (c.phone) actions.push(`<a class="btn-call" href="tel:${escapeAttr(c.phone)}">Call ${escapeHtml(c.phone)}</a>`);
             if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
-            return `<article class="center-card"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
+            actions.push(flagButtonHtml(c.id));
+            return `<article class="center-card" data-center-id="${escapeAttr(c.id)}"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
           }).join("");
+        wireFlagButtons(centerList);
         return;
       }
       centerList.innerHTML = `<div class="empty-state">No centers matched. Try another city or ZIP, or clear the search to browse.</div>`;
@@ -856,9 +949,10 @@
       if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
       if (c.email) actions.push(`<a href="mailto:${escapeAttr(c.email)}">Email</a>`);
       actions.push(`<a href="#help" data-pref-zip="${escapeAttr(c.zip)}">Ask via app</a>`);
+      actions.push(flagButtonHtml(c.id));
       const distLabel = (resolved && resolved.lat != null) ? formatDist(c._dist) : "";
       return `
-      <article class="center-card">
+      <article class="center-card" data-center-id="${escapeAttr(c.id)}">
         <header>
           <h3>${escapeHtml(c.name)}</h3>
           <span class="tag green">${escapeHtml(c.type)}</span>
@@ -869,6 +963,7 @@
         <div class="center-actions">${actions.join("")}</div>
       </article>`;
     }).join("");
+    wireFlagButtons(centerList);
   }
 
 
@@ -1456,6 +1551,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
           actions.push(`<a class="btn btn-secondary" href="tel:${escapeAttr(c.phone)}">Call</a>`);
         }
       }
+      actions.push(flagButtonHtml(c.id));
       const locBits = nat
         ? "Nationwide"
         : `${escapeHtml(c.city)}${c.state && c.state !== "US" ? ", " + escapeHtml(c.state) : ""}${dist ? " · " + escapeHtml(dist) : ""}`;
@@ -1491,6 +1587,8 @@ Thank you for the work you do. Please contact me at your earliest convenience.
         <p class="match-lead"><strong>${leadNear}${leadNeed}.</strong> Tap to connect.</p>
         ${cards}
       </div>`;
+
+    wireFlagButtons(matchEl);
 
     /* Wire per-card Email buttons (respect consent) */
     matchEl.querySelectorAll("[data-match-email]").forEach((btn) => {

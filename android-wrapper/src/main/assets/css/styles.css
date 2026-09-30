@@ -1109,6 +1109,41 @@ body { font-size: 1.05rem; }
 }
 
 
+
+/* Flag — short control on Directory / Get Help cards (review queue, not instant delete) */
+.btn-flag {
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--ink-soft, #5a4a55);
+  background: transparent;
+  border: 1px solid rgba(90, 74, 85, 0.28);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-flag:hover:not(:disabled) {
+  background: rgba(90, 74, 85, 0.06);
+  color: var(--ink, #2b1f28);
+}
+.btn-flag.is-flagged,
+.btn-flag:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+.center-card.is-flagged-out,
+.match-card.is-flagged-out {
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+}
+.match-actions .btn-flag {
+  flex: 0 0 auto;
+  min-width: auto;
+}
+
 .center-actions a, .center-actions button {
   min-height: 44px;
   display: inline-flex;
