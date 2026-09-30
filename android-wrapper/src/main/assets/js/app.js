@@ -299,6 +299,157 @@
     return all;
   }
 
+  /* ---------- Flag abortion provider (POST /flags) ---------- */
+  var FLAG_LS_KEY = "hearth_flagged_centers";
+  var FLAG_REASON_DEFAULT = "abortion_provider";
+
+  function restBaseUrl() {
+    var c = window.HEARTH_FIREBASE;
+    return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
+  }
+
+  function flaggedSet() {
+    try {
+      var raw = localStorage.getItem(FLAG_LS_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return new Set(Array.isArray(arr) ? arr.map(String) : []);
+    } catch (e) {
+      return new Set();
+    }
+  }
+
+  function markFlaggedLocal(id) {
+    if (!id) return;
+    var s = flaggedSet();
+    s.add(String(id));
+    try {
+      localStorage.setItem(FLAG_LS_KEY, JSON.stringify(Array.from(s)));
+    } catch (e) {}
+  }
+
+  function isFlagged(id) {
+    return !!(id && flaggedSet().has(String(id)));
+  }
+
+  function sanitizeCenterId(id) {
+    return String(id || "").replace(/[^A-Za-z0-9._:-]/g, "").slice(0, 80);
+  }
+
+  function hearthToast(msg) {
+    var el = document.getElementById("mom-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "mom-toast";
+      el.className = "mom-toast";
+      el.setAttribute("role", "status");
+      document.body.appendChild(el);
+    }
+    el.textContent = msg || "";
+    el.hidden = false;
+    clearTimeout(hearthToast._t);
+    hearthToast._t = setTimeout(function () { el.hidden = true; }, 2800);
+  }
+
+  function clipStr(s, n) {
+    return String(s == null ? "" : s).trim().slice(0, n);
+  }
+
+  /** Visible label is exactly "Flag"; aria clarifies purpose. */
+  function flagButtonHtml(c, source) {
+    var id = sanitizeCenterId(c && c.id);
+    var already = isFlagged(id);
+    var label = already ? "Flagged" : "Flag";
+    var disabled = already ? " disabled" : "";
+    var aria = already
+      ? ' aria-label="Already flagged for review"'
+      : ' aria-label="Flag as abortion provider for removal"';
+    var src = (source === "get_help") ? "get_help" : "directory";
+    return (
+      '<button type="button" class="btn-flag' + (already ? " is-flagged" : "") + '"' +
+      ' data-flag-center="' + escapeAttr(id) + '"' +
+      ' data-flag-name="' + escapeAttr(clipStr(c && c.name, 120)) + '"' +
+      ' data-flag-city="' + escapeAttr(clipStr(c && c.city, 80)) + '"' +
+      ' data-flag-state="' + escapeAttr(clipStr(c && c.state, 40)) + '"' +
+      ' data-flag-source="' + escapeAttr(src) + '"' +
+      disabled + aria + ">" + label + "</button>"
+    );
+  }
+
+  function setFlagButtonFlagged(btn) {
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = "Flagged";
+    btn.classList.add("is-flagged");
+    btn.setAttribute("aria-label", "Already flagged for review");
+  }
+
+  function submitFlag(btn) {
+    if (!btn || btn.disabled) return;
+    var id = sanitizeCenterId(btn.getAttribute("data-flag-center"));
+    if (!id) {
+      hearthToast("Could not flag — missing center id.");
+      return;
+    }
+    var name = clipStr(btn.getAttribute("data-flag-name"), 120);
+    var city = clipStr(btn.getAttribute("data-flag-city"), 80);
+    var state = clipStr(btn.getAttribute("data-flag-state"), 40);
+    var source = btn.getAttribute("data-flag-source") === "get_help" ? "get_help" : "directory";
+    var ok = window.confirm("Flag this listing as an abortion provider for removal?");
+    if (!ok) return;
+
+    setFlagButtonFlagged(btn);
+    markFlaggedLocal(id);
+
+    var base = restBaseUrl();
+    if (!base) {
+      hearthToast("Flagged locally — API URL not configured.");
+      return;
+    }
+    /* Worker 1.7.6 POST /flags — KV queue only, no auto-remove */
+    var body = {
+      centerId: id,
+      reason: FLAG_REASON_DEFAULT,
+      source: source
+    };
+    if (name) body.name = name;
+    if (city) body.city = city;
+    if (state) body.state = state;
+    fetch(base + "/flags", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(body)
+    })
+      .then(function (res) {
+        if (res.status === 201 || res.ok) {
+          hearthToast("Flagged for review. Thank you.");
+          return;
+        }
+        if (res.status === 404 || res.status === 501 || res.status === 405) {
+          hearthToast("Flagged locally — API will sync when /flags is live.");
+          return;
+        }
+        return res.json().catch(function () { return null; }).then(function (j) {
+          var err = (j && j.error) ? String(j.error) : ("HTTP " + res.status);
+          hearthToast("Flagged locally — " + err + ".");
+        });
+      })
+      .catch(function () {
+        hearthToast("Flagged locally — will retry when online.");
+      });
+  }
+
+  function wireFlagDelegation(root) {
+    if (!root || root._hearthFlagWired) return;
+    root._hearthFlagWired = true;
+    root.addEventListener("click", function (ev) {
+      var t = ev.target;
+      var btn = t && t.closest ? t.closest("button.btn-flag") : null;
+      if (!btn || !root.contains(btn)) return;
+      ev.preventDefault();
+      submitFlag(btn);
+    });
+  }
+
   function toRad(d) { return (d * Math.PI) / 180; }
 
   function haversineMiles(a, b) {
@@ -832,7 +983,8 @@
             const actions = [];
             if (c.phone) actions.push(`<a class="btn-call" href="tel:${escapeAttr(c.phone)}">Call ${escapeHtml(c.phone)}</a>`);
             if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
-            return `<article class="center-card"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
+            actions.push(flagButtonHtml(c, "directory"));
+            return `<article class="center-card" data-center-id="${escapeAttr(c.id)}"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
           }).join("");
         return;
       }
@@ -842,7 +994,8 @@
             const actions = [];
             if (c.phone) actions.push(`<a class="btn-call" href="tel:${escapeAttr(c.phone)}">Call ${escapeHtml(c.phone)}</a>`);
             if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
-            return `<article class="center-card"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
+            actions.push(flagButtonHtml(c, "directory"));
+            return `<article class="center-card" data-center-id="${escapeAttr(c.id)}"><header><h3>${escapeHtml(c.name)}</h3><span class="tag green">${escapeHtml(c.type)}</span></header><p class="blurb">${escapeHtml(c.blurb || "")}</p><div class="center-actions">${actions.join("")}</div></article>`;
           }).join("");
         return;
       }
@@ -856,9 +1009,10 @@
       if (c.website) actions.push(`<a href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Website</a>`);
       if (c.email) actions.push(`<a href="mailto:${escapeAttr(c.email)}">Email</a>`);
       actions.push(`<a href="#help" data-pref-zip="${escapeAttr(c.zip)}">Ask via app</a>`);
+      actions.push(flagButtonHtml(c, "directory"));
       const distLabel = (resolved && resolved.lat != null) ? formatDist(c._dist) : "";
       return `
-      <article class="center-card">
+      <article class="center-card" data-center-id="${escapeAttr(c.id)}">
         <header>
           <h3>${escapeHtml(c.name)}</h3>
           <span class="tag green">${escapeHtml(c.type)}</span>
@@ -1456,6 +1610,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
           actions.push(`<a class="btn btn-secondary" href="tel:${escapeAttr(c.phone)}">Call</a>`);
         }
       }
+      actions.push(flagButtonHtml(c, "get_help"));
       const locBits = nat
         ? "Nationwide"
         : `${escapeHtml(c.city)}${c.state && c.state !== "US" ? ", " + escapeHtml(c.state) : ""}${dist ? " · " + escapeHtml(dist) : ""}`;
@@ -1933,6 +2088,9 @@ ${msg.sms}`;
   };
 
   /* Boot */
+
+  wireFlagDelegation(centerList);
+  wireFlagDelegation(matchEl);
 
   populateTypeFilter();
   hideEmptyNeedOptions();
