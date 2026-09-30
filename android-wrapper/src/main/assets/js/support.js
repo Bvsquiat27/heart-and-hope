@@ -1,14 +1,14 @@
 /**
- * Hearth & Hope — Support tools (crisis, ultrasound, 90 days, mentor,
+ * Heart & Hope — Support tools (crisis, ultrasound, 90 days, mentor,
  * goods, family invite, work, stories, resume + job emails).
  * Dignity-first. No AI mentor. No sham enrollment. localStorage only.
  */
 (function () {
   "use strict";
 
-  const NINETY_KEY = "hearthNinetyDays";
-  const RESUME_KEY = "hearthResumeDraft";
-  const CRISIS_KEY = "hearthCrisisDraft";
+  const NINETY_KEY = "heartNinetyDays";
+  const RESUME_KEY = "heartResumeDraft";
+  const CRISIS_KEY = "heartCrisisDraft";
 
   function $(id) { return document.getElementById(id); }
 
@@ -21,17 +21,17 @@
   }
 
   function goHelp(opts) {
-    if (window.HearthHelp && typeof window.HearthHelp.applyHelpPrefill === "function") {
-      window.HearthHelp.applyHelpPrefill(opts || {});
+    if (window.HeartHelp && typeof window.HeartHelp.applyHelpPrefill === "function") {
+      window.HeartHelp.applyHelpPrefill(opts || {});
     } else {
-      try { sessionStorage.setItem("hearthHelpPrefill", JSON.stringify(opts || {})); } catch (e) {}
+      try { sessionStorage.setItem("heartHelpPrefill", JSON.stringify(opts || {})); } catch (e) {}
       location.hash = "#help";
     }
   }
 
   function readZip() {
     try {
-      return (localStorage.getItem("hearthLastZip") || "").trim();
+      return (localStorage.getItem("heartLastZip") || "").trim();
     } catch (e) {
       return "";
     }
@@ -40,7 +40,7 @@
   function rememberZip(z) {
     const zip = String(z || "").replace(/\D/g, "").slice(0, 5);
     if (zip.length === 5) {
-      try { localStorage.setItem("hearthLastZip", zip); } catch (e) {}
+      try { localStorage.setItem("heartLastZip", zip); } catch (e) {}
     }
     return zip;
   }
@@ -359,7 +359,7 @@
     const base = (location.href || "").split("#")[0];
     return `Hi —
 
-I’m sharing a short note from Hearth & Hope about how you can support me during pregnancy / early parenting.
+I’m sharing a short note from Heart & Hope about how you can support me during pregnancy / early parenting.
 
 Ways that help a lot:
 • Rides to appointments
@@ -457,7 +457,7 @@ I’m doing my best. Thank you for standing with me.
   }
 
   /* ---------- Stories of hope — live public board (real posts only) ---------- */
-  const HOPE_NAME_KEY = "hearthHopeDisplayName";
+  const HOPE_NAME_KEY = "heartHopeDisplayName";
   const HOPE_MAX = 400;
   /* Known audit/test posts on live 1.6.0 until HOPE KV is purged / Worker 1.7.1 DELETE ships */
   const KNOWN_FAKE_HOPE_IDS = {
@@ -490,7 +490,7 @@ I’m doing my best. Thank you for standing with me.
   }
 
   function hopeRestBase() {
-    const c = window.HEARTH_FIREBASE;
+    const c = window.HEART_FIREBASE;
     return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
   }
 
@@ -504,9 +504,9 @@ I’m doing my best. Thank you for standing with me.
   function filterHopeText(text) {
     /* Ember filterNote caps at 180 chars — only reuse its blocked patterns, not length. */
     const cleaned = stripHopeNoise(text);
-    if (window.HearthBeacon && typeof HearthBeacon.filterNote === "function") {
+    if (window.HeartBeacon && typeof HeartBeacon.filterNote === "function") {
       const sample = cleaned.trim().replace(/\s+/g, " ").slice(0, 180);
-      const r = HearthBeacon.filterNote(sample);
+      const r = HeartBeacon.filterNote(sample);
       if (!r.ok && r.reason === "blocked") return { ok: false, reason: "blocked" };
     }
     let t = cleaned.trim().replace(/\s+/g, " ");
@@ -905,7 +905,7 @@ Thank you,
       const blob = new Blob([text], { type: "text/plain" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "hearth-hope-resume.txt";
+      a.download = "heart-hope-resume.txt";
       a.click();
       URL.revokeObjectURL(a.href);
       $("res-status").hidden = false;
@@ -967,5 +967,5 @@ Thank you,
     onRoute();
   }
 
-  window.HearthSupport = { renderCrisis, renderResume, goHelp, stories: renderStories };
+  window.HeartSupport = { renderCrisis, renderResume, goHelp, stories: renderStories };
 })();

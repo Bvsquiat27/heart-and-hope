@@ -9,11 +9,11 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.hearthandhope.app"
+    namespace "com.heartandhope.app"
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.hearthandhope.app"
+        applicationId "com.heartandhope.app"
         minSdk 24
         targetSdk 34
         versionCode 36

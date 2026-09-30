@@ -5,10 +5,10 @@
 (function () {
   "use strict";
 
-  var LS_CONTRACTIONS = "hearth_contractions_v1";
-  var LS_BABY = "hearth_baby_v1";
-  var LS_REMINDERS = "hearth_reminders_v1";
-  var LS_MUTE = "hearth_sounds_mute";
+  var LS_CONTRACTIONS = "heart_contractions_v1";
+  var LS_BABY = "heart_baby_v1";
+  var LS_REMINDERS = "heart_reminders_v1";
+  var LS_MUTE = "heart_sounds_mute";
 
   function $(id) { return document.getElementById(id); }
   function load(key, fallback) {
@@ -40,7 +40,7 @@
       if (t) t.checked = Sounds.muted;
     }
   };
-  window.HearthSounds = Sounds;
+  window.HeartSounds = Sounds;
 
   /* ---------- Contraction timer ---------- */
   var Contractions = {
@@ -482,5 +482,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
   else bind();
 
-  window.HearthMomTools = { Contractions: Contractions, Baby: Baby, Reminders: Reminders };
+  window.HeartMomTools = { Contractions: Contractions, Baby: Baby, Reminders: Reminders };
 })();

@@ -6,7 +6,7 @@
  *
  * Never put baby-tracker / personal schedule data on the public store.
  */
-window.HEARTH_FIREBASE = {
+window.HEART_FIREBASE = {
   configured: false,
   apiKey: "",
   authDomain: "",

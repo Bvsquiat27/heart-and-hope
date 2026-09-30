@@ -1,4 +1,4 @@
-/* Hearth & Hope — hard exclusion for abortion providers / Planned Parenthood.
+/* Heart & Hope — hard exclusion for abortion providers / Planned Parenthood.
  * Shared by Directory + Get Help via getCenters(). Abortion recovery / post-abortion
  * healing support is ALLOWED and must not trip these patterns.
  */
@@ -59,7 +59,7 @@
     });
   }
 
-  global.HearthCentersFilter = {
+  global.HeartCentersFilter = {
     EXCLUDE_NAME: EXCLUDE_NAME,
     EXCLUDE_SERVICE: EXCLUDE_SERVICE,
     isExcludedCenter: isExcludedCenter,

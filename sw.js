@@ -1,9 +1,9 @@
-/* Hearth & Hope — service worker
+/* Heart & Hope — service worker
    Cache shell for offline home/resources/directory/about.
    Network-first with stale-while-revalidate for updates.
    Never invent medical content beyond what's cached.
 */
-const CACHE_VERSION = "hearth-hope-v1.6.14.6";
+const CACHE_VERSION = "heart-hope-v1.6.14.6";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 
 const SHELL_ASSETS = [
@@ -44,7 +44,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k.startsWith("hearth-hope-") && k !== SHELL_CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => k.startsWith("heart-hope-") && k !== SHELL_CACHE).map((k) => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
@@ -104,7 +104,7 @@ self.addEventListener("notificationclick", (event) => {
       for (const client of list) {
         if ("focus" in client) {
           try {
-            client.postMessage({ type: "hearth-ember-open", url: raw });
+            client.postMessage({ type: "heart-ember-open", url: raw });
           } catch (_) {}
           return client.focus();
         }

@@ -17,7 +17,7 @@ function loadCenters() {
   const ctx = { window: {} };
   vm.createContext(ctx);
   vm.runInContext(text, ctx);
-  return ctx.window.HEARTH_CENTERS || [];
+  return ctx.window.HEART_CENTERS || [];
 }
 
 function loadFilter() {
@@ -26,13 +26,13 @@ function loadFilter() {
   ctx.globalThis = ctx;
   vm.createContext(ctx);
   vm.runInContext(text, ctx);
-  return ctx.window.HearthCentersFilter || ctx.HearthCentersFilter;
+  return ctx.window.HeartCentersFilter || ctx.HeartCentersFilter;
 }
 
 const centers = loadCenters();
 const filter = loadFilter();
 if (!filter) {
-  console.error("FAIL: HearthCentersFilter not loaded");
+  console.error("FAIL: HeartCentersFilter not loaded");
   process.exit(2);
 }
 

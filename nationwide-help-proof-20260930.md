@@ -1,4 +1,4 @@
-# Hearth & Hope — Nationwide Get Help proof (2026-09-30)
+# Heart & Hope — Nationwide Get Help proof (2026-09-30)
 
 **Branch:** `ux/resources-get-help`  
 **Overall:** **PASS**  
@@ -15,7 +15,7 @@
 ## Commands (all must exit 0)
 
 ```bash
-cd /workspace/hearth-and-hope-repo
+cd /workspace/heart-and-hope-repo
 node scripts/proof-get-help-nationwide.mjs
 node scripts/proof-zips-nationwide.mjs
 node scripts/proof-zip-10458.mjs

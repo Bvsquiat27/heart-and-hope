@@ -1,4 +1,4 @@
-# Hearth Ember API (v1.7.4)
+# Heart Ember API (v1.7.4)
 
 Public HTTPS REST backend for the Postpartum **Ember** live map + Hope board + private accounts.
 
@@ -15,7 +15,7 @@ Public HTTPS REST backend for the Postpartum **Ember** live map + Hope board + p
 
 Host: **Cloudflare Workers + KV** on account `9dfa3f…` (Paisiosphilotimo).
 
-**Do not use** the legacy hostname `hearth-ember-api.piquant-filament-122.workers.dev` (still 1.6.0 on a different Cloudflare account). Disable steps: [`DISABLE-LEGACY-PF-1.6.0.md`](./DISABLE-LEGACY-PF-1.6.0.md).
+**Do not use** the legacy hostname `heart-ember-api.piquant-filament-122.workers.dev` (still 1.6.0 on a different Cloudflare account). Disable steps: [`DISABLE-LEGACY-PF-1.6.0.md`](./DISABLE-LEGACY-PF-1.6.0.md).
 
 ## Security (1.7.4)
 
@@ -52,7 +52,7 @@ Express mirrors Worker security with file Maps under `data/`.
 ## Deploy
 
 ```bash
-# Account 9dfa3f… (hearthandhope / Paisiosphilotimo) — wrangler.toml account_id
+# Account 9dfa3f… (heartandhope / Paisiosphilotimo) — wrangler.toml account_id
 npx wrangler deploy
 # Secret (once): npx wrangler secret put HOPE_ADMIN_SECRET
 ```

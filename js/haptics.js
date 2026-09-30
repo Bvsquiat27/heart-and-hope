@@ -1,5 +1,5 @@
 /**
- * Hearth & Hope — tiny haptic pulses (Android WebView / supported browsers).
+ * Heart & Hope — tiny haptic pulses (Android WebView / supported browsers).
  * Fails silently when vibrate is missing or blocked.
  */
 (function () {
@@ -18,7 +18,7 @@
     }
   }
 
-  window.HearthHaptics = {
+  window.HeartHaptics = {
     tap: function (ms) { pulse(ms); }
   };
 

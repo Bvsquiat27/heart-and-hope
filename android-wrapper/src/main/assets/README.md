@@ -1,4 +1,4 @@
-# Hearth & Hope
+# Heart & Hope
 
 A calm, mobile-first **Progressive Web App (PWA)** that helps new and expecting mothers find resources, local pro-life–aligned support, and draft outreach to nearby centers — with explicit consent before anything is sent.
 
@@ -35,7 +35,7 @@ Open `http://127.0.0.1:8080`.
 ## Live
 
 - Ember API (durable): https://hearth-ember-api.hearthandhope.workers.dev
-- GitHub Pages: https://bvsquiat27.github.io/hearth-and-hope/
+- GitHub Pages: https://bvsquiat27.github.io/heart-and-hope/
 - Android APK: see GitHub Releases (v1.6.13+)
 
 ## License / data notes

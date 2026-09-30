@@ -1,8 +1,8 @@
 {
-  "name": "hearth-ember-api",
+  "name": "heart-ember-api",
   "version": "1.7.6",
   "private": true,
-  "description": "Public REST API for Hearth & Hope Postpartum Ember live map",
+  "description": "Public REST API for Heart & Hope Postpartum Ember live map",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -1,11 +1,11 @@
-/* Hearth & Hope — Payday Budget
+/* Heart & Hope — Payday Budget
    Wednesday–Tuesday weeks (America/New_York). Persist localStorage.
    Empty starter template — no personal bills shipped.
 */
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "hearthHopeBudget_v1";
+  const STORAGE_KEY = "heartHopeBudget_v1";
   const TZ = "America/New_York";
   const CATEGORIES = ["Rent", "Food", "Baby", "Bills", "Debt", "Other"];
   /* Map legacy categories into the simplified set */

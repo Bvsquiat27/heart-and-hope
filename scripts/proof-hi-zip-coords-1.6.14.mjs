@@ -102,8 +102,8 @@ for (const f of [
   vm.runInThisContext(fs.readFileSync(path.join(REPO, f), "utf8"), { filename: f });
 }
 
-if (!window.HearthHelp || typeof window.HearthHelp.rankCenters !== "function") {
-  console.error("FAIL: HearthHelp.rankCenters not available");
+if (!window.HeartHelp || typeof window.HeartHelp.rankCenters !== "function") {
+  console.error("FAIL: HeartHelp.rankCenters not available");
   process.exit(1);
 }
 
@@ -128,7 +128,7 @@ console.log("=== 1.6.14 HI zip-coords + Fairbanks 99701 + PR proof ===\n");
 
 // Data gate: no bogus HI zip-coords outside bbox
 {
-  const coords = window.HEARTH_ZIP_COORDS || {};
+  const coords = window.HEART_ZIP_COORDS || {};
   const bad = [];
   for (const [z, c] of Object.entries(coords)) {
     if (!/^96[78]/.test(z)) continue;
@@ -147,7 +147,7 @@ for (const spec of [
   { zip: "96813", expectState: "HI", maxMi: 15, nameHint: /pearson|honolulu|hawaii|oahu/i },
   { zip: "96720", expectState: "HI", maxMi: 20, nameHint: /hilo|liv|hawaii/i },
 ]) {
-  const r = window.HearthHelp.rankCenters(spec.zip, [], { limit: 8, geo: null });
+  const r = window.HeartHelp.rankCenters(spec.zip, [], { limit: 8, geo: null });
   const locals = (r.items || []).filter((c) => !isNat(c));
   const t0 = locals[0] || r.items?.[0];
   const reasons = [];
@@ -166,7 +166,7 @@ for (const spec of [
 
 // Former bad PO / unique ZIPs
 for (const zip of ["96801", "96799", "96802", "96823"]) {
-  const r = window.HearthHelp.rankCenters(zip, [], { limit: 8, geo: null });
+  const r = window.HeartHelp.rankCenters(zip, [], { limit: 8, geo: null });
   const t0 = r.items?.[0];
   const locals = (r.items || []).filter((c) => !isNat(c));
   const reasons = [];
@@ -199,8 +199,8 @@ for (const zip of ["96801", "96799", "96802", "96823"]) {
 
 // Fairbanks 99701 — no inflated miles
 {
-  const z = window.HEARTH_ZIPS["99701"];
-  const r = window.HearthHelp.rankCenters("99701", [], { limit: 8, geo: null });
+  const z = window.HEART_ZIPS["99701"];
+  const r = window.HeartHelp.rankCenters("99701", [], { limit: 8, geo: null });
   const locals = (r.items || []).filter((c) => !isNat(c));
   const t0 = locals[0];
   const reasons = [];
@@ -218,7 +218,7 @@ for (const zip of ["96801", "96799", "96802", "96823"]) {
 
 // san juan pr
 {
-  const r = window.HearthHelp.rankCenters("san juan pr", [], { limit: 5, geo: null });
+  const r = window.HeartHelp.rankCenters("san juan pr", [], { limit: 5, geo: null });
   const label = String(r.resolved?.label || "");
   const st = r.resolved?.state;
   const reasons = [];
@@ -234,7 +234,7 @@ for (const zip of ["96801", "96799", "96802", "96823"]) {
 
 // needs honesty
 {
-  const centers = window.HEARTH_CENTERS || [];
+  const centers = window.HEART_CENTERS || [];
   let diapers = 0;
   centers.forEach((c) => { if ((c.needs || []).includes("diapers")) diapers++; });
   const ok = diapers < 50;

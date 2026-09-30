@@ -1,5 +1,5 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.6
+ * Cloudflare Worker — Heart Ember API + Accounts (KV) v1.7.6
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
 const VERSION = "1.7.6";
@@ -936,7 +936,7 @@ export default {
       }
       return json(request, {
         ok: true,
-        service: "hearth-ember-api",
+        service: "heart-ember-api",
         version: VERSION,
         host: "cloudflare-workers-kv",
         endpoints: [

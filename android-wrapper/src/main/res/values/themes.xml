@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.HearthAndHope" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.HeartAndHope" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#3d6d86</item>
         <item name="android:statusBarColor">#3d6d86</item>
         <item name="android:navigationBarColor">#faf7f2</item>

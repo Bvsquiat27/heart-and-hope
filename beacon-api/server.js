@@ -1,5 +1,5 @@
 /**
- * Hearth & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.6
+ * Heart & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.6
  * Mirrors Worker security: owner secrets, CORS allowlist, rate limits, body caps,
  * hashed tokens, sync caps, quiet health. File-backed Maps instead of KV.
  */
@@ -620,7 +620,7 @@ function noStore(res) {
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
-    service: "hearth-ember-api",
+    service: "heart-ember-api",
     version: VERSION,
     host: "express-local",
     endpoints: [
@@ -962,7 +962,7 @@ setInterval(prune, 60 * 1000);
 
 if (require.main === module) {
   app.listen(PORT, "0.0.0.0", () => {
-    console.log("hearth-ember-api " + VERSION + " listening on " + PORT + (RATE_TEST ? " (RATE_TEST)" : ""));
+    console.log("heart-ember-api " + VERSION + " listening on " + PORT + (RATE_TEST ? " (RATE_TEST)" : ""));
   });
 }
 

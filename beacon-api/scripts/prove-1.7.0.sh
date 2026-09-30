@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Local proof for Hearth Ember API 1.7.0 (Express mirror).
+# Local proof for Heart Ember API 1.7.0 (Express mirror).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PORT="${PROOF_PORT:-$(python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1]);s.close()')}"
-DATA="$(mktemp -d /tmp/hearth-prove-XXXXXX)"
+DATA="$(mktemp -d /tmp/heart-prove-XXXXXX)"
 LOG="$DATA/server.log"
 PASS=0
 FAIL=0

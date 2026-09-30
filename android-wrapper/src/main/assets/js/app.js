@@ -160,14 +160,14 @@
     if (siteNav) siteNav.classList.remove("open");
     if (navToggle) navToggle.setAttribute("aria-expanded", "false");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    if (id === "stories" && window.HearthSupport && HearthSupport.stories) {
-      try { HearthSupport.stories(); } catch (e) {}
+    if (id === "stories" && window.HeartSupport && HeartSupport.stories) {
+      try { HeartSupport.stories(); } catch (e) {}
     }
-    if (id === "account" && window.HearthAccount && HearthAccount.onView) {
-      try { HearthAccount.onView(); } catch (e) {}
+    if (id === "account" && window.HeartAccount && HeartAccount.onView) {
+      try { HeartAccount.onView(); } catch (e) {}
     }
-    if (id === "postpartum" && window.HearthBeacon && HearthBeacon.onView) {
-      try { HearthBeacon.onView(); } catch (e) {}
+    if (id === "postpartum" && window.HeartBeacon && HeartBeacon.onView) {
+      try { HeartBeacon.onView(); } catch (e) {}
     }
   }
 
@@ -291,8 +291,8 @@
   }
 
   function getCenters() {
-    const all = window.HEARTH_CENTERS || [];
-    const f = window.HearthCentersFilter;
+    const all = window.HEART_CENTERS || [];
+    const f = window.HeartCentersFilter;
     if (f && typeof f.filterLifeAffirming === "function") {
       return f.filterLifeAffirming(all);
     }
@@ -300,11 +300,11 @@
   }
 
   /* ---------- Flag abortion provider (POST /flags) ---------- */
-  var FLAG_LS_KEY = "hearth_flagged_centers";
+  var FLAG_LS_KEY = "heart_flagged_centers";
   var FLAG_REASON_DEFAULT = "abortion_provider";
 
   function restBaseUrl() {
-    var c = window.HEARTH_FIREBASE;
+    var c = window.HEART_FIREBASE;
     return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
   }
 
@@ -335,7 +335,7 @@
     return String(id || "").replace(/[^A-Za-z0-9._:-]/g, "").slice(0, 80);
   }
 
-  function hearthToast(msg) {
+  function heartToast(msg) {
     var el = document.getElementById("mom-toast");
     if (!el) {
       el = document.createElement("div");
@@ -346,8 +346,8 @@
     }
     el.textContent = msg || "";
     el.hidden = false;
-    clearTimeout(hearthToast._t);
-    hearthToast._t = setTimeout(function () { el.hidden = true; }, 2800);
+    clearTimeout(heartToast._t);
+    heartToast._t = setTimeout(function () { el.hidden = true; }, 2800);
   }
 
   function clipStr(s, n) {
@@ -387,7 +387,7 @@
     if (!btn || btn.disabled) return;
     var id = sanitizeCenterId(btn.getAttribute("data-flag-center"));
     if (!id) {
-      hearthToast("Could not flag — missing center id.");
+      heartToast("Could not flag — missing center id.");
       return;
     }
     var name = clipStr(btn.getAttribute("data-flag-name"), 120);
@@ -402,7 +402,7 @@
 
     var base = restBaseUrl();
     if (!base) {
-      hearthToast("Flagged locally — API URL not configured.");
+      heartToast("Flagged locally — API URL not configured.");
       return;
     }
     /* Worker 1.7.6 POST /flags — KV queue only, no auto-remove */
@@ -421,26 +421,26 @@
     })
       .then(function (res) {
         if (res.status === 201 || res.ok) {
-          hearthToast("Flagged for review. Thank you.");
+          heartToast("Flagged for review. Thank you.");
           return;
         }
         if (res.status === 404 || res.status === 501 || res.status === 405) {
-          hearthToast("Flagged locally — API will sync when /flags is live.");
+          heartToast("Flagged locally — API will sync when /flags is live.");
           return;
         }
         return res.json().catch(function () { return null; }).then(function (j) {
           var err = (j && j.error) ? String(j.error) : ("HTTP " + res.status);
-          hearthToast("Flagged locally — " + err + ".");
+          heartToast("Flagged locally — " + err + ".");
         });
       })
       .catch(function () {
-        hearthToast("Flagged locally — will retry when online.");
+        heartToast("Flagged locally — will retry when online.");
       });
   }
 
   function wireFlagDelegation(root) {
-    if (!root || root._hearthFlagWired) return;
-    root._hearthFlagWired = true;
+    if (!root || root._heartFlagWired) return;
+    root._heartFlagWired = true;
     root.addEventListener("click", function (ev) {
       var t = ev.target;
       var btn = t && t.closest ? t.closest("button.btn-flag") : null;
@@ -477,7 +477,7 @@
   }
 
   function aliasCity(token) {
-    const aliases = window.HEARTH_CITY_ALIASES || {};
+    const aliases = window.HEART_CITY_ALIASES || {};
     return aliases[token] || token;
   }
 
@@ -488,10 +488,10 @@
     const q = normalizeQuery(raw);
     if (!q) return null;
 
-    const zipObj = window.HEARTH_ZIPS || null;
-    const zipCoords = window.HEARTH_ZIP_COORDS || {};
-    const cityIndex = window.HEARTH_CITY_INDEX || {};
-    const cityMap = window.HEARTH_CITIES || {};
+    const zipObj = window.HEART_ZIPS || null;
+    const zipCoords = window.HEART_ZIP_COORDS || {};
+    const cityIndex = window.HEART_CITY_INDEX || {};
+    const cityMap = window.HEART_CITIES || {};
     const aliases = {
       "nyc": "new york", "new york city": "new york", "n.y.c.": "new york",
       "manhattan": "new york", "la": "los angeles", "l.a.": "los angeles",
@@ -502,7 +502,7 @@
     const zip = extractZip(q);
 
     function nearestZipRec(z) {
-      /* 4-digit then 3-digit (SCF) neighbor in HEARTH_ZIPS — matches HearthGeo */
+      /* 4-digit then 3-digit (SCF) neighbor in HEART_ZIPS — matches HeartGeo */
       if (!zipObj || !z) return null;
       const zipNum = parseInt(z, 10);
       if (!isFinite(zipNum)) return null;
@@ -595,7 +595,7 @@
         return `ZIP ${z}`;
       }
 
-      /* Prefer nearest ZIP in HEARTH_ZIPS / zip-coords within same zip3 (e.g. 30301→30303 Atlanta) */
+      /* Prefer nearest ZIP in HEART_ZIPS / zip-coords within same zip3 (e.g. 30301→30303 Atlanta) */
       const dbKeys = zipObj ? Object.keys(zipObj) : Object.keys(zipCoords);
       const nearDb = nearestZipKey(dbKeys);
       if (nearDb) {
@@ -647,7 +647,7 @@
     }
     cityPart = aliases[cityPart] || cityPart;
 
-    // HEARTH_CITIES: "city|ST" -> zip
+    // HEART_CITIES: "city|ST" -> zip
     if (cityPart) {
       const preferState = { "new york": "NY", "los angeles": "CA", "chicago": "IL", "houston": "TX", "phoenix": "AZ", "philadelphia": "PA", "san antonio": "TX", "san diego": "CA", "dallas": "TX", "san jose": "CA", "austin": "TX", "jacksonville": "FL", "miami": "FL", "seattle": "WA", "denver": "CO", "boston": "MA", "nashville": "TN", "detroit": "MI", "portland": "OR", "las vegas": "NV", "memphis": "TN", "louisville": "KY", "baltimore": "MD", "milwaukee": "WI", "albuquerque": "NM", "tucson": "AZ", "atlanta": "GA", "minneapolis": "MN", "omaha": "NE", "raleigh": "NC", "oakland": "CA", "tampa": "FL", "tulsa": "OK", "cleveland": "OH", "wichita": "KS", "arlington": "VA", "new orleans": "LA", "bakersfield": "CA", "honolulu": "HI", "anaheim": "CA", "santa ana": "CA", "riverside": "CA", "corpus christi": "TX", "lexington": "KY", "henderson": "NV", "stockton": "CA", "saint paul": "MN", "saint louis": "MO", "cincinnati": "OH", "pittsburgh": "PA", "greensboro": "NC", "lincoln": "NE", "orlando": "FL", "durham": "NC", "boise": "ID", "spokane": "WA", "birmingham": "AL", "des moines": "IA", "tacoma": "WA", "buffalo": "NY", "reno": "NV", "richmond": "VA", "baton rouge": "LA", "salt lake city": "UT", "little rock": "AR", "cheyenne": "WY", "fairbanks": "AK", "anchorage": "AK", "billings": "MT", "casper": "WY", "charleston": "SC", "springfield": "IL", "columbus": "OH", "washington": "DC", "newark": "NJ", "jersey city": "NJ", "hoboken": "NJ" };
       const matches = Object.keys(cityMap).filter((k) => k === cityPart + "|" + (k.split("|")[1] || "") && k.startsWith(cityPart + "|"));
@@ -883,10 +883,10 @@
     return out.slice(0, 8);
   }
 
-  function hearthTap(ms) {
+  function heartTap(ms) {
     try {
-      if (window.HearthHaptics && typeof window.HearthHaptics.tap === "function") {
-        window.HearthHaptics.tap(ms);
+      if (window.HeartHaptics && typeof window.HeartHaptics.tap === "function") {
+        window.HeartHaptics.tap(ms);
         return;
       }
     } catch (e) {}
@@ -1453,11 +1453,11 @@
     if (data.phone) contactParts.push(`Phone: ${data.phone}`);
     const contact = contactParts.join(" · ") || "(she will follow up)";
 
-    const subject = `Support request from ${data.firstName} via Hearth & Hope`;
+    const subject = `Support request from ${data.firstName} via Heart & Hope`;
     const body =
 `Hello,
 
-My name is ${data.firstName}. I’m reaching out through Hearth & Hope, an app that helps mothers connect with local support. I gave permission for this message to be sent on my behalf.
+My name is ${data.firstName}. I’m reaching out through Heart & Hope, an app that helps mothers connect with local support. I gave permission for this message to be sent on my behalf.
 
 Location: ${data.location}
 Situation: ${needText}${church}
@@ -1469,10 +1469,10 @@ ${data.message || "(No additional note — please reach out with available help.
 Thank you for the work you do. Please contact me at your earliest convenience.
 
 — ${data.firstName}
-(Draft prepared with Hearth & Hope; centers: ${centerNames})`;
+(Draft prepared with Heart & Hope; centers: ${centerNames})`;
 
     const sms =
-`Hi, I'm ${data.firstName}. Hearth & Hope connected me. Near ${data.location}. Needs: ${needText}. ${data.phone ? "Call/text " + data.phone + "." : ""} ${data.email ? "Email " + data.email + "." : ""} ${data.message || ""}`.replace(/\s+/g, " ").trim();
+`Hi, I'm ${data.firstName}. Heart & Hope connected me. Near ${data.location}. Needs: ${needText}. ${data.phone ? "Call/text " + data.phone + "." : ""} ${data.email ? "Email " + data.email + "." : ""} ${data.message || ""}`.replace(/\s+/g, " ").trim();
 
     return { subject, body, sms };
   }
@@ -1881,7 +1881,7 @@ ${msg.sms}`;
   }
 
   /* ---------- PWA: service worker, install prompt, standalone ---------- */
-  const DISMISS_KEY = "hearthHopeInstallDismissed";
+  const DISMISS_KEY = "heartHopeInstallDismissed";
   let deferredInstallPrompt = null;
 
   function isStandalone() {
@@ -2038,7 +2038,7 @@ ${msg.sms}`;
   function applyHelpPrefill(opts) {
     opts = opts || {};
     if (!helpForm) {
-      try { sessionStorage.setItem("hearthHelpPrefill", JSON.stringify(opts)); } catch (e) {}
+      try { sessionStorage.setItem("heartHelpPrefill", JSON.stringify(opts)); } catch (e) {}
       location.hash = "#help";
       return;
     }
@@ -2066,9 +2066,9 @@ ${msg.sms}`;
 
   function consumeStoredHelpPrefill() {
     try {
-      const raw = sessionStorage.getItem("hearthHelpPrefill");
+      const raw = sessionStorage.getItem("heartHelpPrefill");
       if (!raw) return;
-      sessionStorage.removeItem("hearthHelpPrefill");
+      sessionStorage.removeItem("heartHelpPrefill");
       applyHelpPrefill(JSON.parse(raw));
     } catch (e) {}
   }
@@ -2079,7 +2079,7 @@ ${msg.sms}`;
     }
   });
 
-  window.HearthHelp = {
+  window.HeartHelp = {
     applyHelpPrefill: applyHelpPrefill,
     updatePreview: updatePreview,
     matchCenters: matchCenters,

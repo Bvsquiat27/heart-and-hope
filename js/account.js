@@ -6,14 +6,14 @@
 (function () {
   "use strict";
 
-  var LS_TOKEN = "hearth_account_token";
-  var LS_EMAIL = "hearth_account_email";
-  var LS_NUDGE = "hearth_account_nudge_at";
+  var LS_TOKEN = "heart_account_token";
+  var LS_EMAIL = "heart_account_email";
+  var LS_NUDGE = "heart_account_nudge_at";
 
   function $(id) { return document.getElementById(id); }
 
   function restBase() {
-    var c = window.HEARTH_FIREBASE;
+    var c = window.HEART_FIREBASE;
     return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
   }
 
@@ -51,23 +51,23 @@
   function collectPrivate() {
     var baby = null, contractions = null, reminders = null, ember = null;
     try {
-      if (window.HearthMomTools && HearthMomTools.Baby) {
-        baby = Object.assign({}, HearthMomTools.Baby.data(), { updatedAt: Date.now() });
+      if (window.HeartMomTools && HeartMomTools.Baby) {
+        baby = Object.assign({}, HeartMomTools.Baby.data(), { updatedAt: Date.now() });
       }
     } catch (e) {}
     try {
-      if (window.HearthMomTools && HearthMomTools.Contractions) {
-        contractions = Object.assign({}, HearthMomTools.Contractions.data(), { updatedAt: Date.now() });
+      if (window.HeartMomTools && HeartMomTools.Contractions) {
+        contractions = Object.assign({}, HeartMomTools.Contractions.data(), { updatedAt: Date.now() });
       }
     } catch (e) {}
     try {
-      if (window.HearthMomTools && HearthMomTools.Reminders) {
-        reminders = Object.assign({}, HearthMomTools.Reminders.data(), { updatedAt: Date.now() });
+      if (window.HeartMomTools && HeartMomTools.Reminders) {
+        reminders = Object.assign({}, HeartMomTools.Reminders.data(), { updatedAt: Date.now() });
       }
     } catch (e) {}
     try {
-      var id = localStorage.getItem("hearth_beacon_id") || "";
-      var meta = JSON.parse(localStorage.getItem("hearth_beacon_meta") || "null");
+      var id = localStorage.getItem("heart_beacon_id") || "";
+      var meta = JSON.parse(localStorage.getItem("heart_beacon_meta") || "null");
       if (id || meta) {
         ember = {
           id: id,
@@ -84,39 +84,39 @@
   function applyPrivate(priv) {
     if (!priv || typeof priv !== "object") return;
     try {
-      if (priv.baby && window.HearthMomTools && HearthMomTools.Baby) {
-        var cur = HearthMomTools.Baby.data();
+      if (priv.baby && window.HeartMomTools && HeartMomTools.Baby) {
+        var cur = HeartMomTools.Baby.data();
         var merged = mergeByUpdated(cur, priv.baby);
-        HearthMomTools.Baby.persist(merged);
-        HearthMomTools.Baby.render();
+        HeartMomTools.Baby.persist(merged);
+        HeartMomTools.Baby.render();
       }
     } catch (e) {}
     try {
-      if (priv.contractions && window.HearthMomTools && HearthMomTools.Contractions) {
-        var c = HearthMomTools.Contractions.data();
+      if (priv.contractions && window.HeartMomTools && HeartMomTools.Contractions) {
+        var c = HeartMomTools.Contractions.data();
         var cm = mergeByUpdated(c, priv.contractions);
-        HearthMomTools.Contractions.persist(cm);
-        HearthMomTools.Contractions.render();
+        HeartMomTools.Contractions.persist(cm);
+        HeartMomTools.Contractions.render();
       }
     } catch (e) {}
     try {
-      if (priv.reminders && window.HearthMomTools && HearthMomTools.Reminders) {
-        var r = HearthMomTools.Reminders.data();
+      if (priv.reminders && window.HeartMomTools && HeartMomTools.Reminders) {
+        var r = HeartMomTools.Reminders.data();
         var rm = mergeByUpdated(r, priv.reminders);
-        HearthMomTools.Reminders.persist(rm);
-        HearthMomTools.Reminders.render();
+        HeartMomTools.Reminders.persist(rm);
+        HeartMomTools.Reminders.render();
       }
     } catch (e) {}
     try {
       if (priv.ember) {
-        if (priv.ember.id) localStorage.setItem("hearth_beacon_id", String(priv.ember.id));
+        if (priv.ember.id) localStorage.setItem("heart_beacon_id", String(priv.ember.id));
         var meta = {
           state: priv.ember.state || "",
           expiresAt: Number(priv.ember.expiresAt) || 0,
           hours: Number(priv.ember.hours) || 0
         };
-        localStorage.setItem("hearth_beacon_meta", JSON.stringify(meta));
-        if (window.HearthBeacon && HearthBeacon.onView) {
+        localStorage.setItem("heart_beacon_meta", JSON.stringify(meta));
+        if (window.HeartBeacon && HeartBeacon.onView) {
           /* refresh ember UI if visible */
         }
       }
@@ -207,7 +207,7 @@
     }
     setToken("");
     setEmail("");
-    try { localStorage.removeItem("hearth_beacon_secrets"); } catch (e) {}
+    try { localStorage.removeItem("heart_beacon_secrets"); } catch (e) {}
     refreshUI();
     setStatus("Signed out. Guest mode still works on this phone.");
     setSyncStatus("");
@@ -242,7 +242,7 @@
     var last = Number(localStorage.getItem(LS_NUDGE) || 0);
     if (Date.now() - last < 36e5) return; // once/hour max
     try {
-      var baby = window.HearthMomTools && HearthMomTools.Baby && HearthMomTools.Baby.data();
+      var baby = window.HeartMomTools && HeartMomTools.Baby && HeartMomTools.Baby.data();
       if (baby && (baby.lastFedAt || baby.lastDiaperAt || (baby.diapersLeft != null && baby.diapersLeft < 40))) {
         localStorage.setItem(LS_NUDGE, String(Date.now()));
         var n = $("ember-account-nudge");
@@ -281,7 +281,7 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
   else bind();
 
-  window.HearthAccount = {
+  window.HeartAccount = {
     onView: onView,
     syncNow: syncNow,
     isSignedIn: function () { return !!token(); },
