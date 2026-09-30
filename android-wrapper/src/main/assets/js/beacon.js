@@ -55,7 +55,14 @@
     NJ:[40.2,-74.6],NM:[34.4,-106.1],NY:[42.9,-75.5],NC:[35.6,-79.4],ND:[47.5,-100.5],
     OH:[40.3,-82.8],OK:[35.6,-97.5],OR:[44.0,-120.5],PA:[40.9,-77.2],RI:[41.7,-71.6],
     SC:[33.9,-80.9],SD:[44.4,-100.2],TN:[35.9,-86.3],TX:[31.5,-99.3],UT:[39.3,-111.7],
-    VT:[44.1,-72.7],VA:[37.5,-78.8],WA:[47.4,-120.5],WV:[38.6,-80.6],WI:[44.6,-89.8],WY:[43.0,-107.6]
+    VT:[44.1,-72.7],VA:[37.5,-78.8],WA:[47.4,-120.5],WV:[38.6,-80.6],WI:[44.6,-89.8],WY:[43.0,-107.6],
+    /* Territories — required so Light my Ember accepts PR/VI/GU/AS/MP ZIPs */
+    PR:[18.22,-66.43],VI:[18.34,-64.90],GU:[13.44,144.79],AS:[-14.27,-170.13],MP:[15.19,145.75]
+  };
+
+  var TERRITORY_NAMES = {
+    PR: "Puerto Rico", VI: "U.S. Virgin Islands", GU: "Guam",
+    AS: "American Samoa", MP: "Northern Mariana Islands"
   };
 
 
@@ -66,9 +73,11 @@
   function latLngToSvg(lat, lng) {
     lat = Number(lat); lng = Number(lng);
     if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-    /* AK / HI inset: pin near path centroids rather than geographic projection */
-    if (lat > 50 && lng < -130) return { x: 100, y: 540 };
-    if (lat < 24 && lng < -150) return { x: 280, y: 545 };
+    /* AK / HI / PR / GU insets: pin near path centroids rather than geographic projection */
+    if (lat > 50 && lng < -130) return { x: 100, y: 540 }; /* AK */
+    if (lat < 24 && lng < -150) return { x: 280, y: 545 }; /* HI / AS */
+    if (lat >= 17.5 && lat <= 18.6 && lng >= -68.2 && lng <= -64.4) return { x: 450, y: 545 }; /* PR / VI */
+    if (lat >= 13.0 && lat <= 15.5 && lng >= 144.0 && lng <= 146.2) return { x: 320, y: 545 }; /* GU / MP */
     var x = PROJ_X[0] * lng + PROJ_X[1] * lat + PROJ_X[2];
     var y = PROJ_Y[0] * lng + PROJ_Y[1] * lat + PROJ_Y[2];
     return { x: x, y: y };
@@ -133,15 +142,39 @@
     return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
   }
 
-  /** Resolve ZIP/city/geo → US state only. Never exact home. */
+  /** Infer ST from ZIP prefix / coords via HearthGeo (PR/VI/GU/AS/MP). */
+  function inferTerritoryState(zip, lat, lng) {
+    if (window.HearthGeo) {
+      if (HearthGeo.territoryStateFromZip && zip) {
+        var ts = HearthGeo.territoryStateFromZip(String(zip).replace(/\D/g, "").slice(0, 5));
+        if (ts) return ts;
+      }
+      if (HearthGeo.territoryStateFromCoords && lat != null) {
+        var tc = HearthGeo.territoryStateFromCoords(lat, lng);
+        if (tc) return tc;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Resolve ZIP/city/geo → US state + coarse lat/lng for POST /beacons.
+   * Same ZIP resolve as Get Help (HEARTH_ZIPS → zip-coords → SCF), plus
+   * territory centroids so PR/HI/AK/GU/VI/AS/MP Light my Ember works.
+   * Never invents coords; fuzz only. Dots-only map.
+   */
   function resolveState(queryOrCoords, cb) {
     function done(state, zip, lat, lng) {
+      state = state ? String(state).toUpperCase() : "";
+      if (!state) {
+        state = inferTerritoryState(zip, lat, lng) || "";
+      }
       if (!state || !STATE_CENTROID[state]) {
         return cb(new Error("Could not find that place. Try a ZIP or City, ST."));
       }
       var c = STATE_CENTROID[state];
-      var baseLat = Number.isFinite(lat) ? lat : c[0];
-      var baseLng = Number.isFinite(lng) ? lng : c[1];
+      var baseLat = Number.isFinite(Number(lat)) ? Number(lat) : c[0];
+      var baseLng = Number.isFinite(Number(lng)) ? Number(lng) : c[1];
       var fuzzed = fuzzCoarse(baseLat, baseLng);
       cb(null, { state: state, lat: fuzzed.lat, lng: fuzzed.lng, coarseZip: zip || "" });
     }
@@ -172,16 +205,18 @@
           }
         }
       }
-      if (!best || !best.state) return cb(new Error("Could not place you in a state. Enter a ZIP instead."));
       /* nearest ZIP centroid + fuzz — never raw GPS */
-      var zips = window.HEARTH_ZIPS || {};
       var zLat, zLng;
-      if (best.zip && zips[best.zip]) {
+      if (best && best.zip && zips[best.zip]) {
         zLat = zips[best.zip].lat; zLng = zips[best.zip].lng;
-      } else if (window.HEARTH_ZIP_COORDS && best.zip && window.HEARTH_ZIP_COORDS[best.zip]) {
+        if (!best.state) best.state = zips[best.zip].state;
+      } else if (best && best.zip && window.HEARTH_ZIP_COORDS && window.HEARTH_ZIP_COORDS[best.zip]) {
         zLat = window.HEARTH_ZIP_COORDS[best.zip][0];
         zLng = window.HEARTH_ZIP_COORDS[best.zip][1];
       }
+      if (!best) return cb(new Error("Could not place you in a state. Enter a ZIP instead."));
+      if (!best.state) best.state = inferTerritoryState(best.zip, zLat, zLng);
+      if (!best.state) return cb(new Error("Could not place you in a state. Enter a ZIP instead."));
       return done(String(best.state).toUpperCase(), best.zip, zLat, zLng);
     }
 
@@ -191,11 +226,64 @@
     }
     var hit = null;
     if (window.HearthGeo && HearthGeo.lookupZip) hit = HearthGeo.lookupZip(q);
-    if (hit && hit.state) return done(String(hit.state).toUpperCase(), hit.zip || "", hit.lat, hit.lng);
-    var zOnly = q.replace(/\D/g, "").slice(0, 5);
-    if (/^\d{5}$/.test(zOnly) && window.HEARTH_ZIPS && window.HEARTH_ZIPS[zOnly]) {
-      var zz = window.HEARTH_ZIPS[zOnly];
-      return done(String(zz.state).toUpperCase(), zOnly, zz.lat, zz.lng);
+    if (hit && (hit.state || (hit.lat != null && hit.lng != null))) {
+      var st = hit.state || inferTerritoryState(hit.zip, hit.lat, hit.lng);
+      var hLat = hit.lat;
+      var hLng = hit.lng;
+      /* Territory ZIP with state but no centroid in DB — use STATE_CENTROID (not mainland SCF) */
+      if (st && (hLat == null || hLng == null || !Number.isFinite(Number(hLat)) || !Number.isFinite(Number(hLng)))) {
+        var sc = STATE_CENTROID[String(st).toUpperCase()];
+        if (sc) { hLat = sc[0]; hLng = sc[1]; }
+      }
+      /* Coords present but still no state — nearest HEARTH_ZIPS by distance */
+      if ((!st || !STATE_CENTROID[String(st).toUpperCase()]) && hLat != null && hLng != null &&
+          window.HearthGeo && HearthGeo.nearestZipByDistance) {
+        var nd = HearthGeo.nearestZipByDistance(hLat, hLng, window.HEARTH_ZIPS || {}, 200);
+        if (nd && nd.rec && nd.rec.state) st = nd.rec.state;
+      }
+      if (st) return done(String(st).toUpperCase(), hit.zip || "", hLat, hLng);
+    }
+    var zOnly = (window.HearthGeo && HearthGeo.normalizeZip)
+      ? HearthGeo.normalizeZip(q)
+      : q.replace(/\D/g, "").slice(0, 5);
+    if (/^\d{5}$/.test(zOnly)) {
+      /* Parity with Get Help: exact HEARTH_ZIPS → zip-coords → SCF neighbor */
+      if (window.HEARTH_ZIPS && window.HEARTH_ZIPS[zOnly]) {
+        var zz = window.HEARTH_ZIPS[zOnly];
+        return done(String(zz.state).toUpperCase(), zOnly, zz.lat, zz.lng);
+      }
+      if (window.HEARTH_ZIP_COORDS && window.HEARTH_ZIP_COORDS[zOnly]) {
+        var pair = window.HEARTH_ZIP_COORDS[zOnly];
+        var clat = Array.isArray(pair) ? Number(pair[0]) : Number(pair.lat);
+        var clng = Array.isArray(pair) ? Number(pair[1]) : Number(pair.lng);
+        var junkC = !Number.isFinite(clat) || !Number.isFinite(clng) ||
+          (Math.abs(clat) < 0.01 && Math.abs(clng) < 0.01);
+        if (!junkC) {
+          var cst = inferTerritoryState(zOnly, clat, clng);
+          if (!cst && window.HearthGeo && HearthGeo.nearestZipByPrefix) {
+            var near = HearthGeo.nearestZipByPrefix(zOnly, window.HEARTH_ZIPS || {});
+            if (near && near.rec) cst = near.rec.state;
+          }
+          if (!cst && window.HearthGeo && HearthGeo.nearestZipByDistance) {
+            var nd2 = HearthGeo.nearestZipByDistance(clat, clng, window.HEARTH_ZIPS || {}, 200);
+            if (nd2 && nd2.rec) cst = nd2.rec.state;
+          }
+          if (cst) {
+            return done(String(cst).toUpperCase(), zOnly, clat, clng);
+          }
+        }
+      }
+      if (window.HearthGeo && HearthGeo.nearestZipByPrefix) {
+        var scf = HearthGeo.nearestZipByPrefix(zOnly, window.HEARTH_ZIPS || {});
+        if (scf && scf.rec && scf.rec.state) {
+          return done(String(scf.rec.state).toUpperCase(), zOnly, scf.rec.lat, scf.rec.lng);
+        }
+      }
+      /* Territory ZIP with known ST but no coords in DB — use territory centroid (not invented street coords) */
+      var terr = inferTerritoryState(zOnly, null, null);
+      if (terr && STATE_CENTROID[terr]) {
+        return done(terr, zOnly, STATE_CENTROID[terr][0], STATE_CENTROID[terr][1]);
+      }
     }
     cb(new Error("Could not find that ZIP or city. Try e.g. 10001 or Dallas, TX."));
   }
@@ -273,6 +361,7 @@
   function stateName(st) {
     var data = window.HEARTH_US_STATES;
     if (data && data.names && data.names[st]) return data.names[st];
+    if (TERRITORY_NAMES[st]) return TERRITORY_NAMES[st];
     return st;
   }
 
