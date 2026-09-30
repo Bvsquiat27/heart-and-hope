@@ -354,15 +354,15 @@
     return String(s == null ? "" : s).trim().slice(0, n);
   }
 
-  /** Visible label is exactly "Flag"; aria clarifies purpose. */
+  /** Flag is only for places that provide abortions — not a generic report. */
   function flagButtonHtml(c, source) {
     var id = sanitizeCenterId(c && c.id);
     var already = isFlagged(id);
-    var label = already ? "Flagged" : "Flag";
+    var label = already ? "Flagged" : "Flag if abortions are provided";
     var disabled = already ? " disabled" : "";
     var aria = already
-      ? ' aria-label="Already flagged for review"'
-      : ' aria-label="Flag as abortion provider for removal"';
+      ? ' aria-label="Already flagged — abortions provided"'
+      : ' aria-label="Flag if abortions are provided"';
     var src = (source === "get_help") ? "get_help" : "directory";
     return (
       '<button type="button" class="btn-flag' + (already ? " is-flagged" : "") + '"' +
@@ -380,7 +380,7 @@
     btn.disabled = true;
     btn.textContent = "Flagged";
     btn.classList.add("is-flagged");
-    btn.setAttribute("aria-label", "Already flagged for review");
+    btn.setAttribute("aria-label", "Already flagged — abortions provided");
   }
 
   function submitFlag(btn) {
@@ -394,7 +394,7 @@
     var city = clipStr(btn.getAttribute("data-flag-city"), 80);
     var state = clipStr(btn.getAttribute("data-flag-state"), 40);
     var source = btn.getAttribute("data-flag-source") === "get_help" ? "get_help" : "directory";
-    var ok = window.confirm("Flag this listing as an abortion provider for removal?");
+    var ok = window.confirm("Flag if abortions are provided at this listing? It goes to review — not removed automatically.");
     if (!ok) return;
 
     setFlagButtonFlagged(btn);

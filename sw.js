@@ -3,7 +3,7 @@
    Network-first with stale-while-revalidate for updates.
    Never invent medical content beyond what's cached.
 */
-const CACHE_VERSION = "hearth-hope-v1.6.14.2";
+const CACHE_VERSION = "hearth-hope-v1.6.14.3";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 
 const SHELL_ASSETS = [
@@ -11,6 +11,7 @@ const SHELL_ASSETS = [
   "./index.html",
   "./css/styles.css",
   "./js/app.js",
+  "./js/haptics.js",
   "./js/budget.js",
   "./js/support.js",
   "./js/geo.js",
@@ -91,4 +92,24 @@ self.addEventListener("fetch", (event) => {
   if (!isSameOrigin(url)) return;
 
   event.respondWith(networkFirst(request));
+});
+
+/* Local / page-triggered notifications (no Web Push subscription yet) */
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const raw = (event.notification.data && event.notification.data.url) || "#postpartum";
+  const dest = raw.startsWith("#") ? "./" + raw : raw;
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+      for (const client of list) {
+        if ("focus" in client) {
+          try {
+            client.postMessage({ type: "hearth-ember-open", url: raw });
+          } catch (_) {}
+          return client.focus();
+        }
+      }
+      if (self.clients.openWindow) return self.clients.openWindow(dest);
+    })
+  );
 });
