@@ -79,19 +79,35 @@
         return { lat: z.lat, lng: z.lng, city: z.city, state: z.state, zip: zipOnly };
       }
 
-      // Exact miss in HEARTH_ZIPS: prefer zip-coords centroid when present,
-      // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng.
+      // Exact miss in HEARTH_ZIPS: prefer zip-coords when plausible vs SCF
+      // neighbor; else use neighbor lat/lng. HI PO Boxes (96801/96799) ship
+      // Midway/Samoa coords — trusting them yields 690–2000mi false Best.
       var near = nearestZipByPrefix(zipOnly, zips);
+      var COORDS_TRUST_MI = 75;
       if (zipCoords[zipOnly]) {
         var pair = zipCoords[zipOnly];
         var lat = Array.isArray(pair) ? pair[0] : pair.lat;
         var lng = Array.isArray(pair) ? pair[1] : pair.lng;
-        if (lat != null && lng != null) {
+        var nullIsland = lat === 0 && lng === 0;
+        var coordsUsable = lat != null && lng != null && isFinite(lat) && isFinite(lng) && !nullIsland;
+        if (coordsUsable && near) {
+          var drift = haversineMiles({ lat: lat, lng: lng }, near.rec);
+          if (!(isFinite(drift) && drift <= COORDS_TRUST_MI)) {
+            coordsUsable = false;
+          }
+        }
+        if (coordsUsable) {
+          var city = near ? near.rec.city : null;
+          var state = near ? near.rec.state : null;
+          if (!state && lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
+            city = city || "Puerto Rico";
+            state = "PR";
+          }
           return {
             lat: lat,
             lng: lng,
-            city: near ? near.rec.city : null,
-            state: near ? near.rec.state : null,
+            city: city,
+            state: state,
             zip: zipOnly,
             matchedZip: near ? near.key : null
           };
@@ -122,15 +138,43 @@
       }
     }
 
-    // Bare city: try unique match across states (prefer larger? first hit)
+    // Bare city: unique match, else major-metro preference (dallas → TX not NC)
     var lower = q.toLowerCase();
-    var hits = [];
+    var preferState = {
+      "new york": "NY", "los angeles": "CA", "chicago": "IL", "houston": "TX",
+      "phoenix": "AZ", "philadelphia": "PA", "san antonio": "TX", "san diego": "CA",
+      "dallas": "TX", "san jose": "CA", "austin": "TX", "jacksonville": "FL",
+      "miami": "FL", "seattle": "WA", "denver": "CO", "boston": "MA",
+      "nashville": "TN", "detroit": "MI", "portland": "OR", "las vegas": "NV",
+      "atlanta": "GA", "minneapolis": "MN", "honolulu": "HI", "anchorage": "AK",
+      "billings": "MT", "washington": "DC"
+    };
+    var cityHits = [];
     for (var k in cities) {
-      if (k.indexOf(lower + "|") === 0) hits.push(cities[k]);
+      if (k.indexOf(lower + "|") === 0) {
+        cityHits.push({ key: k, zip: cities[k], state: k.split("|")[1] });
+      }
     }
-    if (hits.length === 1 && zips[hits[0]]) {
-      var h = zips[hits[0]];
-      return { lat: h.lat, lng: h.lng, city: h.city, state: h.state, zip: hits[0] };
+    if (cityHits.length === 1 && zips[cityHits[0].zip]) {
+      var h1 = zips[cityHits[0].zip];
+      return { lat: h1.lat, lng: h1.lng, city: h1.city, state: h1.state, zip: cityHits[0].zip };
+    }
+    if (cityHits.length > 1) {
+      var pref = preferState[lower];
+      cityHits.sort(function (a, b) {
+        var sa = pref && a.state === pref ? 0 : 1;
+        var sb = pref && b.state === pref ? 0 : 1;
+        return sa - sb || a.key.localeCompare(b.key);
+      });
+      var pick = cityHits[0];
+      if (pref) {
+        var prefHit = cityHits.filter(function (x) { return x.state === pref; })[0];
+        if (prefHit) pick = prefHit;
+      }
+      if (pick && zips[pick.zip]) {
+        var hp = zips[pick.zip];
+        return { lat: hp.lat, lng: hp.lng, city: hp.city, state: hp.state, zip: pick.zip };
+      }
     }
 
     // Partial ZIP prefix (3–4 digits typed) — closest numeric among matches

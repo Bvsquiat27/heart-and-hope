@@ -79,14 +79,24 @@
         return { lat: z.lat, lng: z.lng, city: z.city, state: z.state, zip: zipOnly };
       }
 
-      // Exact miss in HEARTH_ZIPS: prefer zip-coords centroid when present,
-      // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng.
+      // Exact miss in HEARTH_ZIPS: prefer zip-coords when plausible vs SCF
+      // neighbor; else use neighbor lat/lng. HI PO Boxes (96801/96799) ship
+      // Midway/Samoa coords — trusting them yields 690–2000mi false Best.
       var near = nearestZipByPrefix(zipOnly, zips);
+      var COORDS_TRUST_MI = 75;
       if (zipCoords[zipOnly]) {
         var pair = zipCoords[zipOnly];
         var lat = Array.isArray(pair) ? pair[0] : pair.lat;
         var lng = Array.isArray(pair) ? pair[1] : pair.lng;
-        if (lat != null && lng != null) {
+        var nullIsland = lat === 0 && lng === 0;
+        var coordsUsable = lat != null && lng != null && isFinite(lat) && isFinite(lng) && !nullIsland;
+        if (coordsUsable && near) {
+          var drift = haversineMiles({ lat: lat, lng: lng }, near.rec);
+          if (!(isFinite(drift) && drift <= COORDS_TRUST_MI)) {
+            coordsUsable = false;
+          }
+        }
+        if (coordsUsable) {
           var city = near ? near.rec.city : null;
           var state = near ? near.rec.state : null;
           if (!state && lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
