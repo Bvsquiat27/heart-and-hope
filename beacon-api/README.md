@@ -1,4 +1,4 @@
-# Hearth Ember API (v1.7.3)
+# Hearth Ember API (v1.7.4)
 
 Public HTTPS REST backend for the Postpartum **Ember** live map + Hope board + private accounts.
 
@@ -10,7 +10,7 @@ Host: **Cloudflare Workers + KV** on account `9dfa3f…` (Paisiosphilotimo).
 
 **Do not use** the legacy hostname `hearth-ember-api.piquant-filament-122.workers.dev` (still 1.6.0 on a different Cloudflare account). Disable steps: [`DISABLE-LEGACY-PF-1.6.0.md`](./DISABLE-LEGACY-PF-1.6.0.md).
 
-## Security (1.7.3)
+## Security (1.7.4)
 
 - **Owner secrets (C1/C2):** `POST /beacons` returns `ownerSecret` once; hash stored as `ownerHash`. `PUT`/`DELETE` `/beacons/:id` and `GET .../notes` require `X-Hearth-Beacon` or `Authorization: Beacon …`. Public note posts stay open + content filter.
 - **Content filter (H2):** NFKC + strip ZWSP/Cf; `fuck\w*` / spaced letters (`f.u.c.k`); `@handle` matched with `(^|[^\w])@…` (not inside `\b`).
@@ -53,4 +53,4 @@ npx wrangler deploy
 ## Proof
 
 `scripts/prove-1.7.0.sh` starts Express with `RATE_TEST=1` and asserts owner secrets, 401s, health shape, CORS, 413, and rate 429.
-Live follow-up proofs (1.7.3): `/workspace/fix-lane-api-20260923.md`.
+Live follow-up proofs (1.7.4): `/workspace/fix-lane-api-20260923.md`.
