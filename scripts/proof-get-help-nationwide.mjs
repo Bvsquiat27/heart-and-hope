@@ -225,7 +225,7 @@ for (const spec of REQUIRED) {
 }
 
 // PR nationals-first
-for (const z of ["00601", "00901"]) {
+for (const z of ["00601", "00602", "00901", "00725"]) {
   const r = window.HearthHelp.rankCenters(z, [], { limit: 8, geo: null });
   const items = r.items || [];
   const first = items[0];
