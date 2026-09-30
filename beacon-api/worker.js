@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.2
+ * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.3
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
-const VERSION = "1.7.2";
+const VERSION = "1.7.3";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -58,7 +58,9 @@ function prepContent(text) {
   return t;
 }
 
-/** Modest leetspeak + spaced/punctuated letter collapse (f.u.c.k / f u c k). */
+/** Modest leetspeak + spaced/punctuated letter collapse (f.u.c.k / f u c k).
+ * Do NOT collapse ordinary spaces between multi-letter words — that glued
+ * "say f.u.c.k now" -> "sayfucknow" and broke word-boundary matches (1.7.3). */
 function normalizeForBlock(text) {
   let t = prepContent(text).toLowerCase();
   t = t
@@ -69,7 +71,12 @@ function normalizeForBlock(text) {
     .replace(/5/g, "s")
     .replace(/\$/g, "s")
     .replace(/!/g, "i");
-  t = t.replace(/([a-z])(?:[\s._*\-"'`·]{1,3})(?=[a-z])/g, "$1");
+  /* punct between letters only: f.u.c.k → fuck */
+  t = t.replace(/([a-z])[._*\-"'`·]+(?=[a-z])/g, "$1");
+  /* spaced single-letter runs: "f u c k" → "fuck" (keeps multi-letter words intact) */
+  t = t.replace(/(^|[^a-z])((?:[a-z]\s+){1,}[a-z])(?=[^a-z]|$)/g, (_, pre, run) =>
+    pre + run.replace(/\s+/g, "")
+  );
   return t;
 }
 
