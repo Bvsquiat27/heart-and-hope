@@ -9,6 +9,7 @@
 
   function pulse() {
     try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
         navigator.vibrate(PULSE_MS);
       }
@@ -32,6 +33,8 @@
     if (target.closest("#use-my-location-dir, #use-my-location-help")) return true;
     if (target.closest("#help-primary-btn, #ninety-find-help")) return true;
     if (target.closest('a.btn[href="#directory"], a.hub-tile[href="#directory"]')) return true;
+    if (target.closest('a.hub-tile[href="#postpartum"], a.btn[href="#postpartum"], .beacon-big, #beacon-light-btn')) return true;
+    if (target.closest(".dir-need-chip")) return true;
     if (isNeedsToggle(target)) return true;
     return false;
   }

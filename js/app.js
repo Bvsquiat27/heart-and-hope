@@ -116,6 +116,7 @@
     adoption: "I want to learn about adoption"
   };
 
+
   /* ---------- Navigation ---------- */
   const views = document.querySelectorAll(".view");
   const navLinks = document.querySelectorAll("[data-nav]");
@@ -624,6 +625,30 @@
     return ` · ${Math.round(miles)} mi`;
   }
 
+
+  function selectedDirNeeds() {
+    return Array.prototype.map.call(
+      document.querySelectorAll('.dir-need-chip[aria-pressed="true"]'),
+      function (b) { return b.getAttribute("data-dir-need"); }
+    ).filter(Boolean);
+  }
+
+  /** Honest offer pills from center.services only — never invent diaper/formula/clothes. */
+  function honestServicePills(c) {
+    var list = Array.isArray(c.services) ? c.services : [];
+    var out = [];
+    var seen = Object.create(null);
+    list.forEach(function (s) {
+      var lab = String(s || "").trim();
+      if (!lab) return;
+      var key = lab.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = 1;
+      out.push(lab);
+    });
+    return out.slice(0, 8);
+  }
+
   function populateTypeFilter() {
     if (!typeFilter) return;
     const types = [...new Set(getCenters().map((c) => c.type))].sort();
@@ -651,7 +676,10 @@
     syncGeoModeFromTypedLocation(q);
     const geo = geoForQuery(q);
     const queryForRank = isNearMeQuery(q) ? "" : q;
-    const result = rankCenters(queryForRank, [], { type, limit: 40, geo: geo });
+    const dirNeeds = selectedDirNeeds();
+    /* Rank with aliases (e.g. diapers→supplies); cards still show honest services only */
+    const rankNeeds = (typeof expandNeeds === "function") ? expandNeeds(dirNeeds) : dirNeeds;
+    const result = rankCenters(queryForRank, rankNeeds, { type, limit: 40, geo: geo });
     const list = result.items;
     const resolved = result.resolved;
     const usingGps = !!(geo && resolved && resolved.source === "geo");
@@ -664,7 +692,7 @@
     } else if (usingGps) {
       setDirMatchNote("Using your current location — showing nearest centers.");
     } else if (resolved && resolved.lat != null && (result.mode === "exact" || result.mode === "local")) {
-      setDirMatchNote("Showing nearest centers near " + (resolved.label || q) + ".");
+      setDirMatchNote("Showing nearest centers near " + (resolved.label || q) + (dirNeeds.length ? " · matching selected needs" : "") + ".");
     } else if (result.mode === "in-state" || String(result.mode).startsWith("in-state")) {
       setDirMatchNote("Few centers right here — showing in-state options plus nearby and national backups.");
     } else if (result.mode === "national" || String(result.mode).includes("backup")) {
@@ -718,7 +746,7 @@
         </header>
         <p class="loc">${escapeHtml(c.city)}, ${escapeHtml(c.state)} ${escapeHtml(c.zip)}${distLabel}</p>
         <p class="blurb">${escapeHtml(c.blurb || "")}</p>
-        <div class="services">${(c.services || []).slice(0, 6).map((s) => `<span class="service-pill">${escapeHtml(s)}</span>`).join("")}</div>
+        <div class="services offer-tags" aria-label="What this center offers">${honestServicePills(c).map((s) => `<span class="service-pill offer-service">${escapeHtml(s)}</span>`).join("")}</div>
         <div class="center-actions">${actions.join("")}</div>
       </article>`;
     }).join("");
@@ -776,6 +804,20 @@
   }
   if (typeFilter) typeFilter.addEventListener("change", renderCenters);
 
+  const dirNeedsRoot = document.getElementById("dir-needs");
+  if (dirNeedsRoot) {
+    dirNeedsRoot.addEventListener("click", (ev) => {
+      const btn = ev.target.closest(".dir-need-chip");
+      if (!btn) return;
+      const on = btn.getAttribute("aria-pressed") === "true";
+      btn.setAttribute("aria-pressed", on ? "false" : "true");
+      btn.classList.toggle("is-active", !on);
+      renderCenters();
+    });
+  }
+
+
+
   const btnDirGeo = document.getElementById("use-my-location-dir");
   const btnHelpGeo = document.getElementById("use-my-location-help");
   if (btnDirGeo) btnDirGeo.addEventListener("click", () => useBrowserLocation("dir"));
@@ -800,24 +842,60 @@
     expecting: ["expecting"],
     "new-mom": ["new-mom"],
     housing: ["housing"],
-    /* Specific supply needs prefer exact tags, then generic supplies */
-    food: ["food", "supplies"],
-    diapers: ["diapers", "supplies"],
-    formula: ["formula", "supplies"],
-    clothes: ["clothes", "supplies"],
-    "car-seat": ["car-seat", "supplies"],
+    /* Exact tags only — no supplies fallbacks that over-promise diapers/formula/clothes */
+    food: ["food"],
+    diapers: ["diapers"],
+    formula: ["formula"],
+    clothes: ["clothes"],
+    "car-seat": ["car-seat"],
     supplies: ["supplies"],
     parenting: ["parenting", "new-mom"],
-    childcare: ["childcare", "new-mom", "supplies"],
+    childcare: ["childcare", "new-mom"],
     job: ["job", "apply", "talk"],
-    ultrasound: ["expecting"],
+    ultrasound: ["ultrasound"],
     ride: ["expecting"],
-    mentor: ["talk"],
+    mentor: ["mentor"],
     talk: ["talk"],
     counseling: ["counseling"],
     apply: ["apply", "expecting", "new-mom"],
     adoption: ["adoption"]
   };
+
+  /* Short honest labels for need tags shown on cards (never invent diapers from supplies). */
+  const OFFER_NEED_LABELS = {
+    expecting: "Pregnancy support",
+    "new-mom": "New-mom support",
+    housing: "Housing help",
+    food: "Food help",
+    diapers: "Diapers",
+    formula: "Formula",
+    clothes: "Baby clothes",
+    "car-seat": "Car seats",
+    supplies: "Baby supplies",
+    parenting: "Parenting classes",
+    childcare: "Childcare",
+    job: "Job help",
+    ultrasound: "Ultrasound",
+    ride: "Rides",
+    mentor: "Mentoring",
+    talk: "Someone to talk to",
+    counseling: "Pregnancy counseling",
+    apply: "Help applying for aid",
+    adoption: "Adoption information"
+  };
+
+  function servicesOfferHtml(center, limit) {
+    const lim = limit == null ? 6 : limit;
+    const svcs = (typeof honestServicePills === "function" ? honestServicePills(center) : ((center && center.services) || [])).slice(0, lim);
+    if (!svcs.length) return "";
+    return `<div class="services offer-tags" aria-label="What this center offers">${svcs.map((s) => `<span class="service-pill offer-service">${escapeHtml(s)}</span>`).join("")}</div>`;
+  }
+
+  /** Exact need-tag overlap for display (no alias expansion — avoids fake item claims). */
+  function exactNeedMatches(center, needs) {
+    const cNeeds = (center && center.needs) || [];
+    return (needs || []).filter((n) => cNeeds.includes(n));
+  }
 
   function expandNeeds(needs) {
     const out = new Set();
@@ -1094,11 +1172,6 @@ Thank you for the work you do. Please contact me at your earliest convenience.
     const needPhrase = data.needs.length
       ? needLabelsList(data.needs).slice(0, 2).join(", ").replace(/^I /i, "").replace(/^I’m /i, "")
       : "support";
-    const coveredLabels = (best._covered || []).map((n) => NEED_LABELS[n] || n);
-    const coveredText = coveredLabels.length
-      ? coveredLabels.join(", ")
-      : "general pregnancy help";
-
     const resolved = centers._resolved;
     const placeLabel = (resolved && resolved.source === "geo")
       ? "your current location"
@@ -1118,10 +1191,15 @@ Thank you for the work you do. Please contact me at your earliest convenience.
       } else {
         badge = `<span class="match-badge quiet">Also nearby</span>`;
       }
-      const cov = (c._covered || []).map((n) => NEED_LABELS[n] || n);
-      const covLine = cov.length
-        ? `Helps with: ${cov.map(escapeHtml).join(", ")}`
-        : (nat ? "National helpline — can connect you locally" : "Life-affirming pregnancy help");
+      /* Display: services are source of truth; exact need matches only (no soft alias claims). */
+      const exact = exactNeedMatches(c, data.needs);
+      const matchBits = exact.map((n) => OFFER_NEED_LABELS[n] || n);
+      const covLine = nat
+        ? "National helpline — can connect you locally"
+        : (matchBits.length
+          ? `Matches your needs: ${matchBits.map(escapeHtml).join(", ")}`
+          : "Listed services below — ask them what they can offer for your situation.");
+      const offerHtml = nat ? "" : servicesOfferHtml(c, 6);
       const actions = [];
       /* Prefer Call on phone-only locals; Email only when the center has email (user taps national Email explicitly). */
       if (!nat && c.phone && !c.email) {
@@ -1144,6 +1222,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
           </header>
           <p class="match-meta">${locBits} · ${escapeHtml(nat ? "National helpline" : (c.type || ""))}</p>
           <p class="match-cov">${covLine}</p>
+          ${offerHtml}
           <div class="match-actions">${actions.join("")}</div>
         </article>`;
     }).join("");
@@ -1589,6 +1668,7 @@ ${msg.sms}`;
   };
 
   /* Boot */
+
   populateTypeFilter();
   renderResources();
   renderCenters();
