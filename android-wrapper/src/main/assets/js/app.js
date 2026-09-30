@@ -385,27 +385,33 @@
       if (hit) return { lat: hit.lat, lng: hit.lng, zip: z, state: hit.state, city: hit.city, source: "zip-center", label: `${hit.city}, ${hit.state} ${z}` };
       if (zipCoords[z]) {
         const [lat, lng] = zipCoords[z];
-        const near = nearestZipRec(z);
-        let city = near ? near.rec.city : null;
-        let state = near ? near.rec.state : null;
-        /* PR / territories: zip-coords only — honest territory label, no fake mainland city */
-        if (!state && lat != null && lng != null) {
-          if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
-            city = city || "Puerto Rico";
-            state = "PR";
+        /* HI 967/968: reject Midway/Samoa/ocean centroids outside Hawaii bbox so resolve falls through to zip3-nearest */
+        const hiPrefix = z.startsWith("967") || z.startsWith("968");
+        const inHawaiiBbox =
+          lat >= 18.5 && lat <= 22.5 && lng >= -161 && lng <= -154;
+        if (!(hiPrefix && !inHawaiiBbox)) {
+          const near = nearestZipRec(z);
+          let city = near ? near.rec.city : null;
+          let state = near ? near.rec.state : null;
+          /* PR / territories: zip-coords only — honest territory label, no fake mainland city */
+          if (!state && lat != null && lng != null) {
+            if (lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
+              city = city || "Puerto Rico";
+              state = "PR";
+            }
           }
+          const label = city && state ? `${city}, ${state} ${z}` : `ZIP ${z}`;
+          return {
+            lat,
+            lng,
+            zip: z,
+            state,
+            city,
+            source: "zip",
+            label,
+            matchedZip: near ? near.key : null
+          };
         }
-        const label = city && state ? `${city}, ${state} ${z}` : `ZIP ${z}`;
-        return {
-          lat,
-          lng,
-          zip: z,
-          state,
-          city,
-          source: "zip",
-          label,
-          matchedZip: near ? near.key : null
-        };
       }
       return null;
     }
@@ -478,7 +484,7 @@
     }
 
     let cityPart = q.replace(/\b\d{5}(?:-\d{4})?\b/g, "").trim();
-    const knownStates = "AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY".split(" ");
+    const knownStates = "AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA PR RI SC SD TN TX UT VT VA WA WV WI WY GU VI AS MP".split(" ");
     let stateHint = null;
     const stateMatch = cityPart.match(/\b([a-z]{2})$/i);
     if (stateMatch) {
@@ -519,11 +525,19 @@
         const cb = centerCounts[sb] || 0;
         return score(sa) - score(sb) || cb - ca || a.localeCompare(b);
       });
-      for (const key of ranked) {
+      const rankedForHint = stateHint
+        ? ranked.filter((k) => k.split("|")[1] === stateHint)
+        : ranked;
+      const cityZipKeys = rankedForHint.length ? rankedForHint : (stateHint ? [] : ranked);
+      for (const key of cityZipKeys) {
         const z = cityMap[key];
         if (z) {
           const got = fromZip(z);
-          if (got) return { ...got, city: cityPart, source: "city-zip", label: got.city ? `${got.city}, ${got.state}` : cityPart };
+          if (got) {
+            const st = got.state || stateHint || "";
+            const labelCity = got.city || cityPart;
+            return { ...got, city: cityPart, state: st || got.state, source: "city-zip", label: st ? `${labelCity}, ${st}` : (labelCity || cityPart) };
+          }
         }
       }
     }
