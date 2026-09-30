@@ -124,7 +124,7 @@
     const zip = readZip();
     root.innerHTML = `
       <p class="step-pill">Step 3 of 3</p>
-      <h3 class="support-h3">You’re not alone</h3>
+      <h3 class="support-h3">Help is available</h3>
       <p>You asked for <strong>${escapeHtml(pack.label)}</strong>. Next, see nearby centers — or draft a message they can answer.</p>
       <div class="field" style="margin:1rem 0">
         <label class="field-label" for="crisis-zip">Your city or ZIP</label>
@@ -494,19 +494,32 @@ I’m doing my best. Thank you for standing with me.
     return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
   }
 
+  /** Strip zero-width / format chars used to evade word filters (ZWSP, ZWNJ, soft hyphen, etc.). */
+  function stripHopeNoise(s) {
+    return String(s == null ? "" : s)
+      .replace(/[\u200B-\u200D\uFEFF\u00AD\u2060\u180E]/g, "")
+      .replace(/[\u202A-\u202E\u2066-\u2069]/g, "");
+  }
+
   function filterHopeText(text) {
     /* Ember filterNote caps at 180 chars — only reuse its blocked patterns, not length. */
+    const cleaned = stripHopeNoise(text);
     if (window.HearthBeacon && typeof HearthBeacon.filterNote === "function") {
-      const sample = String(text || "").trim().replace(/\s+/g, " ").slice(0, 180);
+      const sample = cleaned.trim().replace(/\s+/g, " ").slice(0, 180);
       const r = HearthBeacon.filterNote(sample);
       if (!r.ok && r.reason === "blocked") return { ok: false, reason: "blocked" };
     }
-    let t = String(text || "").trim().replace(/\s+/g, " ");
+    let t = cleaned.trim().replace(/\s+/g, " ");
     if (!t) return { ok: false, reason: "empty" };
     if (t.length > HOPE_MAX) return { ok: false, reason: "long" };
+    /* Compact form catches spaced / dotted / leetspeak fuck morphs: "f u c k", "f.u.c.k", "fvck" */
+    const compact = t.toLowerCase().replace(/[\s.\-*_/\\|'"´`]+/g, "");
+    if (/f[u*v]+c+k/.test(compact) || /phuck/.test(compact)) {
+      return { ok: false, reason: "blocked" };
+    }
     const BLOCK = [
       /\b(kill|murder|rape|suicide|kms|kys|die\s*bitch|hurt\s*you|stalk|bomb|shoot)\b/i,
-      /\b(fuck|fucking|shit|bitch|asshole|cunt|slut|whore|nigg|faggot|retard)\b/i,
+      /\b(fuck\w*|shit|bitch|asshole|cunt|slut|whore|nigg|faggot|retard)\b/i,
       /\b(sex|sexy|nude|porn|onlyfans)\b/i,
       /\b(kill\s*yourself|hang\s*yourself|cut\s*yourself)\b/i,
       /\b(https?:\/\/|www\.|\.com\b|\.net\b|\.org\b)/i,

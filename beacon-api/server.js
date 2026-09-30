@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const VERSION = "1.7.1";
+const VERSION = "1.7.2";
 const PORT = Number(process.env.PORT || 8765);
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const DATA_FILE = process.env.DATA_FILE || path.join(DATA_DIR, "beacons.json");
@@ -54,8 +54,34 @@ const RATE = RATE_TEST
       login: { max: 20, window: 900 }
     };
 
-const CONTENT_BLOCK =
-  /\b(kill|murder|rape|suicide|bomb|shoot|fuck|shit|bitch|cunt|nigg|faggot|https?:\/\/|www\.|@[a-z0-9_]{3,}|\d{3}[-.\s]?\d{3}[-.\s]?\d{4})\b/i;
+const CONTENT_BLOCK_WORDS =
+  /\b(kill|murder|rape|suicide|bomb|shoot|fuck\w*|shit|bitch|cunt|nigg\w*|faggot)\b/i;
+const CONTENT_BLOCK_CONTACT =
+  /https?:\/\/|www\.|\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b|(?:^|[^\w])@[a-z0-9_]{3,}/i;
+
+function normalizeContentText(text) {
+  let t = String(text || "").normalize("NFKC");
+  t = t.replace(
+    /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/g,
+    ""
+  );
+  return t;
+}
+
+function collapseSpacedLetters(text) {
+  return String(text || "").replace(/([a-z0-9])(?:[\s._\-*"'`·]+)(?=[a-z0-9])/gi, "$1");
+}
+
+function contentBlocked(text) {
+  const n = normalizeContentText(text);
+  const c = collapseSpacedLetters(n);
+  return (
+    CONTENT_BLOCK_WORDS.test(n) ||
+    CONTENT_BLOCK_WORDS.test(c) ||
+    CONTENT_BLOCK_CONTACT.test(n) ||
+    CONTENT_BLOCK_CONTACT.test(c)
+  );
+}
 
 /** @type {Record<string, any>} */
 let beacons = {};
@@ -226,7 +252,7 @@ function verifyHopeAdmin(req) {
   const configured = String(process.env.HOPE_ADMIN_SECRET || "").trim();
   if (!configured) return { ok: false, reason: "unset" };
   const provided = extractAdminSecret(req);
-  if (!provided || provided !== configured) return { ok: false, reason: "auth" };
+  if (!provided || !timingSafeEqualStr(provided, configured)) return { ok: false, reason: "auth" };
   return { ok: true };
 }
 
@@ -277,11 +303,33 @@ function sanitizeBeacon(body, existing) {
   if (expiresAt > maxExp) expiresAt = maxExp;
   if (expiresAt <= now) return { error: "expired" };
   const createdAt = existing && existing.createdAt ? existing.createdAt : now;
-  const coarseZip = String((body && (body.coarseZip || body.zip)) || "").slice(0, 10);
-  let state = String((body && body.state) || "")
-    .trim()
-    .toUpperCase()
-    .slice(0, 2);
+  const bodyObj = body && typeof body === "object" ? body : {};
+  const hasZip =
+    Object.prototype.hasOwnProperty.call(bodyObj, "coarseZip") ||
+    Object.prototype.hasOwnProperty.call(bodyObj, "zip");
+  const hasState = Object.prototype.hasOwnProperty.call(bodyObj, "state");
+  let coarseZip;
+  if (hasZip) {
+    coarseZip = String(bodyObj.coarseZip || bodyObj.zip || "").slice(0, 10);
+  } else if (existing) {
+    coarseZip = String(existing.coarseZip || "").slice(0, 10);
+  } else {
+    coarseZip = "";
+  }
+  let state;
+  if (hasState) {
+    state = String(bodyObj.state || "")
+      .trim()
+      .toUpperCase()
+      .slice(0, 2);
+  } else if (existing) {
+    state = String(existing.state || "")
+      .trim()
+      .toUpperCase()
+      .slice(0, 2);
+  } else {
+    state = "";
+  }
   if (state && !/^[A-Z]{2}$/.test(state)) state = "";
   const out = {
     lat: Math.round(lat * 10000) / 10000,
@@ -327,7 +375,8 @@ function validEmail(e) {
 
 function validPassword(p) {
   const s = String(p || "");
-  return s.length >= 6 && s.length <= 72;
+  /* 1.7.2: min 8 (was 6). Existing short passwords still login; client UI lags until next ship. */
+  return s.length >= 8 && s.length <= 72;
 }
 
 function hashPassword(password, saltBuf) {
@@ -653,7 +702,7 @@ app.post("/beacons/:id/notes", (req, res) => {
     .trim()
     .slice(0, MAX_NOTE);
   if (!text) return res.status(400).json({ error: "empty" });
-  if (CONTENT_BLOCK.test(text)) return res.status(400).json({ error: "blocked" });
+  if (contentBlocked(text)) return res.status(400).json({ error: "blocked" });
   const nid = newId();
   if (!b.notes) b.notes = {};
   b.notes[nid] = {
@@ -689,7 +738,7 @@ app.post("/hope", (req, res) => {
     String((req.body && req.body.fromLabel) || "A mom")
       .trim()
       .slice(0, 40) || "A mom";
-  if (CONTENT_BLOCK.test(textBody)) return res.status(400).json({ error: "blocked" });
+  if (contentBlocked(textBody)) return res.status(400).json({ error: "blocked" });
   const id = newId();
   hopePosts[id] = { text: textBody, createdAt: Date.now(), fromLabel };
   pruneHope();
