@@ -62,7 +62,7 @@
     "WY": 12
   },
   "counseling_tagged": 1554,
-  "notes": "Merged Option Line listings previously dropped when address ended with 'United States' (e.g. Futures Pregnancy Care, VT). Thin states: no additional Birthright chapters in dumps for DC/RI/ND/HI/VT/ME/NV/UT beyond what was already listed. DC remains 1 Option Line listing (Capitol Hill Pregnancy Center); nearby MD/VA Birthrights surface via distance search. 1.6.6: runtime abortion/PP hard-filter (js/centers-filter.js); Get Help needs expanded (diapers/formula/clothes/car-seat/parenting/childcare/job); need tags enriched from services text when supported; Resources\u2192Find help CTA; nationwide thin-state backup UX; Futures Pregnancy Care (VT) + 16 other OL United-States-suffix fixes. Abortion recovery + abortion pill reversal allowed. No invented clinics. Footer dedication unchanged. Directory fix 2026-09-23: C1 Las Vegas NM geo; 7 ZIP\u2194state mismatches; needs tags for ultrasound/mentor + baby-supplies\u2192diapers/formula/clothes.",
+  "notes": "Merged Option Line listings previously dropped when address ended with 'United States' (e.g. Futures Pregnancy Care, VT). Thin states: no additional Birthright chapters in dumps for DC/RI/ND/HI/VT/ME/NV/UT beyond what was already listed. DC remains 1 Option Line listing (Capitol Hill Pregnancy Center); nearby MD/VA Birthrights surface via distance search. 1.6.6: runtime abortion/PP hard-filter (js/centers-filter.js); Get Help needs expanded (diapers/formula/clothes/car-seat/parenting/childcare/job); need tags enriched from services text when supported; Resources→Find help CTA; nationwide thin-state backup UX; Futures Pregnancy Care (VT) + 16 other OL United-States-suffix fixes. Abortion recovery + abortion pill reversal allowed. No invented clinics. Footer dedication unchanged. Directory fix 2026-09-23: C1 Las Vegas NM geo; 7 ZIP↔state mismatches; needs tags for ultrasound/mentor + baby-supplies→diapers/formula/clothes. 2026-09-30 honesty: stripped soft baby-supply need tags unless explicit; Directory/Get Help cards show services.",
   "thin_state_honesty": {
     "DC": 1,
     "DE": 5,
@@ -88,5 +88,20 @@
     },
     "centers_touched": 1843
   },
-  "app_version": "1.6.12"
+  "app_version": "1.6.12",
+  "honesty_strip_soft_supply_tags": {
+    "date": "2026-09-30",
+    "note": "Removed diapers/formula/clothes need tags inferred only from generic baby supplies. Kept only when services/blurb explicitly mention that item. Rank may soft-boost via supplies alias; cards must show center.services only.",
+    "stripped": {
+      "diapers": 0,
+      "formula": 0,
+      "clothes": 0
+    },
+    "kept_explicit": {
+      "diapers": 2,
+      "formula": 2,
+      "clothes": 0
+    },
+    "centers_touched": 0
+  }
 }
