@@ -3499,3 +3499,79 @@ a, button, [role="button"], summary, .card, .hub-tile, .dir-need-chip {
     box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.55);
   }
 }
+
+/* ===== Healing After Loss (v1.6.14.7) ===== */
+.loss-comfort {
+  background: linear-gradient(150deg, #f7e8e4 0%, #f3e4ee 55%, #e9e4f6 100%);
+  border: 1px solid rgba(150, 90, 110, 0.25);
+  border-radius: 20px;
+  padding: 1.4rem 1.25rem;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 6px 24px rgba(150, 90, 110, 0.14);
+}
+.loss-comfort h3 {
+  font-size: 1.35rem;
+  margin: 0 0 0.6rem;
+}
+.loss-comfort p { margin: 0.55rem 0; line-height: 1.55; }
+.loss-panel h3 { margin-top: 0; }
+.loss-panel { margin-bottom: 1.1rem; }
+.loss-list { margin: 0.5rem 0; padding-left: 1.2rem; }
+.loss-list li { margin: 0.4rem 0; line-height: 1.5; }
+.loss-timeline { display: grid; gap: 0.7rem; margin-top: 0.9rem; }
+.loss-stage {
+  border: 1px solid rgba(120, 90, 130, 0.22);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+.loss-stage.is-current {
+  border-color: rgba(190, 90, 110, 0.55);
+  background: linear-gradient(150deg, #fdf1ec 0%, #fbeef3 100%);
+  box-shadow: 0 4px 18px rgba(190, 90, 110, 0.16);
+}
+.loss-stage.is-past { opacity: 0.72; }
+.loss-stage-head {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+.loss-chip {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(120, 90, 130, 0.12);
+  color: #6b556e;
+}
+.loss-chip-now {
+  background: rgba(190, 90, 110, 0.16);
+  color: #a03d52;
+  font-weight: 700;
+}
+.loss-stage p { margin: 0.4rem 0; line-height: 1.5; }
+.loss-action { font-style: italic; color: #6b556e; }
+.loss-held { color: #a03d52; font-weight: 600; }
+.loss-held-btn { margin-top: 0.3rem; }
+.loss-candle-wrap { text-align: center; margin: 0.6rem 0 1rem; }
+.loss-candle { font-size: 3rem; filter: grayscale(0.7); opacity: 0.7; }
+.loss-candle.lit {
+  filter: none; opacity: 1;
+  animation: candle-glow 2.4s ease-in-out infinite;
+}
+@keyframes candle-glow {
+  0%, 100% { text-shadow: 0 0 6px rgba(255, 190, 90, 0.5); transform: scale(1); }
+  50% { text-shadow: 0 0 18px rgba(255, 180, 80, 0.9); transform: scale(1.04); }
+}
+.loss-saved {
+  background: rgba(150, 190, 150, 0.18);
+  border: 1px solid rgba(90, 140, 90, 0.35);
+  color: #3d6b3d;
+  border-radius: 12px;
+  padding: 0.5rem 0.9rem;
+  margin-bottom: 0.8rem;
+}
+.loss-rights {
+  border-left: 4px solid rgba(90, 130, 190, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .loss-candle.lit { animation: none; }
+}

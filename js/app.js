@@ -129,7 +129,8 @@
     ember: ["postpartum"],
     tools: [
       "support", "contractions", "baby", "reminders", "ultrasound", "ninety",
-      "mentor", "goods", "invite", "work", "resume", "resources", "budget", "stories"
+      "mentor", "goods", "invite", "work", "resume", "resources", "budget", "stories",
+      "loss"
     ],
     more: ["about", "account"]
   };
@@ -168,6 +169,9 @@
     }
     if (id === "postpartum" && window.HeartBeacon && HeartBeacon.onView) {
       try { HeartBeacon.onView(); } catch (e) {}
+    }
+    if (id === "loss" && window.HeartLoss && HeartLoss.render) {
+      try { HeartLoss.render(); } catch (e) {}
     }
   }
 
