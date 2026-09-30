@@ -15,8 +15,8 @@
   min-height: 44px;
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: rgba(240, 234, 248, 0.85);
-  color: var(--accent-deep, #6e5a96);
+  background: rgba(245, 241, 250, 0.92);
+  color: var(--accent-deep, #6f5a96);
   border: 1px solid rgba(143, 123, 184, 0.22);
   font-weight: 600;
   cursor: pointer;
@@ -32,7 +32,7 @@
 
 .dir-need-chip.chip-hope {
   background: rgba(232, 246, 240, 0.9);
-  color: #2d6b52;
+  color: #2f6b5c;
   border-color: rgba(93, 154, 126, 0.28);
 }
 
@@ -44,17 +44,17 @@
 
 .dir-need-chip.is-active,
 .dir-need-chip[aria-pressed="true"] {
-  background: var(--accent-deep, #6e5a96);
+  background: var(--accent-deep, #6f5a96);
   color: #fff;
-  border-color: var(--accent-deep, #6e5a96);
+  border-color: var(--accent-deep, #6f5a96);
   box-shadow: 0 4px 14px rgba(110, 90, 150, 0.28);
 }
 
 .center-card {
-  border-radius: 1.15rem;
+  border-radius: 22px;
   background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.55);
   box-shadow: 0 8px 28px rgba(110, 90, 150, 0.08);
 }
@@ -76,7 +76,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   background: rgba(232, 246, 240, 0.92);
-  color: #2d6b52;
+  color: #2f6b5c;
   border: 1px solid rgba(93, 154, 126, 0.22);
   box-shadow: 0 2px 8px rgba(45, 107, 82, 0.06);
 }
@@ -91,7 +91,7 @@
 .offer-service.is-match,
 .offer-need.is-match {
   background: rgba(110, 90, 150, 0.14);
-  color: var(--accent-deep, #6e5a96);
+  color: var(--accent-deep, #6f5a96);
   border-color: rgba(110, 90, 150, 0.45);
   box-shadow: 0 0 0 2px rgba(110, 90, 150, 0.12);
 }
