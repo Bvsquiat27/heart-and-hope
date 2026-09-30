@@ -1,5 +1,5 @@
 /**
- * Hearth & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.1
+ * Hearth & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.5
  * Mirrors Worker security: owner secrets, CORS allowlist, rate limits, body caps,
  * hashed tokens, sync caps, quiet health. File-backed Maps instead of KV.
  */
@@ -10,11 +10,15 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const VERSION = "1.7.2";
+const VERSION = "1.7.5";
 const PORT = Number(process.env.PORT || 8765);
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const DATA_FILE = process.env.DATA_FILE || path.join(DATA_DIR, "beacons.json");
 const HOPE_FILE = process.env.HOPE_FILE || path.join(DATA_DIR, "hope.json");
+const FLAGS_FILE = process.env.FLAGS_FILE || path.join(DATA_DIR, "flags.json");
+const MAX_FLAGS = 2000;
+const MAX_CENTER_ID = 80;
+const MAX_FLAG_REASON = 200;
 const USERS_FILE = process.env.USERS_FILE || path.join(DATA_DIR, "users.json");
 const TOKENS_FILE = process.env.TOKENS_FILE || path.join(DATA_DIR, "tokens.json");
 
@@ -43,6 +47,7 @@ const RATE = RATE_TEST
       "post-beacons": { max: 3, window: 60 },
       "post-notes": { max: 5, window: 60 },
       "post-hope": { max: 5, window: 60 },
+      "post-flags": { max: 5, window: 60 },
       signup: { max: 3, window: 60 },
       login: { max: 5, window: 60 }
     }
@@ -50,6 +55,7 @@ const RATE = RATE_TEST
       "post-beacons": { max: 5, window: 600 },
       "post-notes": { max: 20, window: 600 },
       "post-hope": { max: 10, window: 600 },
+      "post-flags": { max: 15, window: 600 },
       signup: { max: 5, window: 3600 },
       login: { max: 20, window: 900 }
     };
@@ -88,6 +94,8 @@ let beacons = {};
 /** @type {Record<string, any>} */
 let hopePosts = {};
 /** @type {Record<string, any>} */
+let flagPosts = {};
+/** @type {Record<string, any>} */
 let users = {};
 /** @type {Record<string, string>} tokenHash -> email */
 let tokenIndex = {};
@@ -121,6 +129,7 @@ function load() {
   ensureDataDir();
   beacons = loadJson(DATA_FILE, {});
   hopePosts = loadJson(HOPE_FILE, {});
+  flagPosts = loadJson(FLAGS_FILE, {});
   users = loadJson(USERS_FILE, {});
   tokenIndex = loadJson(TOKENS_FILE, {});
   /* migrate plaintext tokens → hashed */
@@ -164,6 +173,22 @@ function save() {
 }
 function saveHope() {
   atomicWrite(HOPE_FILE, hopePosts);
+}
+function saveFlags() {
+  atomicWrite(FLAGS_FILE, flagPosts);
+}
+function sanitizeCenterId(raw) {
+  const id = String(raw || "").trim().slice(0, MAX_CENTER_ID);
+  if (!id) return "";
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9._:-]{0,79}$/.test(id)) return "";
+  return id;
+}
+function pruneFlags() {
+  const ids = Object.keys(flagPosts).sort(
+    (a, b) => (flagPosts[a].createdAt || 0) - (flagPosts[b].createdAt || 0)
+  );
+  if (ids.length <= MAX_FLAGS) return;
+  for (const id of ids.slice(0, ids.length - MAX_FLAGS)) delete flagPosts[id];
 }
 function saveUsers() {
   atomicWrite(USERS_FILE, users);
@@ -599,6 +624,7 @@ app.get("/", (_req, res) => {
       "/beacons/:id",
       "/beacons/:id/notes",
       "/hope",
+      "/flags",
       "/auth/signup",
       "/auth/login",
       "/auth/logout",
@@ -744,6 +770,44 @@ app.post("/hope", (req, res) => {
   pruneHope();
   saveHope();
   res.status(201).json({ id });
+});
+
+
+app.post("/flags", (req, res) => {
+  const limited = checkRate(req, "post-flags");
+  if (limited) {
+    res.setHeader("Retry-After", String(limited.retryAfter));
+    return res.status(429).json({ error: "rate" });
+  }
+  const centerId = sanitizeCenterId(req.body && req.body.centerId);
+  if (!centerId) return res.status(400).json({ error: "centerId" });
+  let reason = String((req.body && req.body.reason) || "").trim().slice(0, MAX_FLAG_REASON);
+  if (reason && contentBlocked(reason)) return res.status(400).json({ error: "blocked" });
+  const id = newId();
+  flagPosts[id] = {
+    centerId,
+    reason: reason || "",
+    createdAt: Date.now(),
+    ipHash: "local"
+  };
+  pruneFlags();
+  saveFlags();
+  res.status(201).json({ id, ok: true, queued: true });
+});
+
+app.get("/flags", (req, res) => {
+  noStore(res);
+  const admin = verifyHopeAdmin(req);
+  if (admin.reason === "unset") return res.status(503).json({ error: "admin unset" });
+  if (!admin.ok) return res.status(401).json({ error: "auth" });
+  const flags = Object.entries(flagPosts).map(([id, row]) => ({
+    id,
+    centerId: row.centerId,
+    reason: row.reason || "",
+    createdAt: row.createdAt || 0
+  }));
+  flags.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+  res.json({ flags, count: flags.length });
 });
 
 app.delete("/hope/:id", (req, res) => {

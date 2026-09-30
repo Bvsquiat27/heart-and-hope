@@ -2,6 +2,12 @@
 
 Public HTTPS REST backend for the Postpartum **Ember** live map + Hope board + private accounts.
 
+## Center flags (1.7.5)
+
+- `POST /flags` `{ "centerId": "...", "reason": "optional" }` → `201 { id, ok, queued }` — durable KV review queue; **does not** auto-remove listings.
+- `GET /flags` — admin only (`X-Hearth-Admin`).
+- Rate: `post-flags` 15 / 600s.
+
 ## Live URL
 
 `https://hearth-ember-api.hearthandhope.workers.dev`
