@@ -1,6 +1,6 @@
 /**
  * Proof: Light my Ember resolve + create for diverse US ZIPs (incl PR/HI/AK/territories).
- * Client resolve uses HearthGeo (ZIPS → zip-coords → SCF) + territory centroids in beacon.js.
+ * Client resolve uses HeartGeo (ZIPS → zip-coords → SCF) + territory centroids in beacon.js.
  * Create posts to local express mirror (PORT) or LIVE_API env.
  */
 import fs from "fs";
@@ -23,23 +23,23 @@ function loadBrowserScript(rel) {
 const zipsCtx = loadBrowserScript("data/zips.js");
 const coordsCtx = loadBrowserScript("data/zip-coords.js");
 Object.assign(zipsCtx, {
-  HEARTH_ZIP_COORDS: coordsCtx.HEARTH_ZIP_COORDS,
+  HEART_ZIP_COORDS: coordsCtx.HEART_ZIP_COORDS,
 });
 const geoCode = fs.readFileSync(path.join(root, "js/geo.js"), "utf8");
 vm.runInNewContext(geoCode, zipsCtx, { filename: "js/geo.js" });
-const HearthGeo = zipsCtx.HearthGeo;
+const HeartGeo = zipsCtx.HeartGeo;
 
 const STATE_OK = new Set([
   "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","PR","VI","GU","AS","MP"
 ]);
 
 function resolve(q) {
-  const hit = HearthGeo.lookupZip(q);
+  const hit = HeartGeo.lookupZip(q);
   if (!hit || hit.lat == null) return null;
   let state =
     hit.state ||
-    HearthGeo.territoryStateFromZip(hit.zip) ||
-    HearthGeo.territoryStateFromCoords(hit.lat, hit.lng);
+    HeartGeo.territoryStateFromZip(hit.zip) ||
+    HeartGeo.territoryStateFromCoords(hit.lat, hit.lng);
   if (!state || !STATE_OK.has(state)) return null;
   return {
     lat: Math.round(Number(hit.lat) * 100) / 100,

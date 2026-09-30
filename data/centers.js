@@ -1,15 +1,15 @@
-/* Hearth & Hope partner directory — dignity-first, life-affirming.
+/* Heart & Hope partner directory — dignity-first, life-affirming.
  * Verified public listings from Option Line (Heartbeat International) and
  * Birthright chapter directory. Retrieved 2026-09-23.
  * Absolutely NO Planned Parenthood, abortion clinics, or abortion referrals.
  * Option Line network states centers do not offer or refer for abortion.
  * Abortion recovery / post-abortion healing support IS allowed.
  * National helplines retained. Runtime filter: js/centers-filter.js.
- * See hearth-data/README.md for source notes.
+ * See heart-data/README.md for source notes.
  * 2026-09-23 directory fix: C1 Las Vegas NM geo; ZIP↔state mismatches; needs tags.
  * 2026-09-30 honesty: strip invented diapers/formula/clothes; exact ultrasound/mentor/supplies/food.
  */
-window.HEARTH_CENTERS = [
+window.HEART_CENTERS = [
   {
     "id": "ak-abc-life-choices-21923",
     "name": "ABC Life Choices",

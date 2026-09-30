@@ -1,4 +1,4 @@
-# Hearth & Hope — nationwide data
+# Heart & Hope — nationwide data
 
 Dignity-first support directory. **No Planned Parenthood, abortion clinics, or abortion referrals.**
 

@@ -1,6 +1,6 @@
 /**
  * Proof: directory geo + needs honesty gates.
- * - ZIP↔state mismatches = 0 (center.state vs HEARTH_ZIPS[zip].state)
+ * - ZIP↔state mismatches = 0 (center.state vs HEART_ZIPS[zip].state)
  * - Las Vegas NM Care Net id/state/coords correct
  * - ultrasound / mentor abundant; diapers / formula rare (no baby-supplies invention)
  */
@@ -23,11 +23,11 @@ function loadWindowScripts(files) {
 
 loadWindowScripts(["data/centers.js", "data/zips.js"]);
 
-const centers = globalThis.HEARTH_CENTERS || [];
-const zips = globalThis.HEARTH_ZIPS || {};
+const centers = globalThis.HEART_CENTERS || [];
+const zips = globalThis.HEART_ZIPS || {};
 
 if (!centers.length) {
-  console.error("FAIL: no HEARTH_CENTERS");
+  console.error("FAIL: no HEART_CENTERS");
   process.exit(1);
 }
 

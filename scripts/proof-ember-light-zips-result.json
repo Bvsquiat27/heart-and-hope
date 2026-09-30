@@ -1,7 +1,7 @@
 {
   "api": {
     "ok": true,
-    "service": "hearth-ember-api",
+    "service": "heart-ember-api",
     "version": "1.7.2",
     "host": "express-local",
     "endpoints": [

@@ -40,10 +40,10 @@ function haversineMiles(a, b) {
   return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 
-const zips = globalThis.HEARTH_ZIPS || {};
-const zc = globalThis.HEARTH_ZIP_COORDS || {};
-const filter = globalThis.HearthCentersFilter;
-let centers = globalThis.HEARTH_CENTERS || [];
+const zips = globalThis.HEART_ZIPS || {};
+const zc = globalThis.HEART_ZIP_COORDS || {};
+const filter = globalThis.HeartCentersFilter;
+let centers = globalThis.HEART_CENTERS || [];
 if (filter) centers = filter.filterLifeAffirming(centers);
 
 const zip = "10458";

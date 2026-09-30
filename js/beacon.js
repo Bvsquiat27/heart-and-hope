@@ -8,14 +8,14 @@
 (function () {
   "use strict";
 
-  var LS_ID = "hearth_beacon_id";
-  var LS_META = "hearth_beacon_meta";
-  var LS_SECRETS = "hearth_beacon_secrets";
-  var LS_NOTES_SEEN = "hearth_beacon_notes_seen";
+  var LS_ID = "heart_beacon_id";
+  var LS_META = "heart_beacon_meta";
+  var LS_SECRETS = "heart_beacon_secrets";
+  var LS_NOTES_SEEN = "heart_beacon_notes_seen";
   var MAX_NOTE = 180;
   var NOTES_POLL_MS = 8000;
   var notesPollTimer = null;
-  var EMBER_NOTE_NOTIF_TITLE = "Hearth & Hope";
+  var EMBER_NOTE_NOTIF_TITLE = "Heart & Hope";
   var EMBER_NOTE_NOTIF_BODY = "Someone left a note on your Ember";
   var mapRoot = null;
   var unsub = null;
@@ -71,7 +71,7 @@
   };
 
 
-  /* Affine fit: continental US lat/lng → HEARTH_US_STATES SVG space (overview only) */
+  /* Affine fit: continental US lat/lng → HEART_US_STATES SVG space (overview only) */
   var PROJ_X = [17.02288797798043, -0.7165883759352383, 2165.2810719993367];
   var PROJ_Y = [-0.3482647797506093, -25.130762061751128, 1228.373186375625];
 
@@ -113,11 +113,11 @@
   function $(id) { return document.getElementById(id); }
 
   function restBase() {
-    var c = window.HEARTH_FIREBASE;
+    var c = window.HEART_FIREBASE;
     return (c && c.restBaseUrl) ? String(c.restBaseUrl).replace(/\/$/, "") : "";
   }
   function isFirebaseReady() {
-    var c = window.HEARTH_FIREBASE;
+    var c = window.HEART_FIREBASE;
     return !!(c && c.configured && c.databaseURL && c.apiKey && window.firebase);
   }
   function isBackendReady() {
@@ -135,7 +135,7 @@
   }
 
   function haversineMiles(a, b) {
-    if (window.HearthGeo && HearthGeo.haversineMiles) return HearthGeo.haversineMiles(a, b);
+    if (window.HeartGeo && HeartGeo.haversineMiles) return HeartGeo.haversineMiles(a, b);
     var R = 3958.7613;
     var toRad = function (d) { return (d * Math.PI) / 180; };
     var dLat = toRad(b.lat - a.lat);
@@ -147,15 +147,15 @@
     return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
   }
 
-  /** Infer ST from ZIP prefix / coords via HearthGeo (PR/VI/GU/AS/MP). */
+  /** Infer ST from ZIP prefix / coords via HeartGeo (PR/VI/GU/AS/MP). */
   function inferTerritoryState(zip, lat, lng) {
-    if (window.HearthGeo) {
-      if (HearthGeo.territoryStateFromZip && zip) {
-        var ts = HearthGeo.territoryStateFromZip(String(zip).replace(/\D/g, "").slice(0, 5));
+    if (window.HeartGeo) {
+      if (HeartGeo.territoryStateFromZip && zip) {
+        var ts = HeartGeo.territoryStateFromZip(String(zip).replace(/\D/g, "").slice(0, 5));
         if (ts) return ts;
       }
-      if (HearthGeo.territoryStateFromCoords && lat != null) {
-        var tc = HearthGeo.territoryStateFromCoords(lat, lng);
+      if (HeartGeo.territoryStateFromCoords && lat != null) {
+        var tc = HeartGeo.territoryStateFromCoords(lat, lng);
         if (tc) return tc;
       }
     }
@@ -164,7 +164,7 @@
 
   /**
    * Resolve ZIP/city/geo → US state + coarse lat/lng for POST /beacons.
-   * Same ZIP resolve as Get Help (HEARTH_ZIPS → zip-coords → SCF), plus
+   * Same ZIP resolve as Get Help (HEART_ZIPS → zip-coords → SCF), plus
    * territory centroids so PR/HI/AK/GU/VI/AS/MP Light my Ember works.
    * Never invents coords; fuzz only. Dots-only map.
    */
@@ -186,10 +186,10 @@
 
     if (queryOrCoords && typeof queryOrCoords === "object" && queryOrCoords.lat != null) {
       var best = null, bestD = Infinity;
-      var zips = window.HEARTH_ZIPS || {};
+      var zips = window.HEART_ZIPS || {};
       var keys = Object.keys(zips);
-      if (!keys.length && window.HEARTH_ZIP_COORDS) {
-        var coords = window.HEARTH_ZIP_COORDS;
+      if (!keys.length && window.HEART_ZIP_COORDS) {
+        var coords = window.HEART_ZIP_COORDS;
         keys = Object.keys(coords);
         for (var i = 0; i < keys.length; i++) {
           var p = coords[keys[i]];
@@ -215,9 +215,9 @@
       if (best && best.zip && zips[best.zip]) {
         zLat = zips[best.zip].lat; zLng = zips[best.zip].lng;
         if (!best.state) best.state = zips[best.zip].state;
-      } else if (best && best.zip && window.HEARTH_ZIP_COORDS && window.HEARTH_ZIP_COORDS[best.zip]) {
-        zLat = window.HEARTH_ZIP_COORDS[best.zip][0];
-        zLng = window.HEARTH_ZIP_COORDS[best.zip][1];
+      } else if (best && best.zip && window.HEART_ZIP_COORDS && window.HEART_ZIP_COORDS[best.zip]) {
+        zLat = window.HEART_ZIP_COORDS[best.zip][0];
+        zLng = window.HEART_ZIP_COORDS[best.zip][1];
       }
       if (!best) return cb(new Error("Could not place you in a state. Enter a ZIP instead."));
       if (!best.state) best.state = inferTerritoryState(best.zip, zLat, zLng);
@@ -230,7 +230,7 @@
       return done(q.toUpperCase(), "");
     }
     var hit = null;
-    if (window.HearthGeo && HearthGeo.lookupZip) hit = HearthGeo.lookupZip(q);
+    if (window.HeartGeo && HeartGeo.lookupZip) hit = HeartGeo.lookupZip(q);
     if (hit && (hit.state || (hit.lat != null && hit.lng != null))) {
       var st = hit.state || inferTerritoryState(hit.zip, hit.lat, hit.lng);
       var hLat = hit.lat;
@@ -240,37 +240,37 @@
         var sc = STATE_CENTROID[String(st).toUpperCase()];
         if (sc) { hLat = sc[0]; hLng = sc[1]; }
       }
-      /* Coords present but still no state — nearest HEARTH_ZIPS by distance */
+      /* Coords present but still no state — nearest HEART_ZIPS by distance */
       if ((!st || !STATE_CENTROID[String(st).toUpperCase()]) && hLat != null && hLng != null &&
-          window.HearthGeo && HearthGeo.nearestZipByDistance) {
-        var nd = HearthGeo.nearestZipByDistance(hLat, hLng, window.HEARTH_ZIPS || {}, 200);
+          window.HeartGeo && HeartGeo.nearestZipByDistance) {
+        var nd = HeartGeo.nearestZipByDistance(hLat, hLng, window.HEART_ZIPS || {}, 200);
         if (nd && nd.rec && nd.rec.state) st = nd.rec.state;
       }
       if (st) return done(String(st).toUpperCase(), hit.zip || "", hLat, hLng);
     }
-    var zOnly = (window.HearthGeo && HearthGeo.normalizeZip)
-      ? HearthGeo.normalizeZip(q)
+    var zOnly = (window.HeartGeo && HeartGeo.normalizeZip)
+      ? HeartGeo.normalizeZip(q)
       : q.replace(/\D/g, "").slice(0, 5);
     if (/^\d{5}$/.test(zOnly)) {
-      /* Parity with Get Help: exact HEARTH_ZIPS → zip-coords → SCF neighbor */
-      if (window.HEARTH_ZIPS && window.HEARTH_ZIPS[zOnly]) {
-        var zz = window.HEARTH_ZIPS[zOnly];
+      /* Parity with Get Help: exact HEART_ZIPS → zip-coords → SCF neighbor */
+      if (window.HEART_ZIPS && window.HEART_ZIPS[zOnly]) {
+        var zz = window.HEART_ZIPS[zOnly];
         return done(String(zz.state).toUpperCase(), zOnly, zz.lat, zz.lng);
       }
-      if (window.HEARTH_ZIP_COORDS && window.HEARTH_ZIP_COORDS[zOnly]) {
-        var pair = window.HEARTH_ZIP_COORDS[zOnly];
+      if (window.HEART_ZIP_COORDS && window.HEART_ZIP_COORDS[zOnly]) {
+        var pair = window.HEART_ZIP_COORDS[zOnly];
         var clat = Array.isArray(pair) ? Number(pair[0]) : Number(pair.lat);
         var clng = Array.isArray(pair) ? Number(pair[1]) : Number(pair.lng);
         var junkC = !Number.isFinite(clat) || !Number.isFinite(clng) ||
           (Math.abs(clat) < 0.01 && Math.abs(clng) < 0.01);
         if (!junkC) {
           var cst = inferTerritoryState(zOnly, clat, clng);
-          if (!cst && window.HearthGeo && HearthGeo.nearestZipByPrefix) {
-            var near = HearthGeo.nearestZipByPrefix(zOnly, window.HEARTH_ZIPS || {});
+          if (!cst && window.HeartGeo && HeartGeo.nearestZipByPrefix) {
+            var near = HeartGeo.nearestZipByPrefix(zOnly, window.HEART_ZIPS || {});
             if (near && near.rec) cst = near.rec.state;
           }
-          if (!cst && window.HearthGeo && HearthGeo.nearestZipByDistance) {
-            var nd2 = HearthGeo.nearestZipByDistance(clat, clng, window.HEARTH_ZIPS || {}, 200);
+          if (!cst && window.HeartGeo && HeartGeo.nearestZipByDistance) {
+            var nd2 = HeartGeo.nearestZipByDistance(clat, clng, window.HEART_ZIPS || {}, 200);
             if (nd2 && nd2.rec) cst = nd2.rec.state;
           }
           if (cst) {
@@ -278,8 +278,8 @@
           }
         }
       }
-      if (window.HearthGeo && HearthGeo.nearestZipByPrefix) {
-        var scf = HearthGeo.nearestZipByPrefix(zOnly, window.HEARTH_ZIPS || {});
+      if (window.HeartGeo && HeartGeo.nearestZipByPrefix) {
+        var scf = HeartGeo.nearestZipByPrefix(zOnly, window.HEART_ZIPS || {});
         if (scf && scf.rec && scf.rec.state) {
           return done(String(scf.rec.state).toUpperCase(), zOnly, scf.rec.lat, scf.rec.lng);
         }
@@ -296,7 +296,7 @@
   function getDb() {
     if (!isFirebaseReady()) return null;
     try {
-      if (!firebase.apps.length) firebase.initializeApp(window.HEARTH_FIREBASE);
+      if (!firebase.apps.length) firebase.initializeApp(window.HEART_FIREBASE);
       return firebase.database();
     } catch (e) {
       console.warn("Firebase init", e);
@@ -412,8 +412,8 @@
 
   function softHaptic() {
     try {
-      if (window.HearthHaptics && typeof window.HearthHaptics.tap === "function") {
-        window.HearthHaptics.tap(14);
+      if (window.HeartHaptics && typeof window.HeartHaptics.tap === "function") {
+        window.HeartHaptics.tap(14);
       }
     } catch (e) {}
   }
@@ -425,7 +425,7 @@
     function viaPage() {
       try {
         if ("Notification" in window && Notification.permission === "granted") {
-          new Notification(title, { body: body, tag: "hearth-ember-note", silent: false });
+          new Notification(title, { body: body, tag: "heart-ember-note", silent: false });
         }
       } catch (e) {}
     }
@@ -436,7 +436,7 @@
           if (reg && typeof reg.showNotification === "function") {
             return reg.showNotification(title, {
               body: body,
-              tag: "hearth-ember-note",
+              tag: "heart-ember-note",
               renotify: true,
               silent: false,
               icon: "./icons/icon-192.png",
@@ -523,15 +523,15 @@
     pollOwnedNotesNotify();
     if (notesPollTimer) clearInterval(notesPollTimer);
     notesPollTimer = setInterval(pollOwnedNotesNotify, NOTES_POLL_MS);
-    window.__hearthNotesNotifyPoll = notesPollTimer;
+    window.__heartNotesNotifyPoll = notesPollTimer;
   }
 
   function stopNotesNotifyPoll() {
     if (notesPollTimer) clearInterval(notesPollTimer);
     notesPollTimer = null;
-    if (window.__hearthNotesNotifyPoll) {
-      clearInterval(window.__hearthNotesNotifyPoll);
-      window.__hearthNotesNotifyPoll = null;
+    if (window.__heartNotesNotifyPoll) {
+      clearInterval(window.__heartNotesNotifyPoll);
+      window.__heartNotesNotifyPoll = null;
     }
   }
 
@@ -551,7 +551,7 @@
   }
 
   function stateName(st) {
-    var data = window.HEARTH_US_STATES;
+    var data = window.HEART_US_STATES;
     if (data && data.names && data.names[st]) return data.names[st];
     if (TERRITORY_NAMES[st]) return TERRITORY_NAMES[st];
     return st;
@@ -588,7 +588,7 @@
   function initMap() {
     var el = $("beacon-map");
     if (!el || mapRoot) return;
-    var data = window.HEARTH_US_STATES;
+    var data = window.HEART_US_STATES;
     if (!data || !data.paths) {
       el.innerHTML = '<p class="ember-map-fallback">Night map loading…</p>';
       return;
@@ -910,8 +910,8 @@
         });
     }
     poll();
-    if (window.__hearthBeaconPoll) clearInterval(window.__hearthBeaconPoll);
-    window.__hearthBeaconPoll = setInterval(poll, 3500);
+    if (window.__heartBeaconPoll) clearInterval(window.__heartBeaconPoll);
+    window.__heartBeaconPoll = setInterval(poll, 3500);
   }
 
   function listenBeacons() {
@@ -977,7 +977,7 @@
           "Your ember is glowing near " + stateName(payload.state) +
           " for about " + hours + " hours — a soft golden light on the map, never your home."
         );
-        if (window.HearthSounds) HearthSounds.play("chime");
+        if (window.HeartSounds) HeartSounds.play("chime");
         requestEmberNotifPermission();
         /* optimistic local paint */
         var local = Object.assign({}, beaconsCache);
@@ -1133,7 +1133,7 @@
     function ok() {
       if (fb) fb.textContent = "Sent — thank you for the kindness.";
       if (ta) ta.value = "";
-      if (window.HearthSounds) HearthSounds.play("ping");
+      if (window.HeartSounds) HeartSounds.play("ping");
       panel.hidden = true;
     }
     function fail() {
@@ -1278,5 +1278,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
   else bind();
 
-  window.HearthBeacon = { filterNote: filterNote, onView: onView };
+  window.HeartBeacon = { filterNote: filterNote, onView: onView };
 })();

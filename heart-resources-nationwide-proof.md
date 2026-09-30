@@ -1,4 +1,4 @@
-# Hearth & Hope — Resources nationwide proof (v1.6.6)
+# Heart & Hope — Resources nationwide proof (v1.6.6)
 
 Shipped on top of v1.6.5 (Mother Mary footer preserved — no personal name in UI).
 
@@ -24,7 +24,7 @@ Notes: Only **VT +1** from verified Option Line data (`Futures Pregnancy Care`, 
 
 ## Abortion / PP exclusion proof
 - Runtime hard filter: `js/centers-filter.js` (wired before `app.js`; used by `getCenters()` for Directory + Get Help)
-- Build-time patterns expanded in `hearth-data/scripts/build-real-centers.py`
+- Build-time patterns expanded in `heart-data/scripts/build-real-centers.py`
 - CI check: `scripts/verify-no-abortion.mjs` → 0 excludes; recovery + abortion pill reversal allowed
 - Name/service scan: Planned Parenthood / abortion clinic providers → **0**; recovery support retained
 
@@ -44,4 +44,4 @@ Current Workers/Express API already sends `Access-Control-Allow-Origin: *`, whic
 Unchanged from v1.6.5: **Dedicated to the Mother Mary** (no Angel/Feliciano name in UI).
 
 ## Pages
-https://bvsquiat27.github.io/hearth-and-hope/
+https://bvsquiat27.github.io/heart-and-hope/

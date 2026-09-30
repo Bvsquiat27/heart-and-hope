@@ -119,8 +119,8 @@ load([
   "js/app.js",
 ]);
 
-if (!window.HearthHelp || typeof window.HearthHelp.rankCenters !== "function") {
-  console.error("FAIL: HearthHelp.rankCenters not available");
+if (!window.HeartHelp || typeof window.HeartHelp.rankCenters !== "function") {
+  console.error("FAIL: HeartHelp.rankCenters not available");
   process.exit(1);
 }
 
@@ -152,8 +152,8 @@ console.log("=== Get Help nationwide rankCenters proof ===\n");
 
 for (const spec of REQUIRED) {
   const { zip, expectState, region, maxMi } = spec;
-  const typed = window.HearthHelp.rankCenters(zip, [], { limit: 10, geo: null });
-  const gpsMode = window.HearthHelp.rankCenters("", [], { limit: 10, geo: STALE_GPS });
+  const typed = window.HeartHelp.rankCenters(zip, [], { limit: 10, geo: null });
+  const gpsMode = window.HeartHelp.rankCenters("", [], { limit: 10, geo: STALE_GPS });
   const top = locals(typed.items);
   const t0 = top[0];
   const resolved = typed.resolved;
@@ -211,7 +211,7 @@ for (const spec of REQUIRED) {
 
 // Bare Dallas → TX
 {
-  const r = window.HearthHelp.rankCenters("Dallas", [], { limit: 5, geo: null });
+  const r = window.HeartHelp.rankCenters("Dallas", [], { limit: 5, geo: null });
   const ok = r.resolved && r.resolved.state === "TX" && locals(r.items)[0]?.state === "TX";
   console.log(`${ok ? "PASS" : "FAIL"} bare city Dallas → ${r.resolved?.city}, ${r.resolved?.state} #1 ${locals(r.items)[0]?.city}, ${locals(r.items)[0]?.state}`);
   rows.push({
@@ -226,7 +226,7 @@ for (const spec of REQUIRED) {
 
 // PR nationals-first
 for (const z of ["00601", "00602", "00901", "00725"]) {
-  const r = window.HearthHelp.rankCenters(z, [], { limit: 8, geo: null });
+  const r = window.HeartHelp.rankCenters(z, [], { limit: 8, geo: null });
   const items = r.items || [];
   const first = items[0];
   const localNear = locals(items).filter((c) => isFinite(c._dist) && c._dist <= 100);
@@ -265,7 +265,7 @@ const noSuppliesFallback = !/diapers:\s*\[[^\]]*supplies/.test(appSrc);
 console.log(exactDiapers && noSuppliesFallback ? "PASS NEED_ALIASES diapers exact (no supplies fallback)" : "FAIL NEED_ALIASES");
 if (!exactDiapers || !noSuppliesFallback) failed = true;
 
-const centers = window.HEARTH_CENTERS || [];
+const centers = window.HEART_CENTERS || [];
 const diaperNeedCount = centers.filter((c) => (c.needs || []).includes("diapers")).length;
 console.log(`centers with needs.diapers: ${diaperNeedCount} ${diaperNeedCount < 50 ? "PASS" : "FAIL"}`);
 if (diaperNeedCount >= 50) failed = true;
@@ -273,9 +273,9 @@ if (diaperNeedCount >= 50) failed = true;
 
 // Residual: bare las vegas → NV (major metro Low); "las vegas nm" / 87701 → NM Care Net
 {
-  const bare = window.HearthHelp.rankCenters("las vegas", [], { limit: 3, geo: null });
-  const nmQ = window.HearthHelp.rankCenters("las vegas nm", [], { limit: 5, geo: null });
-  const zip = window.HearthHelp.rankCenters("87701", [], { limit: 5, geo: null });
+  const bare = window.HeartHelp.rankCenters("las vegas", [], { limit: 3, geo: null });
+  const nmQ = window.HeartHelp.rankCenters("las vegas nm", [], { limit: 5, geo: null });
+  const zip = window.HeartHelp.rankCenters("87701", [], { limit: 5, geo: null });
   const bareSt = bare.resolved && bare.resolved.state;
   const nmSt = nmQ.resolved && nmQ.resolved.state;
   const zipSt = zip.resolved && zip.resolved.state;

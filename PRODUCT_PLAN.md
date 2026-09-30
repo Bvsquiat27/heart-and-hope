@@ -1,6 +1,6 @@
-# Hearth & Hope — Product Plan
+# Heart & Hope — Product Plan
 
-**Working title for prototype:** Hearth & Hope  
+**Working title for prototype:** Heart & Hope  
 **Audience:** New and expecting mothers seeking practical resources, information, and warm, dignifying aid  
 **Framing:** Explicitly pro-life / Christian-encouraging (“supports life as Christ intended”) while never treating women as bad people — brave, valued, not alone  
 **Owner / stakeholder:** Angel Feliciano  
@@ -11,17 +11,17 @@
 
 | Option | Feel | Notes |
 |--------|------|--------|
-| **Hearth & Hope** *(chosen)* | Warm home + forward-looking hope | Clear, memorable, non-clinical |
+| **Heart & Hope** *(chosen)* | Warm home + forward-looking hope | Clear, memorable, non-clinical |
 | Beacon for Moms | Guidance / light | Strong “find help” metaphor |
 | GracePath | Faith + journey | Softer faith cue; good for later branding |
 
-**Prototype uses:** Hearth & Hope.
+**Prototype uses:** Heart & Hope.
 
 ---
 
 ## 2. Vision & positioning
 
-Hearth & Hope is a quiet, caring companion for women who are pregnant or newly parenting. It offers:
+Heart & Hope is a quiet, caring companion for women who are pregnant or newly parenting. It offers:
 
 - Trustworthy, non-medical educational resources
 - A curated directory of pro-life–aligned local help (pregnancy centers, maternity homes, churches, food/housing/financial aid)
@@ -112,7 +112,7 @@ It is **not** a clinic, a political campaign site, or a substitute for emergency
 - Situation tags she selected  
 - Her short message  
 - Optional church preference  
-- Note that she asked Hearth & Hope to reach out  
+- Note that she asked Heart & Hope to reach out  
 
 ### What does **not** get sent
 - Storage of her data on a server (MVP has none)
@@ -178,7 +178,7 @@ Mobile-first; soft blues / creams / greens; accessible contrast and focus states
 | Directory | Same partner API as Phase 3; client filters + geo; shared exclude-list tests |
 | Get Help | Same consent fields + message templates; native opens `mailto:` / `sms:` or calls Phase 2 backend |
 | Offline | Mirror PWA: cache last-fetched resource/directory packs; never fabricate medical content |
-| Branding | Shared icons, colors (cream / soft blue / sage), and “Hearth & Hope” naming |
+| Branding | Shared icons, colors (cream / soft blue / sage), and “Heart & Hope” naming |
 
 #### Store requirements (high level)
 - **Apple App Store:** Privacy Nutrition Labels; account deletion if accounts exist; medical disclaimer copy; no “diagnosis” claims; Age Rating; HTTPS APIs; Sign in with Apple if other social logins appear

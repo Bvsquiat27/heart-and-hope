@@ -1,6 +1,6 @@
 /**
- * Hearth & Hope geo helpers — pure functions for ZIP/city → nearest centers.
- * Depends on window.HEARTH_ZIPS / HEARTH_CITIES (data/zips.js) and HEARTH_CENTERS.
+ * Heart & Hope geo helpers — pure functions for ZIP/city → nearest centers.
+ * Depends on window.HEART_ZIPS / HEART_CITIES (data/zips.js) and HEART_CENTERS.
  */
 (function (w) {
   "use strict";
@@ -31,7 +31,7 @@
   }
 
   /**
-   * USPS ZIP → territory ST when HEARTH_ZIPS has no row (PR/VI/GU/AS/MP).
+   * USPS ZIP → territory ST when HEART_ZIPS has no row (PR/VI/GU/AS/MP).
    * Uses official ZIP ranges only — never invents coords.
    */
   function territoryStateFromZip(zipOnly) {
@@ -66,7 +66,7 @@
     return null;
   }
 
-  /** When SCF prefix misses (unique/PO Box SCFs absent from HEARTH_ZIPS), enrich state by nearest centroid. */
+  /** When SCF prefix misses (unique/PO Box SCFs absent from HEART_ZIPS), enrich state by nearest centroid. */
   function nearestZipByDistance(lat, lng, zips, maxMiles) {
     maxMiles = maxMiles == null ? 200 : maxMiles;
     var best = null, bestD = Infinity;
@@ -85,7 +85,7 @@
   }
 
   /**
-   * Among HEARTH_ZIPS keys sharing prefix, pick closest numeric ZIP to target.
+   * Among HEART_ZIPS keys sharing prefix, pick closest numeric ZIP to target.
    * Tries 4-digit then 3-digit (SCF). Returns {key, rec} or null.
    */
   function nearestZipByPrefix(zipOnly, zips) {
@@ -115,16 +115,16 @@
   /**
    * Resolve a query string (ZIP, "City, ST", or "City ST") to
    * {lat,lng,city,state,zip, matchedZip?}.
-   * For PO Box / unique ZIPs missing from HEARTH_ZIPS, falls back to nearest
+   * For PO Box / unique ZIPs missing from HEART_ZIPS, falls back to nearest
    * 4-digit then 3-digit (SCF) neighbor. `.zip` stays the user-typed ZIP;
    * `.matchedZip` is the centroid ZIP actually used when they differ.
    */
   function lookupZip(query) {
     var q = (query || "").trim();
     if (!q) return null;
-    var zips = w.HEARTH_ZIPS || {};
-    var cities = w.HEARTH_CITIES || {};
-    var zipCoords = w.HEARTH_ZIP_COORDS || {};
+    var zips = w.HEART_ZIPS || {};
+    var cities = w.HEART_CITIES || {};
+    var zipCoords = w.HEART_ZIP_COORDS || {};
 
     var zipOnly = normalizeZip(q);
     if (/^\d{5}$/.test(zipOnly)) {
@@ -133,7 +133,7 @@
         return { lat: z.lat, lng: z.lng, city: z.city, state: z.state, zip: zipOnly };
       }
 
-      // Exact miss in HEARTH_ZIPS: prefer zip-coords centroid when present,
+      // Exact miss in HEART_ZIPS: prefer zip-coords centroid when present,
       // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng.
       var near = nearestZipByPrefix(zipOnly, zips);
       var terrZip = territoryStateFromZip(zipOnly);
@@ -289,13 +289,13 @@
   /**
    * Return centers sorted by distance to query.
    * @param {string|object} query ZIP/city string or {lat,lng}
-   * @param {array} centers HEARTH_CENTERS
+   * @param {array} centers HEART_CENTERS
    * @param {{limit?:number, needs?:string[], maxMiles?:number}} opts
    */
   function nearestCenters(query, centers, opts) {
     opts = opts || {};
     var limit = opts.limit != null ? opts.limit : 10;
-    var list = centers || w.HEARTH_CENTERS || [];
+    var list = centers || w.HEART_CENTERS || [];
     var origin =
       query && typeof query === "object" && query.lat != null
         ? query
@@ -352,7 +352,7 @@
     return out;
   }
 
-  w.HearthGeo = {
+  w.HeartGeo = {
     haversineMiles: haversineMiles,
     lookupZip: lookupZip,
     nearestCenters: nearestCenters,
