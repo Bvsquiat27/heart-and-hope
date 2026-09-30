@@ -31,6 +31,60 @@
   }
 
   /**
+   * USPS ZIP → territory ST when HEARTH_ZIPS has no row (PR/VI/GU/AS/MP).
+   * Uses official ZIP ranges only — never invents coords.
+   */
+  function territoryStateFromZip(zipOnly) {
+    if (!/^\d{5}$/.test(zipOnly)) return null;
+    if (zipOnly === "96799") return "AS";
+    var p3 = zipOnly.slice(0, 3);
+    if (p3 === "006" || p3 === "007" || p3 === "009") return "PR";
+    if (p3 === "008") return "VI";
+    if (p3 === "969") {
+      var n = parseInt(zipOnly, 10);
+      if (n >= 96950 && n <= 96952) return "MP";
+      if (n >= 96910 && n <= 96932) return "GU";
+      return "GU";
+    }
+    return null;
+  }
+
+  /** Coarse bbox → territory when coords exist but SCF neighbor/state missing. */
+  function territoryStateFromCoords(lat, lng) {
+    lat = Number(lat); lng = Number(lng);
+    if (!isFinite(lat) || !isFinite(lng)) return null;
+    /* PR + VI Caribbean */
+    if (lat >= 17.5 && lat <= 18.6 && lng >= -68.2 && lng <= -64.4) {
+      return lng > -65.1 ? "VI" : "PR";
+    }
+    /* Guam / Northern Mariana (east longitude) */
+    if (lat >= 13.0 && lat <= 15.5 && lng >= 144.0 && lng <= 146.2) {
+      return lat >= 14.5 ? "MP" : "GU";
+    }
+    /* American Samoa */
+    if (lat >= -14.7 && lat <= -13.9 && lng >= -171.2 && lng <= -169.2) return "AS";
+    return null;
+  }
+
+  /** When SCF prefix misses (unique/PO Box SCFs absent from HEARTH_ZIPS), enrich state by nearest centroid. */
+  function nearestZipByDistance(lat, lng, zips, maxMiles) {
+    maxMiles = maxMiles == null ? 200 : maxMiles;
+    var best = null, bestD = Infinity;
+    for (var zk in zips) {
+      if (!Object.prototype.hasOwnProperty.call(zips, zk)) continue;
+      var rec = zips[zk];
+      if (!rec || rec.lat == null || rec.lng == null || !rec.state) continue;
+      var d = haversineMiles({ lat: lat, lng: lng }, rec);
+      if (d < bestD) {
+        bestD = d;
+        best = { key: zk, rec: rec, miles: d };
+      }
+    }
+    if (best && best.miles <= maxMiles) return best;
+    return null;
+  }
+
+  /**
    * Among HEARTH_ZIPS keys sharing prefix, pick closest numeric ZIP to target.
    * Tries 4-digit then 3-digit (SCF). Returns {key, rec} or null.
    */
@@ -82,17 +136,38 @@
       // Exact miss in HEARTH_ZIPS: prefer zip-coords centroid when present,
       // enrich city/state from nearest SCF neighbor; else use neighbor lat/lng.
       var near = nearestZipByPrefix(zipOnly, zips);
+      var terrZip = territoryStateFromZip(zipOnly);
       if (zipCoords[zipOnly]) {
         var pair = zipCoords[zipOnly];
-        var lat = Array.isArray(pair) ? pair[0] : pair.lat;
-        var lng = Array.isArray(pair) ? pair[1] : pair.lng;
-        if (lat != null && lng != null) {
+        var lat = Array.isArray(pair) ? Number(pair[0]) : Number(pair.lat);
+        var lng = Array.isArray(pair) ? Number(pair[1]) : Number(pair.lng);
+        /* Reject placeholder (0,0) — fail closed / fall through, never wrong state */
+        var junk = !Number.isFinite(lat) || !Number.isFinite(lng) ||
+          (Math.abs(lat) < 0.01 && Math.abs(lng) < 0.01);
+        if (!junk) {
           var city = near ? near.rec.city : null;
           var state = near ? near.rec.state : null;
-          if (!state && lat >= 17.5 && lat <= 18.6 && lng >= -67.5 && lng <= -65.0) {
-            city = city || "Puerto Rico";
-            state = "PR";
+          /* Territory ZIP ranges win over mainland SCF neighbor (e.g. do not paint AS as HI) */
+          if (terrZip) {
+            state = terrZip;
+            city = null;
           }
+          if (!state) {
+            state = territoryStateFromCoords(lat, lng);
+          }
+          if (!state) {
+            var byDist = nearestZipByDistance(lat, lng, zips, 200);
+            if (byDist) {
+              city = byDist.rec.city;
+              state = byDist.rec.state;
+              near = byDist;
+            }
+          }
+          if (state === "PR") city = city || "Puerto Rico";
+          else if (state === "VI") city = city || "Virgin Islands";
+          else if (state === "GU") city = city || "Guam";
+          else if (state === "MP") city = city || "Northern Mariana Islands";
+          else if (state === "AS") city = city || "American Samoa";
           return {
             lat: lat,
             lng: lng,
@@ -103,6 +178,18 @@
           };
         }
       }
+      /* Territory-only ZIP (e.g. 96799 AS) — state without inventing mainland SCF coords */
+      if (terrZip && (!near || near.rec.state !== terrZip)) {
+        return {
+          lat: null,
+          lng: null,
+          city: null,
+          state: terrZip,
+          zip: zipOnly,
+          matchedZip: null,
+          needsCentroid: true
+        };
+      }
       if (near) {
         return {
           lat: near.rec.lat,
@@ -111,6 +198,17 @@
           state: near.rec.state,
           zip: zipOnly,
           matchedZip: near.key
+        };
+      }
+      if (terrZip) {
+        return {
+          lat: null,
+          lng: null,
+          city: null,
+          state: terrZip,
+          zip: zipOnly,
+          matchedZip: null,
+          needsCentroid: true
         };
       }
       // Valid 5-digit with no SCF neighbor in DB — fail closed (no city parse)
@@ -259,5 +357,9 @@
     lookupZip: lookupZip,
     nearestCenters: nearestCenters,
     normalizeZip: normalizeZip,
+    nearestZipByPrefix: nearestZipByPrefix,
+    nearestZipByDistance: nearestZipByDistance,
+    territoryStateFromZip: territoryStateFromZip,
+    territoryStateFromCoords: territoryStateFromCoords
   };
 })(typeof window !== "undefined" ? window : globalThis);
