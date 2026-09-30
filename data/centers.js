@@ -7,6 +7,7 @@
  * National helplines retained. Runtime filter: js/centers-filter.js.
  * See hearth-data/README.md for source notes.
  * 2026-09-23 directory fix: C1 Las Vegas NM geo; ZIP↔state mismatches; needs tags.
+ * 2026-09-30 honesty: strip invented diapers/formula/clothes; exact ultrasound/mentor/supplies/food.
  */
 window.HEARTH_CENTERS = [
   {
@@ -29,10 +30,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67,11 +65,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -102,10 +97,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -136,7 +128,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
       "diapers",
       "expecting",
@@ -173,11 +164,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -210,11 +198,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -276,11 +261,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -341,11 +323,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -379,11 +358,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -441,11 +417,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -480,10 +453,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -518,11 +488,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -558,11 +525,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -597,11 +561,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -636,11 +597,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -675,11 +633,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -715,10 +670,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -754,10 +706,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -794,11 +743,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -831,11 +777,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -870,11 +813,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -910,11 +850,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -984,11 +921,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1023,11 +957,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -1062,11 +993,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1101,10 +1029,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1140,11 +1065,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1180,11 +1102,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1219,11 +1138,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1344,10 +1260,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -1401,10 +1314,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -1464,11 +1374,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -1498,10 +1405,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -1535,11 +1439,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1572,11 +1473,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1647,11 +1545,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1681,9 +1576,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -1715,11 +1607,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1753,11 +1642,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1792,10 +1678,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1831,11 +1714,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -1871,11 +1751,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1944,11 +1821,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -1983,11 +1857,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2020,11 +1891,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2094,10 +1962,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2134,10 +1999,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2173,11 +2035,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2211,11 +2070,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2248,11 +2104,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2285,11 +2138,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2324,10 +2174,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2363,10 +2210,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2402,10 +2246,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2441,11 +2282,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2481,10 +2319,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2518,11 +2353,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2556,11 +2388,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2629,10 +2458,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2668,10 +2494,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2708,10 +2531,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2747,11 +2567,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2786,10 +2603,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2917,10 +2731,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -2956,11 +2767,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -2995,10 +2803,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3031,10 +2836,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3159,10 +2961,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3198,10 +2997,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3273,10 +3069,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3372,11 +3165,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3411,10 +3201,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3451,10 +3238,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3518,11 +3302,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -3555,10 +3336,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3592,11 +3370,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3628,10 +3403,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3666,11 +3438,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3705,10 +3474,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3800,10 +3566,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3839,10 +3602,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -3878,11 +3638,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3917,11 +3674,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -3954,11 +3708,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -3993,10 +3744,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4032,10 +3780,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4071,10 +3816,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4110,11 +3852,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4180,10 +3919,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4214,10 +3950,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4248,11 +3981,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4285,11 +4015,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4325,11 +4052,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -4364,10 +4088,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4403,10 +4124,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4442,11 +4160,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4481,10 +4196,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4517,10 +4229,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4554,10 +4263,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4592,11 +4298,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4631,11 +4334,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4669,10 +4369,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4707,11 +4404,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4772,10 +4466,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4810,11 +4501,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4850,11 +4538,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4883,11 +4568,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4920,11 +4602,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -4958,11 +4637,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -4998,11 +4674,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -5036,10 +4709,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5074,10 +4744,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -5113,11 +4780,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5151,11 +4815,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -5191,10 +4852,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -5226,10 +4884,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5263,11 +4918,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5302,11 +4954,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5340,11 +4989,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5411,11 +5057,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5449,11 +5092,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5487,11 +5127,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5525,11 +5162,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5561,11 +5195,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5600,11 +5231,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -5638,11 +5266,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -5677,10 +5302,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -5713,11 +5335,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -5748,10 +5367,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -5785,11 +5401,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -5821,11 +5434,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5857,10 +5467,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5891,11 +5498,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -5929,11 +5533,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -5966,11 +5567,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6041,11 +5639,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -6114,11 +5709,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6153,11 +5745,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6191,10 +5780,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6229,11 +5815,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6266,11 +5849,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6336,10 +5916,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -6372,11 +5949,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6407,10 +5981,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -6528,10 +6099,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6567,10 +6135,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6600,11 +6165,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -6700,11 +6262,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -6812,11 +6371,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6852,10 +6408,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6891,10 +6444,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6960,10 +6510,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -6999,11 +6546,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7038,11 +6582,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7077,11 +6618,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7116,10 +6654,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7156,11 +6691,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7195,10 +6727,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7234,10 +6763,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7272,10 +6798,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7309,10 +6832,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7346,11 +6866,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7386,10 +6903,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7421,10 +6935,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -7458,10 +6969,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7492,10 +7000,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -7527,10 +7032,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7563,10 +7065,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7599,10 +7098,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7638,10 +7134,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7702,10 +7195,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7740,11 +7230,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -7778,10 +7265,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7887,10 +7371,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7924,10 +7405,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -7987,11 +7465,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -8026,10 +7501,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8101,11 +7573,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8167,10 +7636,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -8228,11 +7694,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -8263,11 +7726,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -8302,11 +7762,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -8337,10 +7794,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -8368,9 +7822,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -8399,11 +7850,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -8437,11 +7885,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8477,11 +7922,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8517,10 +7959,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8551,10 +7990,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -8588,11 +8024,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8628,10 +8061,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8666,10 +8096,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -8704,11 +8131,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -8740,11 +8164,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -8773,10 +8194,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -8809,11 +8227,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -8876,11 +8291,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -8914,11 +8326,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -8953,11 +8362,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9015,11 +8421,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9083,10 +8486,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9147,10 +8547,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9184,11 +8581,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9224,11 +8618,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -9263,11 +8654,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9302,11 +8690,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9339,10 +8724,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9374,11 +8756,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -9412,11 +8791,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9450,11 +8826,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9490,11 +8863,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9528,11 +8898,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9567,10 +8934,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9606,11 +8970,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9644,11 +9005,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9682,11 +9040,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9720,11 +9075,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9758,10 +9110,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9797,10 +9146,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9836,10 +9182,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9873,10 +9216,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9910,11 +9250,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -9950,11 +9287,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -9985,10 +9319,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -10023,10 +9354,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -10061,10 +9389,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10100,10 +9425,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10139,10 +9461,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10177,10 +9496,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -10215,11 +9531,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10253,11 +9566,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10292,11 +9602,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10331,10 +9638,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10370,10 +9674,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10409,11 +9710,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10449,10 +9747,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10488,10 +9783,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10526,11 +9818,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10594,10 +9883,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10634,11 +9920,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -10767,11 +10050,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10805,11 +10085,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -10843,11 +10120,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10882,11 +10156,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10921,10 +10192,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10959,11 +10227,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -10997,10 +10262,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11036,10 +10298,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11075,10 +10334,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11114,10 +10370,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11153,10 +10406,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11192,10 +10442,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11231,10 +10478,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11270,10 +10514,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11309,10 +10550,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -11347,10 +10585,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -11384,11 +10619,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -11423,10 +10655,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -11462,11 +10691,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -11495,9 +10721,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -11526,10 +10749,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -11560,10 +10780,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -11628,10 +10845,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11666,11 +10880,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11706,10 +10917,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11743,11 +10951,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -11780,11 +10985,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -11812,10 +11014,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -11844,11 +11043,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -11879,10 +11075,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11916,10 +11109,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11955,10 +11145,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -11994,11 +11181,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -12069,10 +11253,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -12104,10 +11285,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -12176,11 +11354,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -12215,10 +11390,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -12254,11 +11426,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -12327,10 +11496,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -12364,11 +11530,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -12488,11 +11651,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -12526,11 +11686,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -12566,10 +11723,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -12598,10 +11752,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -12634,11 +11785,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -12702,9 +11850,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -12737,11 +11882,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -12776,10 +11918,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -12851,10 +11990,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13089,10 +12225,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13127,10 +12260,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13165,11 +12295,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13204,11 +12331,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13242,11 +12366,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -13305,11 +12426,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -13342,11 +12460,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13381,11 +12496,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13419,10 +12531,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13458,11 +12567,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13495,11 +12601,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13562,11 +12665,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13635,11 +12735,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13673,11 +12770,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -13712,11 +12806,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -13743,10 +12834,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -13776,11 +12864,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -13849,10 +12934,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13888,10 +12970,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13927,10 +13006,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -13966,11 +13042,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -14005,10 +13078,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14044,11 +13114,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14083,10 +13150,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14121,11 +13185,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14160,11 +13221,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14197,11 +13255,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -14228,10 +13283,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -14264,10 +13316,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14303,11 +13352,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14339,11 +13385,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14373,10 +13416,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14409,10 +13449,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14447,11 +13484,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14520,10 +13554,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -14589,11 +13620,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14629,11 +13657,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14669,10 +13694,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14708,11 +13730,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14748,10 +13767,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14780,10 +13796,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -14852,10 +13865,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14890,11 +13900,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14930,11 +13937,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -14969,11 +13973,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -15050,11 +14051,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -15084,10 +14082,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -15116,10 +14111,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -15176,10 +14168,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -15210,11 +14199,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -15314,10 +14300,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15352,10 +14335,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15390,10 +14370,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15428,10 +14405,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15466,10 +14440,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -15502,10 +14473,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -15537,10 +14505,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15641,10 +14606,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -15677,10 +14639,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15716,10 +14675,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15755,10 +14711,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15794,10 +14747,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15860,11 +14810,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15928,10 +14875,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -15967,11 +14911,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16004,11 +14945,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16035,10 +14973,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -16069,10 +15004,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16108,10 +15040,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16147,10 +15076,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16186,10 +15112,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16225,10 +15148,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16264,10 +15184,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16303,10 +15220,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16339,11 +15253,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -16414,11 +15325,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -16453,11 +15361,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16493,11 +15398,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16532,11 +15434,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16571,11 +15470,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16610,11 +15506,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -16644,10 +15537,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -16676,9 +15566,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -16713,11 +15600,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -16819,11 +15703,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -16891,11 +15772,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -16929,11 +15807,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -16994,11 +15869,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17062,11 +15934,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17102,11 +15971,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17141,11 +16007,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17180,11 +16043,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17254,11 +16114,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -17287,9 +16144,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -17322,11 +16176,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17361,11 +16212,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17398,10 +16246,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17435,10 +16280,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17510,10 +16352,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17549,11 +16388,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17587,11 +16423,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -17620,10 +16453,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -17649,9 +16479,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -17681,11 +16508,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -17713,10 +16537,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -17810,11 +16631,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17849,11 +16667,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -17888,10 +16703,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17927,10 +16739,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -17966,10 +16775,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18005,10 +16811,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18043,11 +16846,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -18145,10 +16945,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -18273,11 +17070,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18313,10 +17107,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18352,11 +17143,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -18391,11 +17179,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18433,11 +17218,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18472,10 +17254,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18511,11 +17290,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -18550,10 +17326,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18625,11 +17398,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -18696,10 +17466,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18767,10 +17534,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18803,10 +17567,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -18840,11 +17601,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -18894,9 +17652,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -18929,10 +17684,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -18968,10 +17720,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19007,10 +17756,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19039,10 +17785,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -19074,11 +17817,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -19112,10 +17852,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -19148,10 +17885,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -19183,10 +17917,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -19220,10 +17951,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19257,11 +17985,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -19296,11 +18021,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19330,10 +18052,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -19365,10 +18084,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19401,11 +18117,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -19439,11 +18152,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19477,11 +18187,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -19516,10 +18223,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19584,11 +18288,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19624,10 +18325,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -19661,10 +18359,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -19697,11 +18392,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -19733,11 +18425,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -19768,11 +18457,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -19801,11 +18487,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -19838,11 +18521,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -19939,11 +18619,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -19978,11 +18655,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20014,10 +18688,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20048,11 +18719,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20085,11 +18753,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -20148,11 +18813,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -20187,11 +18849,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20226,11 +18885,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20265,10 +18921,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20304,11 +18957,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20343,10 +18993,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20443,10 +19090,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20482,10 +19126,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20550,11 +19191,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20590,10 +19228,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20629,10 +19264,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20668,11 +19300,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20743,10 +19372,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20781,11 +19407,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20820,11 +19443,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -20858,10 +19478,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -20896,10 +19513,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -20934,11 +19548,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21009,10 +19620,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21045,11 +19653,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21085,11 +19690,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21151,11 +19753,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -21188,11 +19787,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -21224,10 +19820,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -21261,10 +19854,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21292,10 +19882,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -21328,11 +19915,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21391,11 +19975,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21429,11 +20010,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21467,11 +20045,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21506,11 +20081,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21541,10 +20113,7 @@ window.HEARTH_CENTERS = [
       "abortion recovery support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -21577,10 +20146,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -21648,10 +20214,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21687,11 +20250,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21750,11 +20310,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21789,11 +20346,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21829,11 +20383,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -21868,11 +20419,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21906,11 +20454,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -21939,10 +20484,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -21971,10 +20513,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -22044,11 +20583,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22080,11 +20616,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -22118,10 +20651,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22157,10 +20687,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22196,10 +20723,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22262,11 +20786,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22302,11 +20823,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -22341,10 +20859,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22372,10 +20887,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -22437,9 +20949,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -22469,10 +20978,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -22506,11 +21012,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22573,10 +21076,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -22609,11 +21109,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22648,11 +21145,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -22688,11 +21182,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -22723,11 +21214,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -22758,11 +21246,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -22793,11 +21278,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -22828,10 +21310,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -22892,11 +21371,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -22960,11 +21436,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -22998,10 +21471,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23072,10 +21542,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23111,10 +21578,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23179,11 +21643,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23248,10 +21709,7 @@ window.HEARTH_CENTERS = [
       "abortion recovery support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -23285,10 +21743,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23520,10 +21975,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23556,11 +22008,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -23595,10 +22044,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23634,11 +22080,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -23733,10 +22176,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23773,11 +22213,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -23812,11 +22249,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -23851,11 +22285,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -23890,10 +22321,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24022,10 +22450,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24061,10 +22486,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24100,10 +22522,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24133,10 +22552,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -24171,10 +22587,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -24202,9 +22615,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -24235,11 +22645,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -24273,10 +22680,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24309,11 +22713,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -24347,11 +22748,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -24383,10 +22781,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -24418,10 +22813,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -24455,11 +22847,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24493,11 +22882,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -24532,10 +22918,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24601,10 +22984,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -24638,10 +23018,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -24677,10 +23054,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -24713,10 +23087,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -24835,11 +23206,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -24870,10 +23238,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -24907,11 +23272,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -24944,10 +23306,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -24981,11 +23340,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25022,11 +23378,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -25062,10 +23415,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25101,10 +23451,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25140,10 +23487,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25208,11 +23552,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25243,10 +23584,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -25279,10 +23617,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25312,10 +23647,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -25348,11 +23680,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -25387,11 +23716,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25427,11 +23753,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -25465,10 +23788,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -25503,10 +23823,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -25542,10 +23859,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -25576,10 +23890,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -25642,11 +23953,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -25681,10 +23989,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -25792,10 +24097,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -25824,10 +24126,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -25860,10 +24159,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -26048,11 +24344,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26086,11 +24379,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26125,11 +24415,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26164,11 +24451,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26199,10 +24483,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26234,10 +24515,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26272,11 +24550,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26308,10 +24583,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -26343,11 +24615,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -26381,10 +24650,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -26420,10 +24686,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26459,11 +24722,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26500,10 +24760,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26539,11 +24796,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26579,10 +24833,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26673,11 +24924,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26705,10 +24953,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -26741,11 +24986,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26774,10 +25016,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -26810,11 +25049,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26849,11 +25085,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26914,10 +25147,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -26950,11 +25180,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -26989,11 +25216,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27027,11 +25251,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27066,11 +25287,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -27105,10 +25323,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27144,10 +25359,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27184,11 +25396,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27223,11 +25432,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27260,11 +25466,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27299,10 +25502,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27338,11 +25538,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27377,10 +25574,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27416,11 +25610,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27454,11 +25645,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27493,11 +25681,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27531,10 +25716,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27569,11 +25751,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27643,10 +25822,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27677,10 +25853,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -27706,10 +25879,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -27742,10 +25912,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27781,10 +25948,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27820,10 +25984,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -27860,10 +26021,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -27930,11 +26088,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -27967,10 +26122,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -28032,10 +26184,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -28067,10 +26216,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28104,11 +26250,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -28179,11 +26322,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -28217,10 +26357,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28284,10 +26421,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -28320,11 +26454,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28360,10 +26491,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28449,10 +26577,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28510,10 +26635,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28549,11 +26671,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28587,11 +26706,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -28623,11 +26739,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -28658,11 +26771,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -28724,11 +26834,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -28763,10 +26870,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28802,10 +26906,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -28838,11 +26939,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -28907,11 +27005,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -28973,11 +27068,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -29010,11 +27102,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29050,11 +27139,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29090,11 +27176,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29123,10 +27206,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -29152,10 +27232,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -29188,10 +27265,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -29480,11 +27554,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -29519,11 +27590,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29557,11 +27625,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29595,11 +27660,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -29633,11 +27695,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29673,10 +27732,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29712,10 +27768,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29751,11 +27804,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -29790,10 +27840,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29829,10 +27876,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29868,10 +27912,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29907,10 +27948,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29946,10 +27984,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -29985,10 +28020,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30024,10 +28056,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30088,11 +28117,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30127,10 +28153,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30166,10 +28189,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30205,11 +28225,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30244,10 +28261,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30284,10 +28298,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30323,10 +28334,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30362,11 +28370,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30428,11 +28433,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -30462,10 +28464,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30499,10 +28498,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30537,10 +28533,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30574,11 +28567,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -30608,10 +28598,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30643,11 +28630,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30678,10 +28662,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -30711,10 +28692,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -30780,10 +28758,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30815,11 +28790,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -30853,10 +28825,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30893,11 +28862,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -30933,11 +28899,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -30972,11 +28935,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -31005,10 +28965,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -31040,11 +28997,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -31079,11 +29033,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31118,11 +29069,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31179,11 +29127,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31218,11 +29163,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31284,11 +29226,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31325,10 +29264,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31363,11 +29299,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31402,11 +29335,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31441,11 +29371,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31480,11 +29407,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31520,11 +29444,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -31559,11 +29480,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31598,11 +29516,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31634,11 +29549,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -31672,10 +29584,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31710,11 +29619,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -31776,10 +29682,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -31814,10 +29717,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -31874,11 +29774,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -31910,11 +29807,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -31947,11 +29841,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -31984,10 +29875,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32163,10 +30051,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32202,10 +30087,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32241,11 +30123,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -32280,11 +30159,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32319,11 +30195,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32356,10 +30229,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32394,11 +30264,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32433,10 +30300,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32470,11 +30334,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32509,11 +30370,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32546,11 +30404,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32582,11 +30437,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32621,11 +30473,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32662,11 +30511,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32701,10 +30547,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32775,11 +30618,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32813,10 +30653,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -32850,10 +30687,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -32887,11 +30721,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -32926,11 +30757,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32960,10 +30788,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -32993,11 +30818,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -33030,11 +30852,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33070,10 +30889,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33168,11 +30984,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33207,11 +31020,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33240,9 +31050,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -33275,10 +31082,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33314,10 +31118,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33352,11 +31153,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33392,11 +31190,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -33447,10 +31242,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -33510,10 +31302,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33549,11 +31338,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33589,11 +31375,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33663,11 +31446,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33701,11 +31481,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33797,11 +31574,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33837,10 +31611,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33876,10 +31647,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33910,10 +31678,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -33946,10 +31711,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -33985,11 +31747,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34048,10 +31807,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34081,10 +31837,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -34117,10 +31870,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34189,11 +31939,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34254,9 +32001,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -34289,10 +32033,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34357,11 +32098,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34396,10 +32134,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34433,11 +32168,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34472,11 +32204,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34510,10 +32239,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34578,11 +32304,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34618,11 +32341,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34657,11 +32377,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34697,11 +32414,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34764,11 +32478,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34803,11 +32514,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -34841,11 +32549,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -34877,9 +32582,6 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -34911,11 +32613,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -34949,11 +32648,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -34987,11 +32683,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -35025,10 +32718,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35061,11 +32751,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35134,10 +32821,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35173,10 +32857,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35212,10 +32893,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35273,10 +32951,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35312,10 +32987,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35344,10 +33016,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -35380,11 +33049,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35419,10 +33085,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35458,10 +33121,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35492,11 +33152,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -35529,10 +33186,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35567,10 +33221,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35605,11 +33256,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35644,11 +33292,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35719,10 +33364,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -35757,11 +33399,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -35821,10 +33460,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35856,11 +33492,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -35924,11 +33557,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -35962,11 +33592,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36001,10 +33628,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36040,11 +33664,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36080,10 +33701,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36119,11 +33737,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36158,11 +33773,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -36196,11 +33808,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36236,11 +33845,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36272,11 +33878,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36311,11 +33914,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36348,10 +33948,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36386,11 +33983,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36426,11 +34020,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -36463,10 +34054,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -36500,11 +34088,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -36537,10 +34122,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36574,11 +34156,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -36612,11 +34191,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -36649,11 +34225,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36681,10 +34254,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -36713,11 +34283,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -36834,10 +34401,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36872,11 +34436,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -36971,11 +34532,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37010,11 +34568,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37045,10 +34600,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -37143,10 +34695,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37182,10 +34731,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37221,10 +34767,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37281,11 +34824,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -37311,9 +34851,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -37343,11 +34880,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -37378,11 +34912,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -37413,11 +34944,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -37448,11 +34976,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -37514,11 +35039,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -37552,11 +35074,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37592,10 +35111,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37631,10 +35147,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37754,10 +35267,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37793,10 +35303,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37831,11 +35338,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37870,11 +35374,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -37908,11 +35409,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37948,11 +35446,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -37985,11 +35480,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38021,10 +35513,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -38058,11 +35547,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38094,10 +35580,7 @@ window.HEARTH_CENTERS = [
       "abortion recovery support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -38124,10 +35607,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -38155,9 +35635,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -38244,10 +35721,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38280,9 +35754,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -38351,10 +35822,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38388,10 +35856,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -38423,11 +35888,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38463,10 +35925,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38500,10 +35959,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38537,11 +35993,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38575,10 +36028,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38607,10 +36057,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -38639,11 +36086,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38676,11 +36120,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38710,10 +36151,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -38747,11 +36185,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38822,11 +36257,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -38861,11 +36293,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -38900,11 +36329,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38938,11 +36364,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -38977,11 +36400,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39016,10 +36436,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39055,10 +36472,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39122,11 +36536,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39160,11 +36571,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39197,11 +36605,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39234,10 +36639,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39299,11 +36701,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39339,11 +36738,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -39378,10 +36774,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39417,11 +36810,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39451,11 +36841,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -39489,10 +36876,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39528,11 +36912,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39562,10 +36943,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -39625,10 +37003,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39663,10 +37038,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39702,10 +37074,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39740,11 +37109,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39780,11 +37146,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39820,11 +37183,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -39895,11 +37255,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39935,10 +37292,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -39973,11 +37327,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -40012,11 +37363,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -40047,11 +37395,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -40085,11 +37430,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40122,11 +37464,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -40161,11 +37500,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -40200,10 +37536,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40235,10 +37568,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -40264,10 +37594,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -40300,11 +37627,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -40365,10 +37689,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40404,10 +37725,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -40443,11 +37761,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40482,11 +37797,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40544,10 +37856,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40578,10 +37887,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -40613,11 +37919,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40688,11 +37991,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40727,11 +38027,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40766,11 +38063,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40830,10 +38124,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40869,10 +38160,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40900,10 +38188,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -40936,10 +38221,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -40974,11 +38256,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41012,10 +38291,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41050,10 +38326,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41089,11 +38362,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41123,10 +38393,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -41156,11 +38423,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -41257,11 +38521,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41295,11 +38556,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41335,11 +38593,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41375,11 +38630,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41415,11 +38667,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41455,10 +38704,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41488,10 +38734,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -41522,11 +38765,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41560,11 +38800,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41600,11 +38837,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -41638,11 +38872,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41676,11 +38907,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41715,11 +38943,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41756,11 +38981,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41795,10 +39017,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41898,11 +39117,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -41935,11 +39151,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -41972,10 +39185,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -42003,10 +39213,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -42039,11 +39246,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -42079,11 +39283,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42115,10 +39316,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42147,10 +39345,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -42183,11 +39378,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42217,11 +39409,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42252,10 +39441,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42289,10 +39475,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42327,11 +39510,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -42358,9 +39538,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -42390,10 +39567,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -42429,10 +39603,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -42692,10 +39863,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42730,10 +39898,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42835,11 +40000,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -42873,10 +40035,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -42910,11 +40069,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -42946,11 +40102,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -42983,10 +40136,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43021,10 +40171,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43059,10 +40206,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43095,10 +40239,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43132,10 +40273,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43170,11 +40308,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43209,11 +40344,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43247,11 +40379,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43287,10 +40416,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43327,11 +40453,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43400,11 +40523,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43439,10 +40559,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43478,10 +40595,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43517,11 +40631,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43554,11 +40665,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -43593,10 +40701,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43632,10 +40737,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43671,11 +40773,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -43710,11 +40809,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43750,10 +40846,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43789,10 +40882,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43828,10 +40918,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43866,11 +40953,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43906,11 +40990,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -43946,10 +41027,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -43985,11 +41063,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44022,11 +41097,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44057,10 +41129,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -44093,10 +41162,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44132,11 +41198,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44171,10 +41234,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44207,10 +41267,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44245,10 +41302,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44282,10 +41336,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44321,10 +41372,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44360,10 +41408,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44396,11 +41441,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -44470,11 +41512,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44510,10 +41549,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44549,10 +41585,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44585,11 +41618,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44624,11 +41654,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44664,11 +41691,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44704,10 +41728,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44743,10 +41764,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44782,10 +41800,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -44840,11 +41855,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -44873,10 +41885,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -45332,10 +42341,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -45367,11 +42373,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -45400,10 +42403,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -45436,11 +42436,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45477,10 +42474,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45545,10 +42539,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45583,10 +42574,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -45617,10 +42605,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -45654,10 +42639,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -45693,11 +42675,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -45732,11 +42711,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45773,10 +42749,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45811,10 +42784,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -45848,10 +42818,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45885,11 +42852,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -45948,10 +42912,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -45986,11 +42947,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46023,10 +42981,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46060,10 +43015,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46099,11 +43051,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46131,10 +43080,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -46165,11 +43111,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46204,11 +43147,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46262,10 +43202,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46300,11 +43237,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46340,11 +43274,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46376,10 +43307,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46450,10 +43378,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46488,11 +43413,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46527,11 +43449,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46567,10 +43486,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46603,10 +43519,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -46633,10 +43546,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -46662,10 +43572,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -46698,10 +43605,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46736,11 +43640,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46809,11 +43710,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -46874,11 +43772,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46912,11 +43807,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46952,10 +43844,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -46990,10 +43879,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -47025,11 +43911,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -47064,11 +43947,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -47104,10 +43984,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47142,11 +44019,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47183,11 +44057,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -47223,11 +44094,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -47261,11 +44129,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47301,11 +44166,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47370,10 +44232,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47409,10 +44268,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47448,11 +44304,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -47487,10 +44340,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47526,10 +44376,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47564,11 +44411,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47601,11 +44445,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -47639,11 +44480,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -47678,11 +44516,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -47712,10 +44547,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -47747,10 +44579,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -47782,10 +44611,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -47876,10 +44702,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -47913,11 +44736,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -48046,10 +44866,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48086,10 +44903,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48125,11 +44939,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48197,11 +45008,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48237,10 +45045,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48277,10 +45082,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48315,11 +45117,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48352,11 +45151,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48391,11 +45187,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48429,11 +45222,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48467,11 +45257,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -48504,11 +45291,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -48541,11 +45325,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -48580,11 +45361,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48643,11 +45421,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48682,11 +45457,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48756,11 +45528,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -48792,11 +45561,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48831,11 +45597,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48870,11 +45633,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -48908,10 +45668,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -48943,11 +45700,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -48982,10 +45736,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49021,11 +45772,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49061,10 +45809,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49196,10 +45941,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49233,10 +45975,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49303,11 +46042,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49342,10 +46078,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49412,10 +46145,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49484,10 +46214,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49523,10 +46250,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49561,10 +46285,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49599,10 +46320,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49638,11 +46356,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49676,11 +46391,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49712,10 +46424,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49747,11 +46456,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -49787,10 +46493,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49853,10 +46556,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -49891,11 +46591,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -49929,10 +46626,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -50018,10 +46712,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -50052,10 +46743,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50091,11 +46779,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50131,10 +46816,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50171,11 +46853,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50211,10 +46890,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50250,11 +46926,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -50289,10 +46962,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50388,9 +47058,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -50423,10 +47090,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50462,11 +47126,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50502,11 +47163,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -50599,10 +47257,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50638,11 +47293,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -50676,11 +47328,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -50740,11 +47389,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -50779,11 +47425,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -50818,10 +47461,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50858,10 +47498,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -50897,11 +47534,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -50964,11 +47598,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -51002,11 +47633,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -51068,10 +47696,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51107,11 +47732,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51209,11 +47831,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51246,10 +47865,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -51281,10 +47897,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51320,11 +47933,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -51359,11 +47969,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51399,11 +48006,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51438,10 +48042,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51477,10 +48078,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51516,11 +48114,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51587,10 +48182,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51626,11 +48218,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51665,11 +48254,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51704,10 +48290,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51743,11 +48326,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -51782,11 +48362,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -51821,11 +48398,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51860,11 +48434,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -51897,11 +48468,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -51936,11 +48504,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -51974,11 +48539,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52011,11 +48573,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -52050,10 +48609,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52084,10 +48640,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -52117,11 +48670,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -52174,11 +48724,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -52208,10 +48755,7 @@ window.HEARTH_CENTERS = [
       "abortion recovery support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52241,10 +48785,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52278,10 +48819,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52317,10 +48855,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52355,11 +48890,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -52393,10 +48925,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52432,10 +48961,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52467,10 +48993,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52537,10 +49060,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52573,10 +49093,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52610,11 +49127,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52646,11 +49160,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52685,11 +49196,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52725,11 +49233,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52765,11 +49270,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52832,10 +49334,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -52868,11 +49367,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -52905,11 +49401,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -52975,10 +49468,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53011,11 +49501,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -53047,11 +49534,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -53084,10 +49568,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53123,11 +49604,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53162,10 +49640,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53201,11 +49676,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53241,11 +49713,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53279,11 +49748,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53317,11 +49783,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53358,11 +49821,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -53426,11 +49886,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53466,11 +49923,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53505,11 +49959,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53544,11 +49995,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -53583,11 +50031,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53621,11 +50066,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53659,11 +50101,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53696,11 +50135,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53732,11 +50168,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -53769,10 +50202,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -53800,9 +50230,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -53835,10 +50262,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -53874,10 +50298,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54066,10 +50487,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54100,10 +50518,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54135,11 +50550,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54174,11 +50586,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54211,11 +50620,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54247,10 +50653,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54284,10 +50687,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54323,10 +50723,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54390,11 +50787,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54430,11 +50824,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54469,10 +50860,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54506,11 +50894,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54541,11 +50926,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -54576,11 +50958,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54611,10 +50990,7 @@ window.HEARTH_CENTERS = [
       "abortion recovery support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -54649,10 +51025,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54688,11 +51061,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54728,11 +51098,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -54767,11 +51134,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -54915,11 +51279,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -54953,10 +51314,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55044,11 +51402,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -55083,11 +51438,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -55145,11 +51497,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -55182,11 +51531,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -55221,10 +51567,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55260,10 +51603,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55299,10 +51639,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55365,10 +51702,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -55431,11 +51765,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -55468,10 +51799,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55505,10 +51833,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -55542,11 +51867,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -55578,11 +51900,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -55617,11 +51936,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -55653,10 +51969,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -55691,11 +52004,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -55729,10 +52039,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55767,11 +52074,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55807,11 +52111,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55846,11 +52147,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55886,11 +52184,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -55926,10 +52221,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56017,11 +52309,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56052,11 +52341,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -56090,11 +52376,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56129,11 +52412,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56191,11 +52471,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56230,10 +52507,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56267,11 +52541,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56385,11 +52656,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -56460,11 +52728,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56497,11 +52762,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -56534,10 +52796,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56570,10 +52829,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56643,10 +52899,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56682,10 +52935,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56783,11 +53033,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56821,10 +53068,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56858,11 +53102,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -56934,10 +53175,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -56972,10 +53210,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57047,10 +53282,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -57085,11 +53317,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57123,10 +53352,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -57157,11 +53383,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -57195,10 +53418,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57228,9 +53448,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -57263,10 +53480,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57302,11 +53516,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57365,10 +53576,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -57398,10 +53606,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -57434,11 +53639,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -57666,11 +53868,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -57704,11 +53903,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -57743,11 +53939,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57782,11 +53975,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -57820,10 +54010,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57857,10 +54044,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57933,10 +54117,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -57972,10 +54153,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -58009,11 +54187,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -58046,16 +54221,14 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
       "supplies",
-      "talk"
+      "talk",
+      "ultrasound"
     ],
     "faith": "Life-affirming network (Option Line / Heartbeat)",
     "blurb": "Public listing via Option Line (optionline.org). Pregnancy medical center in Webster, NY. Hours: T 9-12 W 11-4 Th 9-12   Only open the 2nd & 4th Tues. of the month. Ultrasounds by appt. Wed. 9am-noon*Appointments scheduled after hours through NXL.*.",
@@ -58085,10 +54258,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58119,10 +54289,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58277,11 +54444,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -58314,11 +54478,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58352,10 +54513,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -58390,10 +54548,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58429,10 +54584,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58468,10 +54620,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58506,11 +54655,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -58544,11 +54690,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -58582,11 +54725,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -58620,11 +54760,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -58659,10 +54796,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58692,10 +54826,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -58728,11 +54859,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -58767,10 +54895,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58806,11 +54931,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -58867,11 +54989,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -58900,9 +55019,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -58935,10 +55051,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -58974,11 +55087,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -59047,11 +55157,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59082,10 +55189,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -59118,11 +55222,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -59155,11 +55256,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -59194,10 +55292,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -59292,11 +55387,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59332,10 +55424,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59371,10 +55460,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59410,10 +55496,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59474,10 +55557,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -59507,11 +55587,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59577,10 +55654,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59649,11 +55723,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59689,11 +55760,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59728,11 +55796,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -59765,11 +55830,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59805,11 +55867,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59845,11 +55904,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59885,11 +55941,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59925,11 +55978,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -59965,10 +56015,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60002,10 +56049,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -60031,9 +56075,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -60066,10 +56107,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60100,10 +56138,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -60131,10 +56166,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60167,11 +56199,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60204,11 +56233,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60242,11 +56268,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60280,11 +56303,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60314,10 +56334,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60351,10 +56368,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60390,10 +56404,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60429,11 +56440,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -60468,11 +56476,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -60537,11 +56542,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60575,11 +56577,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60615,11 +56614,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60654,11 +56650,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60693,10 +56686,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -60731,11 +56721,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60768,10 +56755,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60805,10 +56789,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -60841,11 +56822,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60874,10 +56852,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -60909,11 +56884,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -60948,10 +56920,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -60985,11 +56954,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -61188,6 +57154,7 @@ window.HEARTH_CENTERS = [
     "needs": [
       "counseling",
       "expecting",
+      "mentor",
       "supplies",
       "talk"
     ],
@@ -61296,10 +57263,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -61331,11 +57295,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61371,11 +57332,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -61410,10 +57368,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61449,11 +57404,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -61487,11 +57439,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -61580,10 +57529,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61616,11 +57562,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61655,10 +57598,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61694,10 +57634,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61733,11 +57670,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61766,10 +57700,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -61852,10 +57783,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -61886,11 +57814,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61923,10 +57848,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -61955,10 +57877,8 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
+      "mentor",
       "new-mom",
       "supplies"
     ],
@@ -61990,11 +57910,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62027,11 +57944,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62067,11 +57981,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62139,11 +58050,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62178,11 +58086,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62219,11 +58124,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62254,11 +58156,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62292,10 +58191,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62328,11 +58224,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62366,11 +58259,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62406,11 +58296,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62470,11 +58357,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62505,12 +58389,10 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
+      "mentor",
       "new-mom",
       "parenting",
       "supplies",
@@ -62574,11 +58456,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62613,11 +58492,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62652,11 +58528,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62691,11 +58564,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62727,10 +58597,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -62762,7 +58629,8 @@ window.HEARTH_CENTERS = [
       "adoption",
       "counseling",
       "expecting",
-      "talk"
+      "talk",
+      "ultrasound"
     ],
     "faith": "Life-affirming network (Option Line / Heartbeat)",
     "blurb": "Public listing via Option Line (optionline.org). Pregnancy resource center in Cleveland, OH. Hours: M 10-4 T 10-4 W 10-12:30 Th 10-4   Serves Cuyahoga County/Greater Cleveland, Ohio: https://imageclearultrasound.com/locations/cuyahoga-county/ *Appointments scheduled after hours t",
@@ -62820,10 +58688,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62857,11 +58722,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62893,10 +58755,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -62961,10 +58820,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -62997,11 +58853,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63035,11 +58888,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63094,10 +58944,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -63129,10 +58976,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63167,10 +59011,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63206,10 +59047,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63245,10 +59083,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63284,10 +59119,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63319,10 +59151,10 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
       "diapers",
       "expecting",
+      "food",
       "formula",
       "new-mom",
       "supplies",
@@ -63356,10 +59188,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63396,11 +59225,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63463,11 +59289,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63501,10 +59324,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -63538,11 +59358,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63571,10 +59388,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -63607,10 +59421,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63646,10 +59457,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63685,10 +59493,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63724,11 +59529,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63762,10 +59564,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -63830,11 +59629,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63866,11 +59662,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63902,11 +59695,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63938,11 +59728,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -63974,10 +59761,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -64012,10 +59796,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64052,10 +59833,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64091,10 +59869,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64129,11 +59904,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64205,10 +59977,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64279,11 +60048,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -64314,11 +60080,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -64351,11 +60114,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64384,9 +60144,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -64419,11 +60176,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64484,11 +60238,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64566,11 +60317,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64606,10 +60354,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64639,10 +60384,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -64675,10 +60417,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64714,10 +60453,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64753,11 +60489,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -64787,10 +60520,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -64851,11 +60581,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -64890,11 +60617,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -64928,11 +60652,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -64966,11 +60687,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65005,11 +60723,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65043,11 +60758,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65082,11 +60794,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65121,11 +60830,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65159,11 +60865,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65198,11 +60901,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65238,10 +60938,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65277,10 +60974,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65309,9 +61003,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -65336,10 +61027,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -65399,10 +61087,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65521,10 +61206,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -65558,10 +61240,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65596,11 +61275,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65634,11 +61310,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -65674,11 +61347,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -65712,11 +61382,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -66142,10 +61809,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66179,11 +61843,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66245,11 +61906,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -66282,11 +61940,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66322,10 +61977,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66361,11 +62013,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66400,11 +62049,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66436,11 +62082,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66468,10 +62111,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -66504,10 +62144,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66539,11 +62176,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -66576,10 +62210,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66615,11 +62246,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66649,10 +62277,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -66685,10 +62310,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -66725,10 +62347,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66764,10 +62383,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -66796,10 +62412,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -66832,11 +62445,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -66869,11 +62479,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -66903,9 +62510,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -66964,11 +62568,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -67000,11 +62601,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -67035,11 +62633,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -67070,11 +62665,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -67164,11 +62756,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67204,11 +62793,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -67243,11 +62829,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -67354,10 +62937,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67428,11 +63008,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -67466,9 +63043,6 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -67502,11 +63076,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67540,11 +63111,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67669,11 +63237,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67709,10 +63274,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67746,10 +63308,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -67782,11 +63341,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67858,11 +63414,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -67898,10 +63451,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68007,11 +63557,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68039,9 +63586,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -68073,11 +63617,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68113,11 +63654,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68152,10 +63690,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68249,10 +63784,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -68285,10 +63817,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68321,11 +63850,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -68361,10 +63887,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -68400,10 +63923,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68439,10 +63959,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68478,10 +63995,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68539,11 +64053,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68578,11 +64089,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68616,11 +64124,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68654,11 +64159,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68692,11 +64194,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68730,11 +64229,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -68768,11 +64264,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -68805,11 +64298,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68842,10 +64332,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -68880,10 +64367,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68919,10 +64403,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -68952,9 +64433,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -69238,11 +64716,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -69306,11 +64781,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69342,10 +64814,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69381,11 +64850,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -69419,11 +64885,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69457,11 +64920,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -69489,10 +64949,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -69525,10 +64982,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69564,10 +65018,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69603,10 +65054,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69672,10 +65120,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69711,10 +65156,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69750,10 +65192,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69789,10 +65228,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69828,11 +65264,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -69867,10 +65300,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69906,10 +65336,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69945,10 +65372,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -69984,10 +65408,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70023,10 +65444,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70062,11 +65480,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -70102,10 +65517,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70134,10 +65546,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -70205,11 +65614,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70244,10 +65650,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70283,11 +65686,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70322,10 +65722,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70361,10 +65758,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70400,10 +65794,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70468,11 +65859,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -70506,10 +65894,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70545,11 +65930,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70585,11 +65967,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70625,10 +66004,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70660,10 +66036,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -70695,10 +66068,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70795,11 +66165,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -70834,11 +66201,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -70873,11 +66237,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70912,10 +66273,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -70951,11 +66309,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -70989,11 +66344,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71025,11 +66377,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71062,10 +66411,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71101,10 +66447,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71173,10 +66516,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71210,11 +66550,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -71246,11 +66583,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -71283,11 +66617,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71323,11 +66654,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71363,10 +66691,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71402,10 +66727,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71435,10 +66757,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -71465,10 +66784,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -71498,10 +66814,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71536,10 +66849,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71575,11 +66885,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71614,10 +66921,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71653,11 +66957,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71687,10 +66988,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71722,11 +67020,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71760,10 +67055,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71797,11 +67089,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71837,10 +67126,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71876,11 +67162,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -71915,10 +67198,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71954,11 +67234,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -71994,10 +67271,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -72033,10 +67307,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -72108,10 +67379,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -72145,10 +67413,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -72177,10 +67442,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -72213,10 +67475,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -72249,10 +67508,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -72284,10 +67540,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72320,10 +67573,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72356,10 +67606,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72391,11 +67638,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -72427,11 +67671,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72460,10 +67701,7 @@ window.HEARTH_CENTERS = [
       "STI testing"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -72496,11 +67734,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72535,11 +67770,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72574,11 +67806,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72636,11 +67865,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72673,11 +67899,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72741,10 +67964,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -72780,11 +68000,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -72845,11 +68062,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -72882,10 +68096,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72918,11 +68129,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -72993,11 +68201,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -73032,11 +68237,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73184,10 +68386,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73252,11 +68451,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73359,10 +68555,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73427,11 +68620,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -73465,10 +68655,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73504,11 +68691,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -73540,11 +68724,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -73576,11 +68757,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -73615,11 +68793,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73675,11 +68850,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -73708,11 +68880,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -73742,10 +68911,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -73778,11 +68944,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73817,11 +68980,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -73855,11 +69015,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -73892,11 +69049,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -73929,11 +69083,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -73966,11 +69117,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -74005,10 +69153,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74070,10 +69215,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -74169,11 +69311,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74208,11 +69347,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74247,11 +69383,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74286,10 +69419,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74347,11 +69477,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74382,10 +69509,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -74418,11 +69542,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74455,11 +69576,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74493,10 +69611,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74532,11 +69647,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74656,11 +69768,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74697,10 +69806,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74790,11 +69896,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -74829,10 +69932,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74868,10 +69968,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74959,10 +70056,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -74998,11 +70092,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -75036,11 +70127,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75076,10 +70164,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75226,10 +70311,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -75264,10 +70346,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75302,11 +70381,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75373,11 +70449,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -75406,11 +70479,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -75444,11 +70514,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -75484,11 +70551,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75524,10 +70588,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75600,10 +70661,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75637,11 +70695,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -75676,10 +70731,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75711,10 +70763,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -75742,10 +70791,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -75778,10 +70824,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -75816,11 +70859,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75856,11 +70896,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75896,11 +70933,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75935,10 +70969,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -75974,10 +71005,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76013,11 +71041,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -76051,11 +71076,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76091,11 +71113,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76131,11 +71150,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76170,11 +71186,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76206,11 +71219,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -76273,11 +71283,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76313,10 +71320,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76380,11 +71384,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -76418,11 +71419,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76457,11 +71455,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76496,10 +71491,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -76535,11 +71527,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76574,10 +71563,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76685,10 +71671,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76724,10 +71707,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -76762,11 +71742,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -76800,11 +71777,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76839,11 +71813,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76878,11 +71849,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76917,11 +71885,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76956,11 +71921,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -76995,10 +71957,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77034,10 +71993,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77073,10 +72029,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77111,11 +72064,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77146,10 +72096,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -77181,11 +72128,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77219,11 +72163,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77259,11 +72200,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -77298,11 +72236,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77333,10 +72268,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -77370,11 +72302,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77443,11 +72372,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77483,10 +72409,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77522,10 +72445,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77584,10 +72504,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -77624,10 +72541,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -77663,11 +72577,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -77702,11 +72613,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -77739,11 +72647,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -77835,11 +72740,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -77926,11 +72828,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -77964,10 +72863,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -78001,11 +72897,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78208,11 +73101,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78245,11 +73135,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78285,10 +73172,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78320,10 +73204,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -78356,11 +73237,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78390,10 +73268,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -78426,10 +73301,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78489,10 +73361,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78527,11 +73396,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78566,11 +73432,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78604,11 +73467,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78643,11 +73503,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78682,11 +73539,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78718,11 +73572,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -78754,11 +73605,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78792,10 +73640,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78848,10 +73693,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -78884,10 +73726,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -78923,11 +73762,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78961,11 +73797,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -78998,11 +73831,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79037,11 +73867,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79076,11 +73903,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79114,11 +73938,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79152,11 +73973,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79192,10 +74010,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79230,11 +74045,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79270,11 +74082,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79303,10 +74112,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -79336,11 +74142,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79370,11 +74173,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79404,11 +74204,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79442,10 +74239,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79476,11 +74270,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -79514,11 +74305,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79554,11 +74342,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79592,10 +74377,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79631,11 +74413,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79666,11 +74445,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -79704,11 +74480,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -79743,11 +74516,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79778,10 +74548,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79815,10 +74582,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79853,11 +74617,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79892,10 +74653,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -79931,11 +74689,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -79968,11 +74723,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -80035,10 +74787,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -80068,10 +74817,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -80104,10 +74850,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80143,11 +74886,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -80182,10 +74922,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80222,11 +74959,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80262,10 +74996,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80301,11 +75032,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -80366,10 +75094,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80405,10 +75130,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80441,11 +75163,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -80476,11 +75195,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -80508,9 +75224,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -80543,11 +75256,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80582,11 +75292,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80658,10 +75365,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80697,10 +75401,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80736,10 +75437,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80775,11 +75473,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80844,11 +75539,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -80913,10 +75605,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -80971,10 +75660,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -81003,10 +75689,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "ultrasound"
@@ -81093,11 +75776,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81125,10 +75805,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -81161,11 +75838,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81200,11 +75874,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81240,11 +75911,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -81272,9 +75940,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -81307,11 +75972,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -81347,11 +76009,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -81380,10 +76039,7 @@ window.HEARTH_CENTERS = [
       "baby supplies"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -81415,11 +76071,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81449,10 +76102,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81479,10 +76129,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -81511,11 +76158,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -81548,11 +76192,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -81587,11 +76228,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81626,10 +76264,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -81689,10 +76324,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81727,11 +76359,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -81765,11 +76394,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -81802,11 +76428,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81863,11 +76486,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -81894,9 +76514,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -81929,11 +76546,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -81964,10 +76578,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -81998,11 +76609,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -82069,11 +76677,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82105,11 +76710,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -82175,10 +76777,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82214,10 +76813,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82314,10 +76910,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -82351,11 +76944,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82419,10 +77009,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82459,10 +77046,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -82493,11 +77077,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -82529,10 +77110,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82670,10 +77248,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82707,11 +77282,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -82779,10 +77351,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82818,10 +77387,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -82920,11 +77486,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -82959,11 +77522,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -83035,11 +77595,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83073,10 +77630,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -83111,11 +77665,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83150,11 +77701,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83188,11 +77736,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83222,10 +77767,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -83258,10 +77800,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83297,10 +77836,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83336,10 +77872,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83375,11 +77908,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83415,10 +77945,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83454,10 +77981,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83493,10 +78017,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83532,11 +78053,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83573,11 +78091,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83613,11 +78128,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83653,10 +78165,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83691,11 +78200,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -83727,11 +78233,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83788,10 +78291,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83823,11 +78323,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -83863,11 +78360,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -83903,10 +78397,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -83940,11 +78431,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -83978,11 +78466,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84017,10 +78502,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -84053,11 +78535,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -84091,10 +78570,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84130,11 +78606,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84170,10 +78643,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84303,11 +78773,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -84367,11 +78834,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84400,10 +78864,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -84429,10 +78890,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -84465,11 +78923,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84503,10 +78958,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84539,10 +78991,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84577,11 +79026,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84616,10 +79062,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84655,11 +79098,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84692,10 +79132,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -84729,11 +79166,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84769,11 +79203,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84804,10 +79235,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -84841,11 +79269,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84917,10 +79342,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84956,10 +79378,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -84995,10 +79414,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85027,9 +79443,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -85090,11 +79503,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85129,11 +79539,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85169,11 +79576,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85208,10 +79612,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85280,10 +79681,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies"
     ],
@@ -85312,11 +79710,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -85349,11 +79744,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -85386,11 +79778,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -85425,10 +79814,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85463,10 +79849,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -85501,11 +79884,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85541,11 +79921,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -85635,10 +80012,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85673,10 +80047,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85709,11 +80080,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -85746,11 +80114,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -85783,10 +80148,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85822,10 +80184,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -85861,11 +80220,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -85897,11 +80253,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85959,11 +80312,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -85999,10 +80349,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -86036,11 +80383,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -86150,11 +80494,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86189,11 +80530,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -86228,10 +80566,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86268,10 +80603,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86306,11 +80638,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -86339,9 +80668,6 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -86409,11 +80735,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -86448,10 +80771,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86486,11 +80806,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -86521,11 +80838,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -86558,10 +80872,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86595,11 +80906,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -86633,11 +80941,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -86671,11 +80976,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -86710,10 +81012,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86747,11 +81046,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -86865,10 +81161,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -86902,11 +81195,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86941,11 +81231,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -86980,10 +81267,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87018,11 +81302,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87056,11 +81337,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -87091,11 +81369,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -87129,10 +81404,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87199,10 +81471,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -87235,11 +81504,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -87268,11 +81534,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -87304,11 +81567,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -87335,9 +81595,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87370,10 +81627,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87409,10 +81663,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87448,11 +81699,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87481,10 +81729,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87511,10 +81756,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87541,10 +81783,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87577,11 +81816,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87610,9 +81846,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87638,10 +81871,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87707,11 +81937,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -87741,10 +81968,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -87771,10 +81995,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87800,10 +82021,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -87836,10 +82054,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -87874,10 +82089,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -87931,11 +82143,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -87968,11 +82177,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88003,11 +82209,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88041,11 +82244,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88079,11 +82279,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -88117,11 +82314,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -88155,11 +82349,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -88194,10 +82385,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88231,11 +82419,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -88268,10 +82453,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88333,11 +82515,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -88369,11 +82548,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88407,11 +82583,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -88443,11 +82616,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -88510,11 +82680,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -88550,11 +82717,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88589,11 +82753,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88628,11 +82789,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88662,11 +82820,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88700,10 +82855,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -88739,11 +82891,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88778,11 +82927,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88817,11 +82963,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88853,11 +82996,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -88890,11 +83030,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -88987,11 +83124,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89062,10 +83196,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89099,11 +83230,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -89137,11 +83265,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89176,10 +83301,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89299,11 +83421,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -89400,10 +83519,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89563,10 +83679,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -89599,11 +83712,8 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -89638,11 +83748,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89671,9 +83778,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -89703,10 +83807,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -89772,10 +83873,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89808,11 +83906,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -89846,11 +83941,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -89885,10 +83977,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89923,11 +84012,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -89962,11 +84048,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90002,10 +84085,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90062,10 +84142,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -90099,11 +84176,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90196,11 +84270,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90267,11 +84338,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90306,11 +84374,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90345,11 +84410,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -90413,10 +84475,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -90448,10 +84507,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -90520,10 +84576,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90558,11 +84611,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -90595,11 +84645,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -90634,10 +84681,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90672,10 +84716,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90711,11 +84752,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -90749,11 +84787,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90788,11 +84823,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -90827,10 +84859,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90866,10 +84895,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90938,10 +84964,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -90977,10 +85000,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91014,11 +85034,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -91052,10 +85069,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91120,11 +85134,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -91156,10 +85167,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91194,11 +85202,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91258,11 +85263,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91297,11 +85299,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91336,11 +85335,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -91375,10 +85371,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91414,10 +85407,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91450,11 +85440,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -91484,11 +85471,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -91518,11 +85502,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -91557,11 +85538,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91597,10 +85575,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91672,10 +85647,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -91710,11 +85682,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -91748,11 +85717,8 @@ window.HEARTH_CENTERS = [
       "pregnancy counseling"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91785,11 +85751,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -91820,10 +85783,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -91883,10 +85843,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91922,11 +85879,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91961,10 +85915,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -91993,10 +85944,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -92029,11 +85977,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92103,10 +86048,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92135,10 +86077,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -92170,10 +86109,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92207,11 +86143,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92246,10 +86179,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92308,9 +86238,6 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -92344,11 +86271,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92383,11 +86307,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92422,10 +86343,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk",
@@ -92459,11 +86377,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92494,11 +86409,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -92531,11 +86443,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92571,10 +86480,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92610,10 +86516,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92648,10 +86551,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92683,10 +86583,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies"
@@ -92718,10 +86615,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92780,10 +86674,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -92819,11 +86710,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -92851,10 +86739,7 @@ window.HEARTH_CENTERS = [
       "housing support"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies"
@@ -92887,10 +86772,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "mentor",
       "new-mom",
@@ -92980,10 +86862,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93016,10 +86895,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93053,10 +86929,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93090,10 +86963,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93152,11 +87022,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",
@@ -93191,11 +87058,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -93350,11 +87214,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93389,11 +87250,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -93428,11 +87286,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -93469,11 +87324,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93508,11 +87360,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93576,11 +87425,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -93612,10 +87458,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -93684,10 +87527,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "parenting",
@@ -93721,11 +87561,8 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93756,10 +87593,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93790,10 +87624,7 @@ window.HEARTH_CENTERS = [
       "community referrals"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93827,11 +87658,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -93895,10 +87723,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "supplies",
       "talk"
@@ -93928,10 +87753,7 @@ window.HEARTH_CENTERS = [
       "sexual health education"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -94001,11 +87823,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -94065,11 +87884,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "new-mom",
       "parenting",
       "supplies",
@@ -94104,10 +87920,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94144,10 +87957,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94183,10 +87993,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94220,11 +88027,8 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
       "counseling",
-      "diapers",
       "expecting",
-      "formula",
       "housing",
       "new-mom",
       "supplies",
@@ -94259,10 +88063,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94298,10 +88099,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94337,10 +88135,7 @@ window.HEARTH_CENTERS = [
     ],
     "needs": [
       "adoption",
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "parenting",
@@ -94372,10 +88167,7 @@ window.HEARTH_CENTERS = [
       "mentoring"
     ],
     "needs": [
-      "clothes",
-      "diapers",
       "expecting",
-      "formula",
       "mentor",
       "new-mom",
       "supplies",

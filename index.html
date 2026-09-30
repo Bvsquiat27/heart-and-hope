@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Hearth & Hope — warm, practical support for new and expecting mothers. Resources, local help, and dignity-first care." />
-  <meta name="theme-color" content="#121a2a" />
+  <meta name="theme-color" content="#f7f1f4" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Hearth & Hope" />
@@ -16,8 +16,10 @@
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
   <link rel="apple-touch-icon" href="icons/icon-180.png" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/resources-ux.css" />
 </head>
 <body>
+  <div class="pastel-orbs" id="pastel-orbs" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="emergency-banner" role="note">
@@ -62,7 +64,7 @@
   <main id="main">
     <!-- HOME -->
     <section id="view-home" class="view active" aria-label="Home">
-      <div class="hero hero-compact">
+      <div class="hero hero-compact glass-strong">
         <p class="hero-eyebrow">For moms &amp; moms-to-be</p>
         <h1>You matter. Help is near.</h1>
         <p class="faith-line">We support life as Christ intended — with dignity for every mother.</p>
@@ -197,6 +199,22 @@
         <label class="field-label" for="type-filter">Type of help</label>
         <select id="type-filter" class="select-input input-lg"></select>
         <button type="button" class="btn btn-secondary btn-lg" id="use-my-location-dir">Use my location</button>
+      </div>
+
+      <div class="dir-needs" id="dir-needs" role="group" aria-label="What do you need">
+        <p class="field-label" style="margin:0.85rem 0 0.45rem">What do you need? <span class="hint">(optional — tap to filter)</span></p>
+        <div class="dir-need-chips">
+          <button type="button" class="chip dir-need-chip" data-dir-need="diapers" aria-pressed="false">Diapers</button>
+          <button type="button" class="chip dir-need-chip chip-help" data-dir-need="food" aria-pressed="false">Food</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="formula" aria-pressed="false">Formula</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="clothes" aria-pressed="false">Clothes</button>
+          <button type="button" class="chip dir-need-chip chip-hope" data-dir-need="counseling" aria-pressed="false">Counseling</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="housing" aria-pressed="false">Housing</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="ultrasound" aria-pressed="false">Ultrasound</button>
+          <button type="button" class="chip dir-need-chip chip-hope" data-dir-need="talk" aria-pressed="false">Someone to talk to</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="parenting" aria-pressed="false">Parenting</button>
+          <button type="button" class="chip dir-need-chip" data-dir-need="mentor" aria-pressed="false">Mentor</button>
+        </div>
       </div>
       <p id="dir-match-note" class="hint" style="margin:0.5rem 0 0" hidden></p>
       <div class="center-list" id="center-list"></div>
@@ -814,11 +832,13 @@
 
   <script src="data/centers.js"></script>
   <script src="data/zips.js"></script>
+  <script src="data/zip-coords.js"></script>
   <script src="js/geo.js"></script>
   <script src="js/firebase-beacon-config.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 <script src="js/centers-filter.js"></script>
+  <script src="js/haptics.js"></script>
   <script src="js/app.js"></script>
   <script src="js/budget.js"></script>
   <script src="js/support.js"></script>
