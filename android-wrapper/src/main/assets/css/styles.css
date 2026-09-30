@@ -3297,3 +3297,86 @@ a:hover { color: var(--accent); }
 }
 .ember-night .scripture-strip .scripture-text { color: #e8eef8; }
 .ember-night .scripture-strip .scripture-ref { color: #c9daf5; }
+
+/* —— Why the right to life (1.6.14.5) —— */
+.rtl-lead { margin-bottom: 1.25rem; }
+.rtl-stack { display: flex; flex-direction: column; gap: 1.1rem; max-width: 44rem; }
+.rtl-card h3 { margin-top: 0; }
+.rtl-about-link { margin: 0.85rem 0 0; }
+.rtl-about-link a {
+  font-weight: 600;
+  color: #5a4a7a;
+  text-decoration: none;
+}
+.rtl-about-link a:hover { text-decoration: underline; }
+.rtl-faq { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.35rem; }
+.rtl-faq-item {
+  border-radius: 14px;
+  background: rgba(232, 224, 246, 0.42);
+  border: 1px solid rgba(155, 134, 196, 0.28);
+  padding: 0.15rem 0.85rem 0.55rem;
+}
+.rtl-faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #3d4a5c;
+  padding: 0.7rem 0.15rem;
+  list-style: none;
+}
+.rtl-faq-item summary::-webkit-details-marker { display: none; }
+.rtl-faq-item summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.45rem;
+  color: #7a6a9a;
+  transition: transform 0.15s ease;
+}
+.rtl-faq-item[open] summary::before { transform: rotate(90deg); }
+.rtl-faq-item p {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #3d4a5c;
+}
+.rtl-syllogism {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.rtl-syllogism li {
+  line-height: 1.5;
+  color: #3d4a5c;
+}
+.rtl-note {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #5a6b8a;
+  line-height: 1.5;
+}
+.rtl-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.rtl-list li {
+  line-height: 1.55;
+  color: #3d4a5c;
+}
+.rtl-triad {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+@media (min-width: 720px) {
+  .rtl-triad { grid-template-columns: 1fr 1fr 1fr; }
+}
+.rtl-dignity .rtl-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+}
