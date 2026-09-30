@@ -11,7 +11,12 @@
   var LS_ID = "hearth_beacon_id";
   var LS_META = "hearth_beacon_meta";
   var LS_SECRETS = "hearth_beacon_secrets";
+  var LS_NOTES_SEEN = "hearth_beacon_notes_seen";
   var MAX_NOTE = 180;
+  var NOTES_POLL_MS = 8000;
+  var notesPollTimer = null;
+  var EMBER_NOTE_NOTIF_TITLE = "Hearth & Hope";
+  var EMBER_NOTE_NOTIF_BODY = "Someone left a note on your Ember";
   var mapRoot = null;
   var unsub = null;
   var beaconsCache = {};
@@ -343,6 +348,193 @@
       writeSecretsMap(map);
     }
   }
+
+  /* --- Owned-ember note notifications (client poll; no Web Push required) --- */
+  function requestEmberNotifPermission() {
+    try {
+      if (!("Notification" in window)) return;
+      if (Notification.permission === "default") {
+        Notification.requestPermission().catch(function () {});
+      }
+    } catch (e) {}
+  }
+
+  function readSeenNotesMap() {
+    try {
+      var raw = JSON.parse(localStorage.getItem(LS_NOTES_SEEN) || "{}");
+      return raw && typeof raw === "object" ? raw : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function writeSeenNotesMap(map) {
+    try {
+      localStorage.setItem(LS_NOTES_SEEN, JSON.stringify(map || {}));
+    } catch (e) {}
+  }
+
+  function getSeenNotesEntry(beaconId) {
+    if (!beaconId) return { ids: [], primed: false };
+    var map = readSeenNotesMap();
+    var entry = map[beaconId];
+    if (!entry) return { ids: [], primed: false };
+    if (Array.isArray(entry)) return { ids: entry.map(String), primed: true };
+    return {
+      ids: Array.isArray(entry.ids) ? entry.ids.map(String) : [],
+      primed: !!entry.primed
+    };
+  }
+
+  function setSeenNotesEntry(beaconId, ids, primed) {
+    if (!beaconId) return;
+    var map = readSeenNotesMap();
+    /* Keep only the active ember's seen set — secrets never stored here */
+    var next = {};
+    next[beaconId] = {
+      ids: (ids || []).map(String).slice(-80),
+      primed: !!primed
+    };
+    writeSeenNotesMap(next);
+  }
+
+  function clearSeenNotesFor(beaconId) {
+    if (!beaconId) {
+      writeSeenNotesMap({});
+      return;
+    }
+    var map = readSeenNotesMap();
+    if (map[beaconId]) {
+      delete map[beaconId];
+      writeSeenNotesMap(map);
+    }
+  }
+
+  function softHaptic() {
+    try {
+      if (window.HearthHaptics && typeof window.HearthHaptics.tap === "function") {
+        window.HearthHaptics.tap(14);
+      }
+    } catch (e) {}
+  }
+
+  function showEmberNoteNotification() {
+    /* Body is a short warm line only — never note text or ownerSecret */
+    var title = EMBER_NOTE_NOTIF_TITLE;
+    var body = EMBER_NOTE_NOTIF_BODY;
+    function viaPage() {
+      try {
+        if ("Notification" in window && Notification.permission === "granted") {
+          new Notification(title, { body: body, tag: "hearth-ember-note", silent: false });
+        }
+      } catch (e) {}
+    }
+    try {
+      if (navigator.serviceWorker && navigator.serviceWorker.ready &&
+          "Notification" in window && Notification.permission === "granted") {
+        navigator.serviceWorker.ready.then(function (reg) {
+          if (reg && typeof reg.showNotification === "function") {
+            return reg.showNotification(title, {
+              body: body,
+              tag: "hearth-ember-note",
+              renotify: true,
+              silent: false,
+              icon: "./icons/icon-192.png",
+              badge: "./icons/icon-96.png",
+              data: { url: "#postpartum" }
+            });
+          }
+          viaPage();
+        }).catch(viaPage);
+      } else {
+        viaPage();
+      }
+    } catch (e) {
+      viaPage();
+    }
+    softHaptic();
+  }
+
+  function processNotesForNotify(notesObj) {
+    var id = myId();
+    if (!id) return;
+    notesObj = notesObj || {};
+    var keys = Object.keys(notesObj);
+    var seen = getSeenNotesEntry(id);
+    if (!seen.primed) {
+      /* First successful fetch seeds baseline — no spam for existing notes */
+      setSeenNotesEntry(id, keys, true);
+      return;
+    }
+    var known = {};
+    for (var i = 0; i < seen.ids.length; i++) known[seen.ids[i]] = true;
+    var fresh = keys.filter(function (k) { return !known[k]; });
+    if (!fresh.length) return;
+    setSeenNotesEntry(id, keys, true);
+    showEmberNoteNotification();
+  }
+
+  function fetchOwnedNotes(cb) {
+    var id = myId();
+    if (!id || !isBackendReady()) {
+      if (cb) cb(null);
+      return;
+    }
+    var db = getDb();
+    if (db) {
+      db.ref("beacons/" + id + "/notes").once("value")
+        .then(function (snap) { if (cb) cb(snap.val() || {}); })
+        .catch(function () { if (cb) cb(null); });
+      return;
+    }
+    if (!getOwnerSecret(id)) {
+      if (cb) cb(null);
+      return;
+    }
+    fetch(restBase() + "/beacons/" + id + "/notes", {
+      headers: beaconOwnerHeaders(id, false)
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error("auth");
+        return r.json();
+      })
+      .then(function (j) { if (cb) cb(j || {}); })
+      .catch(function () { if (cb) cb(null); });
+  }
+
+  function emberIsLit() {
+    var meta = myMeta();
+    return !!(meta && meta.expiresAt > Date.now() && myId());
+  }
+
+  function pollOwnedNotesNotify() {
+    if (!emberIsLit()) {
+      stopNotesNotifyPoll();
+      return;
+    }
+    fetchOwnedNotes(function (notes) {
+      if (notes) processNotesForNotify(notes);
+    });
+  }
+
+  function startNotesNotifyPoll() {
+    if (!emberIsLit()) return;
+    requestEmberNotifPermission();
+    pollOwnedNotesNotify();
+    if (notesPollTimer) clearInterval(notesPollTimer);
+    notesPollTimer = setInterval(pollOwnedNotesNotify, NOTES_POLL_MS);
+    window.__hearthNotesNotifyPoll = notesPollTimer;
+  }
+
+  function stopNotesNotifyPoll() {
+    if (notesPollTimer) clearInterval(notesPollTimer);
+    notesPollTimer = null;
+    if (window.__hearthNotesNotifyPoll) {
+      clearInterval(window.__hearthNotesNotifyPoll);
+      window.__hearthNotesNotifyPoll = null;
+    }
+  }
+
   function beaconOwnerHeaders(id, withJson) {
     var h = {};
     if (withJson) h["Content-Type"] = "application/json";
@@ -385,7 +577,12 @@
         pill.hidden = true;
       }
     }
-    if (on) loadMyNotes();
+    if (on) {
+      loadMyNotes();
+      startNotesNotifyPoll();
+    } else {
+      stopNotesNotifyPoll();
+    }
   }
 
   function initMap() {
@@ -781,6 +978,7 @@
           " for about " + hours + " hours — a soft golden light on the map, never your home."
         );
         if (window.HearthSounds) HearthSounds.play("chime");
+        requestEmberNotifPermission();
         /* optimistic local paint */
         var local = Object.assign({}, beaconsCache);
         local[id] = payload;
@@ -858,7 +1056,11 @@
     var id = myId();
     var db = getDb();
     function clearLocal() {
-      if (id) clearOwnerSecret(id);
+      stopNotesNotifyPoll();
+      if (id) {
+        clearOwnerSecret(id);
+        clearSeenNotesFor(id);
+      }
       setMyId("");
       setMyMeta(null);
       updateLightUI();
@@ -887,6 +1089,8 @@
         notesWrap.hidden = false;
         notesWrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
+      requestEmberNotifPermission();
+      startNotesNotifyPoll();
       loadMyNotes();
       return;
     }
@@ -960,6 +1164,7 @@
     }
     function showNotes(val) {
       val = val || {};
+      processNotesForNotify(val);
       var items = Object.keys(val).map(function (k) { return val[k]; });
       items.sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
       if (!items.length) {
@@ -1010,6 +1215,7 @@
     } else {
       updateLightUI();
     }
+    if (emberIsLit()) requestEmberNotifPermission();
   }
 
   function bind() {
