@@ -205,23 +205,29 @@
     h += '<div style="margin-top:0.5rem"><button type="button" class="btn btn-secondary" id="loss-save-letter">Save letter</button></div>';
     h += "</div>";
 
-    /* 4 — Legal reassurance. */
-    h += '<div class="form-panel support-panel loss-panel loss-rights">';
-    h += "<h3>Your loss is not a crime</h3>";
-    h += "<p><strong>Breathe.</strong> In every U.S. state, having a miscarriage is <strong>not</strong> a crime. Abortion laws are written about providers and procedures — they do not punish a woman for losing a pregnancy. A miscarriage is a pregnancy ending on its own; the law treats that as a medical event, not a crime.</p>";
-    h += "<p>Why we tell you this: the news can make it all sound confusing, and a few grieving women have been questioned by people who misunderstood the law. Knowing your rights takes that fear away:</p>";
-    h += "<ul class=\"loss-list\">";
-    h += "<li>You do <strong>not</strong> have to report a miscarriage to anyone.</li>";
-    h += "<li>Your medical care is private — between you and your doctor.</li>";
-    h += "<li>If anyone who isn’t your doctor questions you about your loss, you can stay silent and ask for a lawyer. You never have to explain your grief to anyone.</li>";
-    h += "<li>You deserve timely, compassionate medical care. If a hospital ever delays your miscarriage care, you can ask for a patient advocate or go to another provider.</li>";
-    h += "</ul>";
-    h += "<p><strong>Free, confidential legal help</strong> if you ever want real answers for your state:</p>";
-    h += "<ul class=\"loss-list\">";
-    h += '<li>Repro Legal Helpline — <a href="tel:8448682812">844-868-2812</a> (free, confidential)</li>';
-    h += '<li>Pregnancy Justice — <a href="tel:2122559252">212-255-9252</a></li>';
-    h += "</ul>";
-    h += '<p class="hint">General information, not legal advice — but those helplines give real answers for your state, for free.</p>';
+    /* 4 — Legal reassurance, tucked behind a button: care comes first. */
+    var legalHtml = "";
+    legalHtml += "<h3>Your loss is not a crime</h3>";
+    legalHtml += "<p><strong>Breathe.</strong> In every U.S. state, having a miscarriage is <strong>not</strong> a crime. Abortion laws are written about providers and procedures — they do not punish a woman for losing a pregnancy. A miscarriage is a pregnancy ending on its own; the law treats that as a medical event, not a crime.</p>";
+    legalHtml += "<p>Why we tell you this: the news can make it all sound confusing, and a few grieving women have been questioned by people who misunderstood the law. Knowing your rights takes that fear away:</p>";
+    legalHtml += "<ul class=\"loss-list\">";
+    legalHtml += "<li>You do <strong>not</strong> have to report a miscarriage to anyone.</li>";
+    legalHtml += "<li>Your medical care is private — between you and your doctor.</li>";
+    legalHtml += "<li>If anyone who isn’t your doctor questions you about your loss, you can stay silent and ask for a lawyer. You never have to explain your grief to anyone.</li>";
+    legalHtml += "<li>You deserve timely, compassionate medical care. If a hospital ever delays your miscarriage care, you can ask for a patient advocate or go to another provider.</li>";
+    legalHtml += "</ul>";
+    legalHtml += "<p><strong>Free, confidential legal help</strong> if you ever want real answers for your state:</p>";
+    legalHtml += "<ul class=\"loss-list\">";
+    legalHtml += '<li>Repro Legal Helpline — <a href="tel:8448682812">844-868-2812</a> (free, confidential)</li>';
+    legalHtml += '<li>Pregnancy Justice — <a href="tel:2122559252">212-255-9252</a></li>';
+    legalHtml += "</ul>";
+    legalHtml += '<p class="hint">General information, not legal advice — but those helplines give real answers for your state, for free.</p>';
+
+    h += '<div class="form-panel support-panel loss-panel">';
+    h += "<h3>Worried about the law?</h3>";
+    h += "<p>If you have questions — or you’re scared your miscarriage could be treated as something it isn’t — tap below. What’s there will comfort you: <strong>you are safe.</strong></p>";
+    h += '<button type="button" class="btn btn-secondary" id="loss-legal-toggle" aria-expanded="false" aria-controls="loss-legal-body">My questions about the law, answered ♥</button>';
+    h += '<div id="loss-legal-body" class="loss-legal-body" hidden>' + legalHtml + "</div>";
     h += "</div>";
 
     /* 5 — What to expect. */
@@ -353,6 +359,15 @@
       st = state();
       st.journal = ($("loss-journal") || {}).value || "";
       save(st); savedFlash("Journal saved ♥");
+    });
+
+    var legalToggle = $("loss-legal-toggle");
+    var legalBody = $("loss-legal-body");
+    if (legalToggle && legalBody) legalToggle.addEventListener("click", function () {
+      var open = legalBody.hidden;
+      legalBody.hidden = !open;
+      legalToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      legalToggle.textContent = open ? "Close ♥" : "My questions about the law, answered ♥";
     });
   }
 
