@@ -27,7 +27,7 @@
       body: [
         "There is no single “right” way to be a mom. Safe sleep, feeding (breast, bottle, or both), and asking for help are the foundations.",
         "If possible, line up one trusted person who can bring a meal or watch the baby so you can rest.",
-        "Practical next step: pick one local class or mentor (see Directory) and one supply need to check off this week."
+        "Practical next step: choose a local class or mentor (see Directory) and one supply need to check off this week."
       ],
       medical: true,
       faith: null
@@ -894,6 +894,51 @@
     });
   }
   if (typeFilter) typeFilter.addEventListener("change", renderCenters);
+
+
+  function needTagCounts() {
+    const counts = Object.create(null);
+    getCenters().forEach((c) => {
+      (c.needs || []).forEach((n) => {
+        counts[n] = (counts[n] || 0) + 1;
+      });
+    });
+    return counts;
+  }
+
+  /** Hide need UI with zero centers — never invent tags. Keep sparse (1–2) visible. */
+  function hideEmptyNeedOptions() {
+    const counts = needTagCounts();
+    document.querySelectorAll(".dir-need-chip[data-dir-need]").forEach((btn) => {
+      const id = btn.getAttribute("data-dir-need");
+      const n = counts[id] || 0;
+      if (n === 0) {
+        btn.hidden = true;
+        btn.setAttribute("aria-hidden", "true");
+        btn.setAttribute("aria-pressed", "false");
+        btn.classList.remove("is-active");
+      } else {
+        btn.hidden = false;
+        btn.removeAttribute("aria-hidden");
+        if (n <= 2) btn.title = "Few listings nationwide for this need";
+      }
+    });
+    document.querySelectorAll('#help-form input[name="needs"]').forEach((input) => {
+      const id = input.value;
+      const n = counts[id] || 0;
+      const label = input.closest("label");
+      if (!label) return;
+      if (n === 0) {
+        label.hidden = true;
+        input.checked = false;
+        input.disabled = true;
+      } else {
+        label.hidden = false;
+        input.disabled = false;
+        if (n <= 2) label.title = "Few listings nationwide for this need";
+      }
+    });
+  }
 
   const dirNeedsRoot = document.getElementById("dir-needs");
   if (dirNeedsRoot) {

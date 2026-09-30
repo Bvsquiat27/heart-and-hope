@@ -4,10 +4,11 @@
   --bg-wash: #f7f1f4;
   --ink: #2a2430;
   --ink-soft: #5a5260;
-  --muted: #7a7280;
-  --accent: #8f7bb8;          /* lilac primary */
+  --muted: #5c5563;
+  --accent: #6f5a9a;          /* lilac primary */
   --accent-blush: #c4789a;    /* Researcher accent */
   --mint: #9ec5b8;
+  --mint-deep: #2f6b5c;
   --lavender: #b8a8d4;
   --blush: #e8b4c8;
   --peach: #f0c4a8;
@@ -26,9 +27,9 @@
   --cream-dark: #ebe4ea;
   --white: var(--solid-fallback);
   --blue: var(--accent);
-  --blue-deep: #6e5a96;       /* deeper lilac for contrast on white text */
+  --blue-deep: #5a4580;       /* deeper lilac for contrast on white text */
   --blue-soft: rgba(143, 123, 184, 0.14);
-  --green: var(--mint);
+  --green: var(--mint-deep);
   --green-soft: rgba(158, 197, 184, 0.22);
   --sage: #8fb5a8;
   --gold: #c4a574;
@@ -277,7 +278,8 @@ main {
 .btn-ghost:hover { background: var(--cream-dark); }
 
 .btn-success {
-  background: var(--green);
+  background: var(--mint-deep, #2f6b5c);
+  color: #fff;
   color: white;
   box-shadow: 0 4px 14px rgba(107, 155, 122, 0.35);
 }
@@ -981,7 +983,7 @@ body.standalone-mode .site-header {
 :root {
   --ink: #1a2430;
   --ink-soft: #3d4d5c;
-  --blue-deep: #2f5f78;
+  --blue-deep: #5a4580;
   --tap-min: 48px;
 }
 
