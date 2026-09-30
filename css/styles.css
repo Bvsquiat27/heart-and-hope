@@ -3380,3 +3380,73 @@ a:hover { color: var(--accent); }
   gap: 0.55rem;
   margin: 1rem 0 0;
 }
+
+/* ===== Bubbly glass icon treatment (v1.6.14.7) =====
+   Frosted bubble tiles with a glossy highlight, soft lavender glow,
+   and a gradient chip behind each glyph — in the app's own palette. */
+.card-icon,
+.budget-icon-btn,
+.bottom-nav a .bn-icon {
+  position: relative;
+  isolation: isolate;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.14));
+  -webkit-backdrop-filter: blur(10px) saturate(1.6);
+  backdrop-filter: blur(10px) saturate(1.6);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow:
+    inset 0 2px 5px rgba(255, 255, 255, 0.85),
+    inset 0 -4px 8px rgba(155, 134, 196, 0.16),
+    0 8px 18px rgba(155, 134, 196, 0.32);
+}
+
+/* gradient chip floating behind the glyph */
+.card-icon::before,
+.budget-icon-btn::before,
+.bottom-nav a.active .bn-icon::before {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b79fd6, #7c63a8);
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.75),
+    0 3px 8px rgba(124, 99, 168, 0.45);
+  z-index: -1;
+}
+.card-icon.green::before { background: linear-gradient(135deg, #a9d3c3, #2f6b5c); }
+.card-icon.cream::before { background: linear-gradient(135deg, #f2cfae, #d89a6a); }
+
+/* card icons: rounder + roomier */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
+  margin-bottom: 0.35rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(90, 70, 130, 0.45);
+}
+
+/* budget icon buttons keep their tap target, gain the bubble */
+.budget-icon-btn {
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(90, 70, 130, 0.45);
+}
+
+/* bottom-nav glyphs become bubble tiles; the active tab gets the chip */
+.bottom-nav a .bn-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+.bottom-nav a.active .bn-icon {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(90, 70, 130, 0.5);
+}
