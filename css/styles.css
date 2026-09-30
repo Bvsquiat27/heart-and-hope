@@ -2318,3 +2318,617 @@ body { font-size: 1.05rem; }
   fill: rgba(90, 110, 145, 0.10) !important;
   filter: none !important;
 }
+
+/* =========================================================
+   v1.6.11 — Stylish refresh (warm, dignified, CSS-first)
+   Christian-framed · never cheesy · big taps · a11y contrast
+   Ember: individual glowing dots ONLY — never whole-state fill
+   ========================================================= */
+
+:root {
+  /* Warmer hearth palette */
+  --cream: #f7f2ea;
+  --cream-dark: #ebe3d6;
+  --white: #fffcf7;
+  --ink: #1c2430;
+  --ink-soft: #3a4856;
+  --muted: #5f6f7c;
+  --blue: #4f7f96;
+  --blue-deep: #2a5368;
+  --blue-soft: #e4eef3;
+  --green: #5d8a6c;
+  --green-soft: #e6f1ea;
+  --sage: #7fa48c;
+  --blush: #e6d2c0;
+  --gold: #b8925a;
+  --gold-soft: #f3e6cf;
+  --danger: #a84e4e;
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 6px 28px rgba(28, 36, 48, 0.07);
+  --shadow-lg: 0 14px 44px rgba(28, 36, 48, 0.11);
+  --tap-min: 52px;
+  --space: 1.15rem;
+  --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-size: 1.06rem;
+  line-height: 1.65;
+  letter-spacing: 0.005em;
+  background:
+    radial-gradient(120% 60% at 50% -5%, rgba(243, 230, 207, 0.55) 0%, transparent 55%),
+    var(--cream);
+  color: var(--ink);
+}
+
+/* —— Header: calm glass —— */
+.site-header {
+  background: rgba(247, 242, 234, 0.9);
+  border-bottom: 1px solid rgba(184, 146, 90, 0.14);
+}
+.logo { letter-spacing: -0.025em; }
+.logo-mark {
+  background: linear-gradient(145deg, var(--blue-deep) 0%, var(--green) 100%);
+  box-shadow: 0 3px 12px rgba(42, 83, 104, 0.28);
+}
+.site-nav a {
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+}
+.site-nav a.active {
+  background: var(--gold-soft);
+  color: #5a3f1e;
+}
+
+/* —— Hero: dignified welcome —— */
+.hero {
+  padding: 2.35rem 1.25rem 2rem;
+  background:
+    linear-gradient(165deg, rgba(228, 238, 243, 0.95) 0%, rgba(247, 242, 234, 0.9) 48%, rgba(230, 241, 234, 0.75) 100%);
+  border: 1px solid rgba(184, 146, 90, 0.12);
+  box-shadow: var(--shadow);
+}
+.hero-compact {
+  padding: 1.85rem 1.2rem 1.35rem;
+  margin-bottom: 1.35rem;
+}
+.hero-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--blue-deep);
+  background: rgba(255, 252, 247, 0.88);
+  border: 1px solid rgba(79, 127, 150, 0.18);
+  margin-bottom: 0.85rem;
+}
+.hero h1 {
+  font-size: clamp(1.7rem, 5.2vw, 2.35rem);
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+  margin-bottom: 0.65rem;
+}
+.faith-line {
+  margin: 0.35rem auto 0;
+  max-width: 30rem;
+  font-size: 0.98rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #4a6d56;
+  line-height: 1.5;
+}
+
+/* —— Section rhythm —— */
+.section-head {
+  margin-bottom: 1.35rem;
+}
+.section-head h2 {
+  font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.45rem;
+}
+.section-head p {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 38rem;
+}
+
+/* —— Buttons: large, calm, clear —— */
+.btn {
+  min-height: var(--tap-min);
+  padding: 0.9rem 1.45rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+.btn-lg {
+  min-height: 56px;
+  padding: 1rem 1.7rem;
+  font-size: 1.12rem;
+}
+.btn-primary {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  box-shadow: 0 5px 18px rgba(42, 83, 104, 0.32);
+}
+.btn-primary:hover {
+  background: #1f4254;
+  color: #fff;
+}
+.btn-secondary {
+  background: var(--white);
+  color: var(--blue-deep);
+  border-color: rgba(42, 83, 104, 0.28);
+}
+.btn-secondary:hover {
+  background: var(--blue-soft);
+  color: var(--blue-deep);
+}
+.btn-ghost {
+  color: var(--ink-soft);
+  border-color: transparent;
+}
+.btn-ghost:hover {
+  background: var(--cream-dark);
+}
+
+/* —— Cards: clean, roomy —— */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.3rem;
+  border: 1px solid rgba(42, 83, 104, 0.09);
+  box-shadow: var(--shadow);
+  gap: 0.55rem;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.soft-card {
+  background: var(--white);
+  border-radius: var(--radius);
+}
+.card-grid {
+  gap: 1.1rem;
+}
+.promise-card {
+  background: var(--white);
+  border: 1px solid rgba(42, 83, 104, 0.1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.3rem;
+}
+
+/* —— Hub tiles: big taps, stylish —— */
+.hub-groups {
+  gap: 1.75rem;
+  margin: 0.75rem 0 2.25rem;
+}
+.hub-label {
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.7rem;
+  font-weight: 750;
+}
+.hub-sub {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: -0.15rem 0 0.75rem;
+}
+.hub-grid {
+  gap: 0.85rem;
+}
+.hub-tile {
+  padding: 1.15rem 1.2rem;
+  min-height: 5rem;
+  border-radius: 18px;
+  background: var(--white);
+  border: 1px solid rgba(28, 36, 48, 0.07);
+  box-shadow: 0 8px 22px rgba(28, 36, 48, 0.05);
+  gap: 0.28rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.hub-tile:hover,
+.hub-tile:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(28, 36, 48, 0.09);
+  border-color: rgba(184, 146, 90, 0.28);
+  outline: none;
+}
+.hub-tile-primary {
+  background: linear-gradient(145deg, #1a2a3c 0%, #243a52 55%, #2c4560 100%);
+  color: #f7f4ee;
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(26, 42, 60, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+.hub-tile-primary::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% 40%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(184, 146, 90, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hub-tile-primary .hub-desc {
+  color: rgba(247, 244, 238, 0.78);
+}
+.hub-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.hub-title {
+  font-weight: 750;
+  font-size: 1.14rem;
+  letter-spacing: -0.015em;
+  position: relative;
+  z-index: 1;
+}
+.hub-desc {
+  font-size: 0.94rem;
+  color: var(--muted);
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+}
+.hub-tile-sm {
+  min-height: 3.5rem;
+  padding: 0.95rem 1.05rem;
+  justify-content: center;
+  text-align: center;
+}
+.hub-tile-sm .hub-title {
+  font-size: 1rem;
+}
+
+/* —— Inputs stay readable —— */
+.input, .filter-input, .select-input, .search-input, textarea.input {
+  min-height: var(--tap-min);
+  border: 2px solid #8fa3b2;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--ink);
+}
+.chip {
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  font-weight: 600;
+}
+
+/* —— Bottom nav: warmer active —— */
+.bottom-nav {
+  background: rgba(255, 252, 247, 0.97);
+  border-top: 1px solid rgba(184, 146, 90, 0.16);
+  box-shadow: 0 -6px 24px rgba(28, 36, 48, 0.06);
+}
+.bottom-nav a {
+  min-height: 52px;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.bottom-nav a.active,
+.bottom-nav a:hover {
+  color: var(--blue-deep);
+  background: var(--gold-soft);
+}
+
+/* —— Footer: keep Mother Mary dedication —— */
+.site-footer {
+  padding: 2.35rem 1.25rem 3.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(184, 146, 90, 0.16);
+  letter-spacing: 0.01em;
+}
+.site-footer p {
+  margin: 0.45rem 0;
+  line-height: 1.55;
+}
+.site-footer p:first-child {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.site-footer p:last-child {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.site-footer strong {
+  color: var(--ink);
+  font-weight: 750;
+}
+.footer-mary {
+  color: #5a3f1e;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* —— Emergency banner: clear, not alarming —— */
+.emergency-banner {
+  background: #faf0f0;
+  color: #6e3333;
+  border-bottom: 1px solid #ebd0d0;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+}
+
+/* =========================================================
+   Ember night map — polished, tranquil, dots-only light
+   ========================================================= */
+.ember-night {
+  --ember-bg: #0a101c;
+  --ember-card: rgba(16, 24, 40, 0.94);
+  --ember-ink: #eef3fb;
+  --ember-muted: #b6c2d6; /* higher contrast on dark */
+  --ember-amber: #e4b66a;
+  --ember-amber-soft: rgba(228, 182, 106, 0.3);
+  --ember-line: rgba(190, 210, 240, 0.16);
+  color: var(--ember-ink);
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -8%, #1e2d4a 0%, transparent 58%),
+    radial-gradient(circle at 18% 22%, rgba(228, 182, 106, 0.06) 0%, transparent 18%),
+    radial-gradient(circle at 82% 30%, rgba(160, 190, 255, 0.05) 0%, transparent 16%),
+    radial-gradient(circle at 70% 78%, rgba(228, 182, 106, 0.04) 0%, transparent 20%),
+    linear-gradient(180deg, #0a101c 0%, #070c16 100%);
+  border-radius: calc(var(--radius) + 8px);
+  padding: 1.4rem 1.15rem 2.15rem;
+  margin: 0 -0.25rem;
+  border: 1px solid rgba(228, 182, 106, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 18px 48px rgba(0, 0, 0, 0.22);
+}
+.ember-night .section-head h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f7f4ee;
+  font-size: clamp(1.55rem, 4vw, 1.95rem);
+}
+.ember-night .section-head p,
+.ember-night .hint,
+.ember-night .legend {
+  color: var(--ember-muted);
+  line-height: 1.55;
+}
+.ember-night .section-head p strong {
+  color: #f0d7a8;
+  font-weight: 700;
+}
+.ember-night .beacon-disclaimer,
+.ember-night .soft-card,
+.ember-night .beacon-encourage,
+.ember-night .card {
+  background: var(--ember-card);
+  border: 1px solid var(--ember-line);
+  color: var(--ember-ink);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
+  border-radius: var(--radius);
+}
+.ember-night .beacon-disclaimer {
+  border-left: 4px solid var(--ember-amber);
+  color: #d5deee;
+}
+.ember-night .beacon-disclaimer a {
+  color: #f0d7a8;
+  font-weight: 650;
+}
+.ember-night a { color: #d2e0f7; }
+.ember-night .beacon-count {
+  color: #f3d9a6;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 0.01em;
+}
+.ember-night .search-input,
+.ember-night input,
+.ember-night textarea,
+.ember-night select {
+  background: rgba(6, 10, 20, 0.88);
+  color: var(--ember-ink);
+  border: 1.5px solid rgba(190, 210, 240, 0.22);
+  min-height: var(--tap-min);
+}
+.ember-night .field span,
+.ember-night .field-label,
+.ember-night label {
+  color: #c5d0e4;
+}
+.ember-night .btn-primary,
+.ember-night .beacon-big.btn-primary {
+  background: linear-gradient(135deg, #c48a42 0%, #e4b66a 48%, #f3d9a6 100%);
+  color: #1a1208;
+  border: none;
+  box-shadow:
+    0 0 0 1px rgba(228, 182, 106, 0.4),
+    0 10px 30px rgba(228, 182, 106, 0.3);
+  font-weight: 750;
+  min-height: 56px;
+}
+.ember-night .btn-secondary {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--ember-ink);
+  border: 1.5px solid var(--ember-line);
+  min-height: 52px;
+}
+.ember-night .btn-ghost {
+  color: var(--ember-muted);
+  background: transparent;
+}
+.ember-night .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--ember-ink);
+}
+
+.ember-state-pill {
+  background: var(--ember-amber-soft);
+  color: #f6e4bc;
+  border: 1px solid rgba(228, 182, 106, 0.4);
+  min-height: 40px;
+  padding: 0.45rem 1rem;
+}
+
+/* Map frame — quiet gold rim around a deep night canvas */
+.ember-map-shell {
+  position: relative;
+  border-radius: calc(var(--radius) + 10px);
+  padding: 0.45rem;
+  background:
+    linear-gradient(145deg, rgba(228, 182, 106, 0.28), rgba(90, 120, 180, 0.14) 55%, rgba(228, 182, 106, 0.12));
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.ember-night .beacon-map,
+.ember-map {
+  height: min(64vh, 480px);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 40%, #101a2e 0%, #070b14 70%);
+  border: 1px solid rgba(228, 182, 106, 0.22);
+  border-radius: calc(var(--radius) + 6px);
+}
+
+/* Quiet dark outlines ONLY — never amber / lit fill on states */
+.ember-us-svg { width: 100%; height: 100%; display: block; }
+.ember-state,
+.ember-state:hover,
+.ember-state:focus-visible,
+.ember-state.is-lit,
+.ember-state.is-lit-2,
+.ember-state.is-lit-3,
+.ember-state.is-mine {
+  fill: rgba(88, 108, 140, 0.09) !important;
+  stroke: rgba(155, 175, 205, 0.2) !important;
+  stroke-width: 1 !important;
+  cursor: default !important;
+  pointer-events: none !important;
+  filter: none !important;
+  animation: none !important;
+  outline: none !important;
+}
+
+/* Individual glowing dots — the ONLY light when a mom opts in */
+.ember-dot-halo {
+  fill: rgba(228, 182, 106, 0.34);
+  animation: ember-halo-pulse 2.8s ease-in-out infinite;
+}
+.ember-dot-halo.is-mine {
+  fill: rgba(255, 232, 176, 0.42);
+}
+.ember-dot {
+  fill: #f5cc72;
+  stroke: #fff8e4;
+  stroke-width: 2.5;
+  filter: url(#emberDotGlow);
+  cursor: pointer;
+  animation: ember-dot-pulse 2.5s ease-in-out infinite;
+  pointer-events: auto;
+}
+.ember-dot.is-mine {
+  fill: #ffe9b0;
+  stroke: #fffaf0;
+}
+.ember-dot:focus-visible {
+  outline: 3px solid #ffe9b0;
+  outline-offset: 5px;
+}
+@keyframes ember-dot-pulse {
+  0%, 100% { opacity: 0.82; }
+  50% { opacity: 1; }
+}
+@keyframes ember-halo-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.72; }
+}
+
+.ember-chip {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--ember-line);
+  color: var(--ember-ink);
+  min-height: 44px;
+}
+.ember-chip:hover {
+  background: var(--ember-amber-soft);
+  border-color: rgba(228, 182, 106, 0.5);
+  color: #f6e4bc;
+}
+.ember-note-card {
+  background: rgba(6, 10, 20, 0.75);
+  border: 1px solid var(--ember-line);
+  border-radius: var(--radius-sm);
+}
+.ember-duration-picks .ember-dur.is-selected {
+  outline: 2px solid #e4b66a;
+  background: rgba(228, 182, 106, 0.24);
+  color: #f6e4bc;
+}
+.ember-recent-list li {
+  background: rgba(6, 10, 20, 0.6);
+  border: 1px solid rgba(190, 210, 240, 0.14);
+  color: #eef3fb;
+  border-radius: 14px;
+  padding: 0.65rem 0.8rem;
+  min-height: 48px;
+}
+.ember-recent-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #f5cc72;
+  box-shadow: 0 0 12px rgba(245, 204, 114, 0.9);
+}
+.ember-account-nudge {
+  margin-top: 1.1rem;
+  border-left: 4px solid #e4b66a;
+}
+.ember-night .ember-duration-picks .btn {
+  flex: 1 1 40%;
+  min-height: 52px;
+}
+.ember-pick-btn,
+.ember-cluster-picker .ember-pick-btn {
+  min-height: 52px;
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+.beacon-big {
+  width: 100%;
+  margin-top: 0.85rem;
+  min-height: 3.4rem;
+  font-size: 1.18rem;
+}
+
+/* Center cards / directory polish */
+.center-card {
+  border-radius: var(--radius);
+  padding: 1.2rem 1.25rem;
+  border: 1px solid rgba(42, 83, 104, 0.1);
+}
+.center-card h3 {
+  letter-spacing: -0.015em;
+}
+
+/* Install / about polish */
+.install-tip-card {
+  border-left: 4px solid var(--gold);
+  background: var(--white);
+  border-radius: var(--radius);
+}
+
+/* Reduced motion: keep dignity without flash */
+@media (prefers-reduced-motion: reduce) {
+  .ember-dot,
+  .ember-dot-halo,
+  .beacon-glow {
+    animation: none !important;
+  }
+  .hub-tile:hover,
+  .card:hover {
+    transform: none;
+  }
+}
