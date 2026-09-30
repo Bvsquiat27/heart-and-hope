@@ -3569,9 +3569,12 @@ a, button, [role="button"], summary, .card, .hub-tile, .dir-need-chip {
   padding: 0.5rem 0.9rem;
   margin-bottom: 0.8rem;
 }
-.loss-rights {
-  border-left: 4px solid rgba(90, 130, 190, 0.6);
+.loss-legal-body {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(120, 90, 130, 0.2);
 }
+.loss-legal-body h3 { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   .loss-candle.lit { animation: none; }
 }
