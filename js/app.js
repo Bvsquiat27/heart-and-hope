@@ -633,7 +633,7 @@
     ).filter(Boolean);
   }
 
-  /** Honest offer pills from center.services only — never invent diaper/formula/clothes. */
+  /** Honest service strings from center.services only — never invent diaper/formula/clothes. */
   function honestServicePills(c) {
     var list = Array.isArray(c.services) ? c.services : [];
     var out = [];
@@ -647,6 +647,25 @@
       out.push(lab);
     });
     return out.slice(0, 8);
+  }
+
+  function hearthTap(ms) {
+    try {
+      if (window.HearthHaptics && typeof window.HearthHaptics.tap === "function") {
+        window.HearthHaptics.tap(ms);
+        return;
+      }
+    } catch (e) {}
+    softHaptic(ms);
+  }
+
+  var _dirRenderTimer = null;
+  function scheduleRenderCenters() {
+    if (_dirRenderTimer) clearTimeout(_dirRenderTimer);
+    _dirRenderTimer = setTimeout(function () {
+      _dirRenderTimer = null;
+      renderCenters();
+    }, 300);
   }
 
   function populateTypeFilter() {
@@ -746,7 +765,7 @@
         </header>
         <p class="loc">${escapeHtml(c.city)}, ${escapeHtml(c.state)} ${escapeHtml(c.zip)}${distLabel}</p>
         <p class="blurb">${escapeHtml(c.blurb || "")}</p>
-        <div class="services offer-tags" aria-label="What this center offers">${honestServicePills(c).map((s) => `<span class="service-pill offer-service">${escapeHtml(s)}</span>`).join("")}</div>
+        ${typeof offerTagsHtml === "function" ? offerTagsHtml(c, dirNeeds) : `<div class="services offer-tags" aria-label="What this center offers">${honestServicePills(c).map((s) => `<span class="service-pill offer-service">${escapeHtml(s)}</span>`).join("")}</div>`}
         <div class="center-actions">${actions.join("")}</div>
       </article>`;
     }).join("");
@@ -799,7 +818,7 @@
   if (locFilter) {
     locFilter.addEventListener("input", () => {
       syncGeoModeFromTypedLocation(locFilter.value);
-      renderCenters();
+      scheduleRenderCenters();
     });
   }
   if (typeFilter) typeFilter.addEventListener("change", renderCenters);
@@ -885,16 +904,82 @@
   };
 
   function servicesOfferHtml(center, limit) {
-    const lim = limit == null ? 6 : limit;
-    const svcs = (typeof honestServicePills === "function" ? honestServicePills(center) : ((center && center.services) || [])).slice(0, lim);
-    if (!svcs.length) return "";
-    return `<div class="services offer-tags" aria-label="What this center offers">${svcs.map((s) => `<span class="service-pill offer-service">${escapeHtml(s)}</span>`).join("")}</div>`;
+    return offerTagsHtml(center, [], limit);
   }
 
   /** Exact need-tag overlap for display (no alias expansion — avoids fake item claims). */
   function exactNeedMatches(center, needs) {
     const cNeeds = (center && center.needs) || [];
     return (needs || []).filter((n) => cNeeds.includes(n));
+  }
+
+  /**
+   * Offer pills: center.services first, then truthful c.needs labels only when tagged.
+   * Never invent diapers/formula/clothes. "Baby supplies" only when supplies is tagged
+   * (or already present as a service string).
+   */
+  function honestOfferItems(center, selectedNeeds) {
+    const items = [];
+    const seen = Object.create(null);
+    const selected = selectedNeeds || [];
+    const selectedSet = Object.create(null);
+    selected.forEach((n) => { selectedSet[n] = 1; });
+    const svcList = Array.isArray(center && center.services) ? center.services : [];
+    const needList = Array.isArray(center && center.needs) ? center.needs : [];
+
+    function serviceMatchesNeed(sk, n) {
+      if (!n) return false;
+      if (n === "ultrasound") return /ultrasound/.test(sk);
+      if (n === "mentor") return /mentor/.test(sk);
+      if (n === "counseling") return /counsel/.test(sk);
+      if (n === "parenting") return /parenting/.test(sk);
+      if (n === "adoption") return /adoption/.test(sk);
+      if (n === "talk") return /mentor|counsel|listen|talk|hotline/.test(sk);
+      if (n === "housing") return /hous/.test(sk);
+      if (n === "supplies" || n === "diapers" || n === "formula" || n === "clothes" || n === "food" || n === "car-seat") {
+        return /baby\s*supplies|\bsupplies\b/.test(sk);
+      }
+      return sk.indexOf(String(n).replace(/-/g, " ")) >= 0 || sk.indexOf(n) >= 0;
+    }
+
+    svcList.forEach((s) => {
+      const lab = String(s || "").trim();
+      if (!lab) return;
+      const key = lab.toLowerCase();
+      if (seen[key]) return;
+      seen[key] = 1;
+      const matched = selected.some((n) => serviceMatchesNeed(key, n));
+      items.push({ label: lab, kind: "service", matched: !!matched });
+    });
+
+    const NEED_DISPLAY_ORDER = [
+      "ultrasound", "mentor", "counseling", "housing", "supplies", "food",
+      "diapers", "formula", "clothes", "parenting", "talk", "adoption",
+      "childcare", "job", "car-seat", "expecting", "new-mom", "ride", "apply"
+    ];
+    NEED_DISPLAY_ORDER.forEach((nid) => {
+      if (needList.indexOf(nid) === -1) return;
+      const lab = OFFER_NEED_LABELS[nid];
+      if (!lab) return;
+      const key = lab.toLowerCase();
+      const coveredByService = svcList.some((s) => serviceMatchesNeed(String(s).toLowerCase(), nid));
+      if (coveredByService) return;
+      if (seen[key]) return;
+      seen[key] = 1;
+      items.push({ label: lab, kind: "need", needId: nid, matched: !!selectedSet[nid] });
+    });
+
+    return items;
+  }
+
+  function offerTagsHtml(center, selectedNeeds, limit) {
+    const lim = limit == null ? 10 : limit;
+    const items = honestOfferItems(center, selectedNeeds).slice(0, lim);
+    if (!items.length) return "";
+    return `<div class="services offer-tags" aria-label="What this center offers">${items.map((it) => {
+      const cls = "service-pill offer-service" + (it.kind === "need" ? " offer-need" : "") + (it.matched ? " is-match" : "");
+      return `<span class="${cls}">${escapeHtml(it.label)}</span>`;
+    }).join("")}</div>`;
   }
 
   function expandNeeds(needs) {
@@ -1199,7 +1284,7 @@ Thank you for the work you do. Please contact me at your earliest convenience.
         : (matchBits.length
           ? `Matches your needs: ${matchBits.map(escapeHtml).join(", ")}`
           : "Listed services below — ask them what they can offer for your situation.");
-      const offerHtml = nat ? "" : servicesOfferHtml(c, 6);
+      const offerHtml = nat ? "" : offerTagsHtml(c, data.needs, 6);
       const actions = [];
       /* Prefer Call on phone-only locals; Email only when the center has email (user taps national Email explicitly). */
       if (!nat && c.phone && !c.email) {
@@ -1323,9 +1408,18 @@ ${msg.sms}`;
     helpForm._lastPreview = { data, centers, msg, best };
   }
 
+  var _previewTimer = null;
+  function scheduleUpdatePreview() {
+    if (_previewTimer) clearTimeout(_previewTimer);
+    _previewTimer = setTimeout(function () {
+      _previewTimer = null;
+      updatePreview();
+    }, 300);
+  }
+
   if (helpForm) {
-    helpForm.addEventListener("input", updatePreview);
-    helpForm.addEventListener("change", updatePreview);
+    helpForm.addEventListener("input", scheduleUpdatePreview);
+    helpForm.addEventListener("change", scheduleUpdatePreview);
 
     helpForm.addEventListener("submit", (e) => {
       e.preventDefault();
