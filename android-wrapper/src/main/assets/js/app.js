@@ -125,7 +125,7 @@
 
   const NAV_GROUPS = {
     home: ["home"],
-    help: ["directory", "help", "crisis"],
+    help: ["directory", "help", "crisis", "right-to-life"],
     ember: ["postpartum"],
     tools: [
       "support", "contractions", "baby", "reminders", "ultrasound", "ninety",
