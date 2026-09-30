@@ -422,10 +422,15 @@
     /* Body is a short warm line only — never note text or ownerSecret */
     var title = EMBER_NOTE_NOTIF_TITLE;
     var body = EMBER_NOTE_NOTIF_BODY;
+    try {
+      if (window.HeartNotify && typeof window.HeartNotify.announce === "function") {
+        window.HeartNotify.announce();
+      }
+    } catch (e) {}
     function viaPage() {
       try {
         if ("Notification" in window && Notification.permission === "granted") {
-          new Notification(title, { body: body, tag: "heart-ember-note", silent: false });
+          new Notification(title, { body: body, tag: "heart-ember-note", silent: true });
         }
       } catch (e) {}
     }
@@ -438,7 +443,7 @@
               body: body,
               tag: "heart-ember-note",
               renotify: true,
-              silent: false,
+              silent: true,
               icon: "./icons/icon-192.png",
               badge: "./icons/icon-96.png",
               data: { url: "#postpartum" }

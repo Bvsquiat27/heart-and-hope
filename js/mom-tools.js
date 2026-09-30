@@ -408,6 +408,9 @@
 
   function notify(title, body) {
     try {
+      if (window.HeartNotify && typeof window.HeartNotify.announce === "function") {
+        window.HeartNotify.announce();
+      }
       if ("Notification" in window && Notification.permission === "granted") {
         new Notification(title, { body: body, silent: true });
       }
