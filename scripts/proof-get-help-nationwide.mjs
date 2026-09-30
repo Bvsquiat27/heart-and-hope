@@ -270,6 +270,28 @@ const diaperNeedCount = centers.filter((c) => (c.needs || []).includes("diapers"
 console.log(`centers with needs.diapers: ${diaperNeedCount} ${diaperNeedCount < 50 ? "PASS" : "FAIL"}`);
 if (diaperNeedCount >= 50) failed = true;
 
+
+// Residual: bare las vegas → NV (major metro Low); "las vegas nm" / 87701 → NM Care Net
+{
+  const bare = window.HearthHelp.rankCenters("las vegas", [], { limit: 3, geo: null });
+  const nmQ = window.HearthHelp.rankCenters("las vegas nm", [], { limit: 5, geo: null });
+  const zip = window.HearthHelp.rankCenters("87701", [], { limit: 5, geo: null });
+  const bareSt = bare.resolved && bare.resolved.state;
+  const nmSt = nmQ.resolved && nmQ.resolved.state;
+  const zipSt = zip.resolved && zip.resolved.state;
+  if (bareSt !== "NV") { console.log("FAIL bare las vegas expected NV got", bareSt); failed = true; }
+  else console.log("PASS bare las vegas → NV", bare.resolved && bare.resolved.label);
+  if (nmSt !== "NM") { console.log("FAIL las vegas nm expected NM got", nmSt, nmQ.resolved); failed = true; }
+  else console.log("PASS las vegas nm → NM", nmQ.resolved && nmQ.resolved.label, nmQ.items?.[0]?.name);
+  if (zipSt !== "NM") { console.log("FAIL 87701 expected NM got", zipSt); failed = true; }
+  else {
+    const best = zip.items && zip.items[0];
+    const ok = best && best.state === "NM";
+    if (!ok) { console.log("FAIL 87701 Best not NM", best && best.name, best && best.state); failed = true; }
+    else console.log("PASS 87701 → NM Best", best.name, best.state, best.id);
+  }
+}
+
 console.log(failed ? "\nOVERALL FAIL" : "\nOVERALL PASS");
 
 const out = {
