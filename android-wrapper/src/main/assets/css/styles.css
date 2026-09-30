@@ -3450,3 +3450,28 @@ a:hover { color: var(--accent); }
   color: #fff;
   text-shadow: 0 1px 3px rgba(90, 70, 130, 0.5);
 }
+
+/* ===== Tap feedback: bubbly press instead of blue flash (v1.6.14.7) ===== */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+/* Kill the native blue/grey tap flash on Android Chrome / WebView */
+a, button, [role="button"], input, select, textarea, summary, label {
+  -webkit-tap-highlight-color: transparent;
+}
+/* Bubbly press: gentle squash + brighten, no blue anywhere */
+a:active, button:active, [role="button"]:active, summary:active,
+.card:active, .hub-tile:active, .dir-need-chip:active {
+  transform: scale(0.965);
+  filter: brightness(1.05) saturate(1.12);
+}
+a, button, [role="button"], summary, .card, .hub-tile, .dir-need-chip {
+  transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.15s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  a:active, button:active, [role="button"]:active, summary:active,
+  .card:active, .hub-tile:active, .dir-need-chip:active {
+    transform: none;
+    filter: none;
+  }
+}
