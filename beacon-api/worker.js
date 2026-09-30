@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.5
+ * Cloudflare Worker — Hearth Ember API + Accounts (KV) v1.7.6
  * Public /beacons never include private account payloads, ownerHash, or notes.
  */
-const VERSION = "1.7.5";
+const VERSION = "1.7.6";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -18,6 +18,11 @@ const IDX_FLAGS = "idx:flags";
 const MAX_FLAGS = 2000;
 const MAX_CENTER_ID = 80;
 const MAX_FLAG_REASON = 200;
+const MAX_FLAG_NAME = 120;
+const MAX_FLAG_CITY = 80;
+const MAX_FLAG_STATE = 40;
+const MAX_FLAG_NOTE = 280;
+const FLAG_SOURCES = new Set(["directory", "get_help"]);
 
 const ALLOWED_ORIGINS = [
   "https://bvsquiat27.github.io",
@@ -510,7 +515,12 @@ async function listFlagsMap(kv) {
         out.push({
           id,
           centerId: row.centerId,
+          name: row.name || "",
+          city: row.city || "",
+          state: row.state || "",
           reason: row.reason || "",
+          source: row.source || "",
+          note: row.note || "",
           createdAt: row.createdAt || 0
         });
       }
@@ -1127,17 +1137,32 @@ export default {
       const limited = await checkRate(env, request, "post-flags");
       if (limited) return rateResponse(request, limited.retryAfter);
       const parsed = await readJsonCapped(request);
-      if (parsed.tooLarge) return json(request, { error: "too large" }, 413);
+      if (parsed.tooLarge) return json(request, { ok: false, error: "too large" }, 413);
       const body = parsed.value || {};
       const centerId = sanitizeCenterId(body.centerId);
-      if (!centerId) return json(request, { error: "centerId" }, 400);
-      let reason = String((body && body.reason) || "").trim().slice(0, MAX_FLAG_REASON);
-      if (reason && contentBlocked(reason)) return json(request, { error: "blocked" }, 400);
+      if (!centerId) return json(request, { ok: false, error: "centerId" }, 400);
+      const name = String(body.name || "").trim().slice(0, MAX_FLAG_NAME);
+      const city = String(body.city || "").trim().slice(0, MAX_FLAG_CITY);
+      const state = String(body.state || "").trim().slice(0, MAX_FLAG_STATE);
+      let reason = String(body.reason || "").trim().slice(0, MAX_FLAG_REASON);
+      let note = String(body.note || "").trim().slice(0, MAX_FLAG_NOTE);
+      let source = String(body.source || "").trim();
+      if (source && !FLAG_SOURCES.has(source)) {
+        return json(request, { ok: false, error: "source" }, 400);
+      }
+      if (name && contentBlocked(name)) return json(request, { ok: false, error: "blocked" }, 400);
+      if (reason && contentBlocked(reason)) return json(request, { ok: false, error: "blocked" }, 400);
+      if (note && contentBlocked(note)) return json(request, { ok: false, error: "blocked" }, 400);
       const id = newId();
       const ipHash = await sha256HexTrunc(clientIp(request), 16);
       const row = {
         centerId,
-        reason: reason || "",
+        name,
+        city,
+        state,
+        reason: reason || "abortion_provider",
+        source,
+        note,
         createdAt: Date.now(),
         ipHash
       };
@@ -1153,7 +1178,7 @@ export default {
         }
       }
       /* Queued for review — does NOT remove live listings automatically. */
-      return json(request, { id, ok: true, queued: true }, 201);
+      return json(request, { ok: true, id, queued: true }, 201);
     }
 
     if (p === "/flags" && request.method === "GET") {
