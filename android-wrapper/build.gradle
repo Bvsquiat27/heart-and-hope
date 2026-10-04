@@ -10,14 +10,14 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.heartandhope.app"
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.heartandhope.app"
         minSdk 24
-        targetSdk 34
-        versionCode 39
-        versionName "1.6.14.9"
+        targetSdk 36
+        versionCode 40
+        versionName "1.6.14.10"
     }
 
     signingConfigs {
