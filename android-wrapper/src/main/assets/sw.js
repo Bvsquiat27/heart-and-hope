@@ -3,7 +3,7 @@
    Network-first with stale-while-revalidate for updates.
    Never invent medical content beyond what's cached.
 */
-const CACHE_VERSION = "heart-hope-v1.6.14.7";
+const CACHE_VERSION = "heart-hope-v1.6.14.8";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 
 const SHELL_ASSETS = [
@@ -20,12 +20,15 @@ const SHELL_ASSETS = [
   "./js/account.js",
   "./js/centers-filter.js",
   "./js/firebase-beacon-config.js",
+  "./js/loss.js",
+  "./js/heart-notify.js",
   "./audio/chime.ogg",
   "./audio/lullaby.ogg",
   "./audio/ping.ogg",
   "./data/centers.js",
   "./data/zips.js",
   "./data/zip-coords.js",
+  "./data/us-states.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
