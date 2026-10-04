@@ -1,13 +1,14 @@
 {
   "name": "heart-ember-api",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "private": true,
   "description": "Public REST API for Heart & Hope Postpartum Ember live map",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "prove": "bash scripts/prove-1.7.0.sh"
+    "prove": "bash scripts/prove-1.7.0.sh",
+    "prove:recovery": "node scripts/prove-recovery.mjs"
   },
   "engines": {
     "node": ">=18"
