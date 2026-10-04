@@ -1,8 +1,8 @@
 /**
- * Cloudflare Worker — Heart Ember API + Accounts (KV) v1.7.6
- * Public /beacons never include private account payloads, ownerHash, or notes.
+ * Cloudflare Worker — Heart Ember API + Accounts (KV) v1.7.7
+ * Public /beacons never include private account payloads, ownerHash, notes, or ZIP.
  */
-const VERSION = "1.7.6";
+const VERSION = "1.7.7";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -50,14 +50,47 @@ const CONTENT_BLOCK = [
   /\b(shit|bitch|asshole|cunt|slut|whore|nigg\w*|faggot|retard)\b/i,
   /\b(sex|sexy|nude|porn|onlyfans)\b/i,
   /\b(kill\s*yourself|hang\s*yourself|cut\s*yourself)\b/i,
-  /\b(https?:\/\/|www\.|\.com\b|\.net\b|\.org\b)/i,
+  /* non-http hosts: any letter TLD, same boundary rule as .com / .net / .org */
+  /\b(https?:\/\/|www\.|\.[a-z]{2,24}\b)/i,
   /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i,
   /\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/,
   /(?:^|[^\w])@[a-z0-9_]{3,}/i,
   /\b(snapchat|instagram|tiktok|discord|telegram|whatsapp|dm\s*me|text\s*me|call\s*me)\b/i
 ];
 
-/** NFKC + strip Unicode Cf (zero-width / format) before CONTENT_BLOCK matching. */
+/** Cyrillic glyphs that look like Latin letters. Other Cyrillic stays unchanged. */
+const CYRILLIC_LOOKALIKE = {
+  "\u0410": "A", "\u0430": "a",
+  "\u0412": "B",
+  "\u0415": "E", "\u0435": "e",
+  "\u041A": "K", "\u043A": "k",
+  "\u041C": "M", "\u043C": "m",
+  "\u041D": "H",
+  "\u041E": "O", "\u043E": "o",
+  "\u0420": "P", "\u0440": "p",
+  "\u0421": "C", "\u0441": "c",
+  "\u0422": "T",
+  "\u0423": "Y", "\u0443": "y",
+  "\u0425": "X", "\u0445": "x",
+  "\u0405": "S", "\u0455": "s",
+  "\u0406": "I", "\u0456": "i",
+  "\u0408": "J", "\u0458": "j",
+  "\u0474": "V", "\u0475": "v",
+  "\u04BA": "H", "\u04BB": "h",
+  "\u04C0": "I", "\u04CF": "l",
+  "\u0500": "D", "\u0501": "d",
+  "\u051A": "Q", "\u051B": "q",
+  "\u051C": "W", "\u051D": "w"
+};
+
+function foldCyrillicLookalikes(text) {
+  return String(text).replace(/[\u0400-\u052F]/g, (ch) =>
+    Object.prototype.hasOwnProperty.call(CYRILLIC_LOOKALIKE, ch) ? CYRILLIC_LOOKALIKE[ch] : ch
+  );
+}
+
+/** NFKC + strip Unicode Cf, then fold Latin diacritics and Cyrillic lookalikes
+ * into the Latin alphabet CONTENT_BLOCK already matches. */
 function prepContent(text) {
   let t = String(text || "").normalize("NFKC");
   try {
@@ -65,7 +98,13 @@ function prepContent(text) {
   } catch (_) {
     t = t.replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF\u180E]/g, "");
   }
-  return t;
+  t = t.normalize("NFD");
+  try {
+    t = t.replace(/\p{M}/gu, "");
+  } catch (_) {
+    t = t.replace(/[\u0300-\u036F]/g, "");
+  }
+  return foldCyrillicLookalikes(t);
 }
 
 /** Modest leetspeak + spaced/punctuated letter collapse (f.u.c.k / f u c k).
@@ -765,7 +804,6 @@ function publicBeacon(b) {
     lng: b.lng,
     createdAt: b.createdAt,
     expiresAt: b.expiresAt,
-    coarseZip: b.coarseZip || "",
     state: b.state || ""
   };
 }
@@ -1042,13 +1080,16 @@ export default {
         .trim()
         .slice(0, MAX_NOTE);
       if (!text) return json(request, { error: "empty" }, 400);
-      if (contentBlocked(text)) return json(request, { error: "blocked" }, 400);
+      const fromLabel = String((body && body.fromLabel) || "A mom nearby").slice(0, 40);
+      if (contentBlocked(text) || contentBlocked(fromLabel)) {
+        return json(request, { error: "blocked" }, 400);
+      }
       const nid = newId();
       if (!b.notes) b.notes = {};
       b.notes[nid] = {
         text,
         createdAt: Date.now(), /* L5: ignore client */
-        fromLabel: String((body && body.fromLabel) || "A mom nearby").slice(0, 40)
+        fromLabel
       };
       b.notes = trimNotes(b.notes);
       await saveBeacon(env.BEACONS, notesMatch[1], b);
@@ -1082,7 +1123,9 @@ export default {
         String((body && body.fromLabel) || "A mom")
           .trim()
           .slice(0, 40) || "A mom";
-      if (contentBlocked(textBody)) return json(request, { error: "blocked" }, 400);
+      if (contentBlocked(textBody) || contentBlocked(fromLabel)) {
+        return json(request, { error: "blocked" }, 400);
+      }
       const id = newId();
       const post = { text: textBody, createdAt: Date.now(), fromLabel };
       await env.HOPE.put(`h:${id}`, JSON.stringify(post));

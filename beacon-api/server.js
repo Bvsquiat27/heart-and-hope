@@ -1,5 +1,5 @@
 /**
- * Heart & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.6
+ * Heart & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.7
  * Mirrors Worker security: owner secrets, CORS allowlist, rate limits, body caps,
  * hashed tokens, sync caps, quiet health. File-backed Maps instead of KV.
  */
@@ -10,7 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const VERSION = "1.7.6";
+const VERSION = "1.7.7";
 const PORT = Number(process.env.PORT || 8765);
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const DATA_FILE = process.env.DATA_FILE || path.join(DATA_DIR, "beacons.json");
@@ -70,13 +70,45 @@ const CONTENT_BLOCK_WORDS =
 const CONTENT_BLOCK_CONTACT =
   /https?:\/\/|www\.|\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b|(?:^|[^\w])@[a-z0-9_]{3,}/i;
 
+/** Cyrillic glyphs that look like Latin letters. Other Cyrillic stays unchanged. */
+const CYRILLIC_LOOKALIKE = {
+  "\u0410": "A", "\u0430": "a",
+  "\u0412": "B",
+  "\u0415": "E", "\u0435": "e",
+  "\u041A": "K", "\u043A": "k",
+  "\u041C": "M", "\u043C": "m",
+  "\u041D": "H",
+  "\u041E": "O", "\u043E": "o",
+  "\u0420": "P", "\u0440": "p",
+  "\u0421": "C", "\u0441": "c",
+  "\u0422": "T",
+  "\u0423": "Y", "\u0443": "y",
+  "\u0425": "X", "\u0445": "x",
+  "\u0405": "S", "\u0455": "s",
+  "\u0406": "I", "\u0456": "i",
+  "\u0408": "J", "\u0458": "j",
+  "\u0474": "V", "\u0475": "v",
+  "\u04BA": "H", "\u04BB": "h",
+  "\u04C0": "I", "\u04CF": "l",
+  "\u0500": "D", "\u0501": "d",
+  "\u051A": "Q", "\u051B": "q",
+  "\u051C": "W", "\u051D": "w"
+};
+
+function foldCyrillicLookalikes(text) {
+  return String(text).replace(/[\u0400-\u052F]/g, (ch) =>
+    Object.prototype.hasOwnProperty.call(CYRILLIC_LOOKALIKE, ch) ? CYRILLIC_LOOKALIKE[ch] : ch
+  );
+}
+
 function normalizeContentText(text) {
   let t = String(text || "").normalize("NFKC");
   t = t.replace(
     /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/g,
     ""
   );
-  return t;
+  t = t.normalize("NFD").replace(/[\u0300-\u036F]/g, "");
+  return foldCyrillicLookalikes(t);
 }
 
 function collapseSpacedLetters(text) {
@@ -380,7 +412,6 @@ function publicBeacon(b) {
     lng: b.lng,
     createdAt: b.createdAt,
     expiresAt: b.expiresAt,
-    coarseZip: b.coarseZip || "",
     state: b.state || ""
   };
 }
@@ -733,13 +764,16 @@ app.post("/beacons/:id/notes", (req, res) => {
     .trim()
     .slice(0, MAX_NOTE);
   if (!text) return res.status(400).json({ error: "empty" });
-  if (contentBlocked(text)) return res.status(400).json({ error: "blocked" });
+  const fromLabel = String((req.body && req.body.fromLabel) || "A mom nearby").slice(0, 40);
+  if (contentBlocked(text) || contentBlocked(fromLabel)) {
+    return res.status(400).json({ error: "blocked" });
+  }
   const nid = newId();
   if (!b.notes) b.notes = {};
   b.notes[nid] = {
     text,
     createdAt: Date.now(),
-    fromLabel: String((req.body && req.body.fromLabel) || "A mom nearby").slice(0, 40)
+    fromLabel
   };
   b.notes = trimNotes(b.notes);
   save();
@@ -769,7 +803,9 @@ app.post("/hope", (req, res) => {
     String((req.body && req.body.fromLabel) || "A mom")
       .trim()
       .slice(0, 40) || "A mom";
-  if (contentBlocked(textBody)) return res.status(400).json({ error: "blocked" });
+  if (contentBlocked(textBody) || contentBlocked(fromLabel)) {
+    return res.status(400).json({ error: "blocked" });
+  }
   const id = newId();
   hopePosts[id] = { text: textBody, createdAt: Date.now(), fromLabel };
   pruneHope();
