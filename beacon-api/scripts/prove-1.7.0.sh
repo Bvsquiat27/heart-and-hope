@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local proof for Heart Ember API 1.7.0 (Express mirror).
+# Local proof for Heart Ember API Express mirror.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PORT="${PROOF_PORT:-$(python3 -c 'import socket;s=socket.socket();s.bind(("127.0.0.1",0));print(s.getsockname()[1]);s.close()')}"
@@ -40,7 +40,7 @@ assert_true() {
   fi
 }
 
-echo "Starting Express 1.7.0 on port $PORT (RATE_TEST=1, data=$DATA)"
+echo "Starting Express 1.7.7 on port $PORT (RATE_TEST=1, data=$DATA)"
 cd "$ROOT"
 RATE_TEST=1 PORT="$PORT" DATA_DIR="$DATA" DATA_FILE="$DATA/beacons.json" \
   HOPE_FILE="$DATA/hope.json" USERS_FILE="$DATA/users.json" TOKENS_FILE="$DATA/tokens.json" \
@@ -55,13 +55,13 @@ done
 
 # --- health quiet + version ---
 HEALTH=$(curl -sf "$BASE/health")
-assert_eq "health.version" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.0"
+assert_eq "health.version" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.7"
 assert_eq "health.ok" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("ok"))')" "True"
 HAS_ACCOUNTS=$(echo "$HEALTH" | python3 -c 'import sys,json;print("accounts" in json.load(sys.stdin))')
 assert_eq "health.no_accounts" "$HAS_ACCOUNTS" "False"
 
 ROOT_JSON=$(curl -sf "$BASE/")
-assert_eq "root.version" "$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.0"
+assert_eq "root.version" "$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.7"
 ROOT_HAS_ACCOUNTS=$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print("accounts" in json.load(sys.stdin))')
 assert_eq "root.no_accounts" "$ROOT_HAS_ACCOUNTS" "False"
 
@@ -84,7 +84,7 @@ assert_eq "post.beacon.no_ownerHash_in_body" "$HAS_HASH_IN_RESP" "False"
 # --- public list strips secrets ---
 LIST=$(curl -sf "$BASE/beacons")
 PUB_KEYS=$(echo "$LIST" | python3 -c 'import sys,json;d=json.load(sys.stdin);b=d.get("'"$BID"'",{});print(",".join(sorted(b.keys())))')
-assert_eq "public.beacon.keys" "$PUB_KEYS" "coarseZip,createdAt,expiresAt,lat,lng,state"
+assert_eq "public.beacon.keys" "$PUB_KEYS" "createdAt,expiresAt,lat,lng,state"
 HAS_NOTES=$(echo "$LIST" | python3 -c 'import sys,json;d=json.load(sys.stdin);print("notes" in d.get("'"$BID"'",{}))')
 assert_eq "public.no_notes" "$HAS_NOTES" "False"
 HAS_PASS=$(echo "$LIST" | python3 -c 'import sys,json;print("password" in json.dumps(json.load(sys.stdin)))')
