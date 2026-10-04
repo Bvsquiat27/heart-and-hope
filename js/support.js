@@ -359,7 +359,7 @@
     const base = (location.href || "").split("#")[0];
     return `Hi —
 
-I’m sharing a short note from Heart & Hope about how you can support me during pregnancy / early parenting.
+I’m sharing a short note from Heart and Hope about how you can support me during pregnancy / early parenting.
 
 Ways that help a lot:
 • Rides to appointments

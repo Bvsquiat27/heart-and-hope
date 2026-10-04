@@ -1457,11 +1457,11 @@
     if (data.phone) contactParts.push(`Phone: ${data.phone}`);
     const contact = contactParts.join(" · ") || "(she will follow up)";
 
-    const subject = `Support request from ${data.firstName} via Heart & Hope`;
+    const subject = `Support request from ${data.firstName} via Heart and Hope`;
     const body =
 `Hello,
 
-My name is ${data.firstName}. I’m reaching out through Heart & Hope, an app that helps mothers connect with local support. I gave permission for this message to be sent on my behalf.
+My name is ${data.firstName}. I’m reaching out through Heart and Hope, an app that helps mothers connect with local support. I gave permission for this message to be sent on my behalf.
 
 Location: ${data.location}
 Situation: ${needText}${church}
@@ -1473,10 +1473,10 @@ ${data.message || "(No additional note — please reach out with available help.
 Thank you for the work you do. Please contact me at your earliest convenience.
 
 — ${data.firstName}
-(Draft prepared with Heart & Hope; centers: ${centerNames})`;
+(Draft prepared with Heart and Hope; centers: ${centerNames})`;
 
     const sms =
-`Hi, I'm ${data.firstName}. Heart & Hope connected me. Near ${data.location}. Needs: ${needText}. ${data.phone ? "Call/text " + data.phone + "." : ""} ${data.email ? "Email " + data.email + "." : ""} ${data.message || ""}`.replace(/\s+/g, " ").trim();
+`Hi, I'm ${data.firstName}. Heart and Hope connected me. Near ${data.location}. Needs: ${needText}. ${data.phone ? "Call/text " + data.phone + "." : ""} ${data.email ? "Email " + data.email + "." : ""} ${data.message || ""}`.replace(/\s+/g, " ").trim();
 
     return { subject, body, sms };
   }
