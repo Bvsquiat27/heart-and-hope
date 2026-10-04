@@ -15,7 +15,7 @@
   var MAX_NOTE = 180;
   var NOTES_POLL_MS = 8000;
   var notesPollTimer = null;
-  var EMBER_NOTE_NOTIF_TITLE = "Heart & Hope";
+  var EMBER_NOTE_NOTIF_TITLE = "Heart and Hope";
   var EMBER_NOTE_NOTIF_BODY = "Someone left a note on your Ember";
   var mapRoot = null;
   var unsub = null;

@@ -88,7 +88,7 @@
     },
     "centers_touched": 1843
   },
-  "app_version": "1.6.14.8",
+  "app_version": "1.6.14.9",
   "honesty_strip_soft_supply_tags": {
     "date": "2026-09-30",
     "note": "Removed diapers/formula/clothes need tags inferred only from generic baby supplies. Kept only when services/blurb explicitly mention that item. Rank may soft-boost via supplies alias; cards must show center.services only.",
