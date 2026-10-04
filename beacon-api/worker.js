@@ -1,8 +1,10 @@
 /**
- * Cloudflare Worker — Heart Ember API + Accounts (KV) v1.7.7
+ * Cloudflare Worker — Heart Ember API + Accounts (KV) v1.7.8
  * Public /beacons never include private account payloads, ownerHash, notes, or ZIP.
+ * Password reset emails go out only when a mail provider is configured.
+ * The reset secret is never returned on the HTTP response.
  */
-const VERSION = "1.7.7";
+const VERSION = "1.7.8";
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
 const MAX_HOPE = 400;
@@ -11,6 +13,8 @@ const MAX_NOTES_PER_BEACON = 50;
 const MAX_BODY = 64000;
 const MAX_PRIVATE_BYTES = 48000;
 const TOKEN_TTL_MS = 90 * 24 * 3600 * 1000;
+const RESET_TTL_MS = 30 * 60 * 1000;
+const APP_PUBLIC_DEFAULT = "https://bvsquiat27.github.io/heart-and-hope";
 const LEGACY_ALL = "all";
 const IDX_BEACONS = "idx:beacons";
 const IDX_HOPE = "idx:hope";
@@ -39,7 +43,9 @@ const RATE = {
   "post-hope": { max: 10, window: 600 },
   "post-flags": { max: 15, window: 600 },
   signup: { max: 5, window: 3600 },
-  login: { max: 20, window: 900 }
+  login: { max: 20, window: 900 },
+  forgot: { max: 5, window: 3600 },
+  reset: { max: 10, window: 900 }
 };
 
 /* Hope/notes block — aligned with js/support.js filterHopeText + js/beacon.js filterNote.
@@ -685,8 +691,59 @@ async function loadUser(kv, email) {
 
 async function saveUser(kv, email, user) {
   const copy = { ...user };
-  delete copy.token; /* never persist plaintext */
+  delete copy.token; /* never persist plaintext session */
+  delete copy.resetToken; /* never persist plaintext reset secret */
   await kv.put(`u:${email}`, JSON.stringify(copy));
+}
+
+async function clearReset(kv, user) {
+  if (user && user.resetHash) {
+    try {
+      await kv.delete(`rst:${user.resetHash}`);
+    } catch (_) {}
+  }
+  if (user) {
+    user.resetHash = null;
+    user.resetExp = 0;
+    delete user.resetToken;
+  }
+}
+
+async function issueReset(kv, email, user) {
+  await clearReset(kv, user);
+  const token = newOwnerSecret();
+  const th = await sha256B64(token);
+  user.resetHash = th;
+  user.resetExp = Date.now() + RESET_TTL_MS;
+  delete user.resetToken;
+  delete user.token;
+  await kv.put(`rst:${th}`, email);
+  await saveUser(kv, email, user);
+  return token;
+}
+
+async function findByResetToken(kv, token) {
+  const th = await sha256B64(String(token || ""));
+  let email = null;
+  try {
+    email = await kv.get(`rst:${th}`);
+  } catch (_) {}
+  if (!email) return null;
+  const u = await loadUser(kv, email);
+  const match = !!(u && u.resetHash && timingSafeEqualStr(u.resetHash, th));
+  if (!u || !match || !u.resetExp || u.resetExp <= Date.now()) {
+    try {
+      await kv.delete(`rst:${th}`);
+    } catch (_) {}
+    if (match) {
+      u.resetHash = null;
+      u.resetExp = 0;
+      delete u.resetToken;
+      await saveUser(kv, email, u);
+    }
+    return null;
+  }
+  return { user: u, email, tokenHash: th };
 }
 
 async function findByToken(kv, req) {
@@ -831,8 +888,145 @@ function validEmail(e) {
 
 function validPassword(p) {
   const s = String(p || "");
-  /* 1.7.2: min 10 (was 6). Existing shorter accounts still login; only new signups enforced. */
+  /* 10–72 for new passwords (signup and reset). Existing shorter accounts still login. */
   return s.length >= 10 && s.length <= 72;
+}
+
+function appPublicUrl(env) {
+  return String((env && env.APP_PUBLIC_URL) || APP_PUBLIC_DEFAULT)
+    .trim()
+    .replace(/\/$/, "");
+}
+
+function mailFrom(env) {
+  return String((env && env.MAIL_FROM) || "").trim();
+}
+
+function parseFrom(from) {
+  const raw = String(from || "").trim();
+  const m = raw.match(/^(.*)<([^>]+)>\s*$/);
+  if (m) {
+    const name = m[1].trim().replace(/^"|"$/g, "") || "Heart and Hope";
+    return { name, email: m[2].trim() };
+  }
+  return { name: "Heart and Hope", email: raw };
+}
+
+function resendReady(env) {
+  return !!(String((env && env.RESEND_API_KEY) || "").trim() && mailFrom(env));
+}
+
+function sendgridReady(env) {
+  return !!(String((env && env.SENDGRID_API_KEY) || "").trim() && mailFrom(env));
+}
+
+function mailgunReady(env) {
+  return !!(
+    String((env && env.MAILGUN_API_KEY) || "").trim() &&
+    String((env && env.MAILGUN_DOMAIN) || "").trim() &&
+    mailFrom(env)
+  );
+}
+
+function emailBindingReady(env) {
+  return !!(env && env.EMAIL && typeof env.EMAIL.send === "function" && mailFrom(env));
+}
+
+function mailSinkReady(env) {
+  return !!String((env && env.MAIL_SINK_URL) || "").trim();
+}
+
+/** True only when a message can actually be handed to a sender. */
+function mailConfigured(env) {
+  return resendReady(env) || sendgridReady(env) || mailgunReady(env) || emailBindingReady(env) || mailSinkReady(env);
+}
+
+function resetEmailText(env, token) {
+  const link = appPublicUrl(env) + "/?reset=" + encodeURIComponent(token) + "#account";
+  return [
+    "A password reset was requested for this Heart and Hope account.",
+    "",
+    "Open this link and choose a new password (10 to 72 characters):",
+    link,
+    "",
+    "Or paste this code into Forgot password on the account screen:",
+    token,
+    "",
+    "The link and code expire in 30 minutes and work once.",
+    "If you did not request this, ignore this message. Your password will not change."
+  ].join("\n");
+}
+
+/**
+ * Deliver a reset message. Returns true only after the sender accepts it.
+ * Never returns the secret to the caller of the HTTP route.
+ */
+async function sendResetMail(env, to, text) {
+  const from = mailFrom(env);
+  const subject = "Reset your Heart and Hope password";
+  if (resendReady(env)) {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + String(env.RESEND_API_KEY).trim(),
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ from, to: [to], subject, text })
+    });
+    return res.ok;
+  }
+  if (sendgridReady(env)) {
+    const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + String(env.SENDGRID_API_KEY).trim(),
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        personalizations: [{ to: [{ email: to }] }],
+        from: { email: parseFrom(from).email, name: parseFrom(from).name },
+        subject,
+        content: [{ type: "text/plain", value: text }]
+      })
+    });
+    return res.ok;
+  }
+  if (mailgunReady(env)) {
+    const domain = String(env.MAILGUN_DOMAIN).trim();
+    const key = String(env.MAILGUN_API_KEY).trim();
+    const form = new URLSearchParams();
+    form.set("from", from);
+    form.set("to", to);
+    form.set("subject", subject);
+    form.set("text", text);
+    const res = await fetch("https://api.mailgun.net/v3/" + domain + "/messages", {
+      method: "POST",
+      headers: {
+        Authorization: "Basic " + btoa("api:" + key),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: form.toString()
+    });
+    return res.ok;
+  }
+  if (emailBindingReady(env)) {
+    await env.EMAIL.send({ to, from, subject, text });
+    return true;
+  }
+  if (mailSinkReady(env)) {
+    const res = await fetch(String(env.MAIL_SINK_URL).trim(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        to,
+        from: from || "Heart and Hope <noreply@localhost>",
+        subject,
+        text
+      })
+    });
+    return res.ok;
+  }
+  return false;
 }
 
 async function hashPassword(password, saltB64) {
@@ -990,6 +1184,8 @@ export default {
           "/auth/login",
           "/auth/logout",
           "/auth/me",
+          "/auth/forgot",
+          "/auth/reset",
           "/me/sync"
         ]
       });
@@ -1299,6 +1495,69 @@ export default {
       return json(
         request,
         { user: publicUser(found.user), private: found.user.private || emptyPrivate() },
+        200,
+        noStore
+      );
+    }
+
+    /* Same JSON for registered and unknown emails. Secret stays in the mail only. */
+    if (p === "/auth/forgot" && request.method === "POST") {
+      const limited = await checkRate(env, request, "forgot");
+      if (limited) return rateResponse(request, limited.retryAfter);
+      const parsed = await readJsonCapped(request);
+      if (parsed.tooLarge) return json(request, { error: "too large" }, 413, noStore);
+      const body = parsed.value || {};
+      const email = normEmail(body.email);
+      if (!validEmail(email)) return json(request, { error: "email" }, 400, noStore);
+      if (!mailConfigured(env)) {
+        await sleep(200);
+        return json(request, { error: "unavailable" }, 503, noStore);
+      }
+      const existing = await loadUser(env.USERS, email);
+      await sleep(200);
+      if (existing) {
+        const token = await issueReset(env.USERS, email, existing);
+        let sent = false;
+        try {
+          sent = await sendResetMail(env, email, resetEmailText(env, token));
+        } catch (_) {
+          sent = false;
+        }
+        if (!sent) {
+          await clearReset(env.USERS, existing);
+          await saveUser(env.USERS, email, existing);
+          return json(request, { error: "unavailable" }, 503, noStore);
+        }
+      }
+      return json(request, { ok: true }, 200, noStore);
+    }
+
+    if (p === "/auth/reset" && request.method === "POST") {
+      const limited = await checkRate(env, request, "reset");
+      if (limited) return rateResponse(request, limited.retryAfter);
+      const parsed = await readJsonCapped(request);
+      if (parsed.tooLarge) return json(request, { error: "too large" }, 413, noStore);
+      const body = parsed.value || {};
+      const token = String(body.token || body.code || "").trim();
+      const password = String(body.password || "");
+      if (!token || token.length < 20 || token.length > 200) {
+        return json(request, { error: "token" }, 400, noStore);
+      }
+      const found = await findByResetToken(env.USERS, token);
+      if (!found) return json(request, { error: "token" }, 400, noStore);
+      if (!validPassword(password)) return json(request, { error: "password" }, 400, noStore);
+      const { hash, salt } = await hashPassword(password);
+      found.user.passHash = hash;
+      found.user.passSalt = salt;
+      await clearReset(env.USERS, found.user);
+      const session = await issueToken(env.USERS, found.email, found.user);
+      return json(
+        request,
+        {
+          token: session,
+          user: publicUser(found.user),
+          private: found.user.private || emptyPrivate()
+        },
         200,
         noStore
       );

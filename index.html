@@ -741,18 +741,33 @@
 
       <div class="card soft-card account-card" id="account-guest">
         <h3>Create or sign in</h3>
-        <p class="hint">Email + password (at least 6 characters).</p>
+        <p class="hint">Email and a password of 10 to 72 characters.</p>
         <label class="field">
           <span>Email</span>
           <input type="email" id="account-email" class="search-input" autocomplete="email" inputmode="email" placeholder="you@example.com" />
         </label>
         <label class="field">
           <span>Password</span>
-          <input type="password" id="account-password" class="search-input" autocomplete="current-password" placeholder="At least 6 characters" />
+          <input type="password" id="account-password" class="search-input" autocomplete="current-password" minlength="10" maxlength="72" placeholder="10 to 72 characters" />
         </label>
         <div class="btn-row" style="margin-top:0.85rem">
           <button type="button" class="btn btn-primary btn-lg" id="account-signup">Create account</button>
           <button type="button" class="btn btn-secondary btn-lg" id="account-login">Sign in</button>
+          <button type="button" class="btn btn-ghost btn-lg" id="account-forgot">Forgot password</button>
+        </div>
+        <div id="account-recover">
+          <p class="hint">If you have a reset code from the email, enter it with a new password.</p>
+          <label class="field">
+            <span>Reset code</span>
+            <input type="text" id="account-reset-code" class="search-input" autocomplete="off" spellcheck="false" autocapitalize="off" />
+          </label>
+          <label class="field">
+            <span>New password</span>
+            <input type="password" id="account-new-password" class="search-input" autocomplete="new-password" minlength="10" maxlength="72" placeholder="10 to 72 characters" />
+          </label>
+          <div class="btn-row" style="margin-top:0.85rem">
+            <button type="button" class="btn btn-secondary btn-lg" id="account-reset-submit">Set new password</button>
+          </div>
         </div>
         <p id="account-status" class="hint" role="status"></p>
       </div>

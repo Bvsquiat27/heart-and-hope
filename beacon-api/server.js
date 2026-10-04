@@ -1,7 +1,9 @@
 /**
- * Heart & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.7
+ * Heart & Hope — Postpartum Ember + Accounts API (Express local mirror) v1.7.8
  * Mirrors Worker security: owner secrets, CORS allowlist, rate limits, body caps,
  * hashed tokens, sync caps, quiet health. File-backed Maps instead of KV.
+ * Password reset mail is sent only when a provider (or local MAIL_SINK_URL) is set.
+ * The reset secret is never returned on the HTTP response.
  */
 "use strict";
 
@@ -10,7 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const VERSION = "1.7.7";
+const VERSION = "1.7.8";
 const PORT = Number(process.env.PORT || 8765);
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, "data");
 const DATA_FILE = process.env.DATA_FILE || path.join(DATA_DIR, "beacons.json");
@@ -26,6 +28,7 @@ const MAX_FLAG_NOTE = 280;
 const FLAG_SOURCES = new Set(["directory", "get_help"]);
 const USERS_FILE = process.env.USERS_FILE || path.join(DATA_DIR, "users.json");
 const TOKENS_FILE = process.env.TOKENS_FILE || path.join(DATA_DIR, "tokens.json");
+const RESETS_FILE = process.env.RESETS_FILE || path.join(DATA_DIR, "resets.json");
 
 const MAX_NOTE = 200;
 const MAX_HOURS = 48;
@@ -35,6 +38,8 @@ const MAX_NOTES_PER_BEACON = 50;
 const MAX_BODY = 64000;
 const MAX_PRIVATE_BYTES = 48000;
 const TOKEN_TTL_MS = 90 * 24 * 3600 * 1000;
+const RESET_TTL_MS = 30 * 60 * 1000;
+const APP_PUBLIC_DEFAULT = "https://bvsquiat27.github.io/heart-and-hope";
 const PBKDF2_ITERS = 100000;
 
 const ALLOWED_ORIGINS = [
@@ -54,7 +59,9 @@ const RATE = RATE_TEST
       "post-hope": { max: 5, window: 60 },
       "post-flags": { max: 5, window: 60 },
       signup: { max: 3, window: 60 },
-      login: { max: 5, window: 60 }
+      login: { max: 5, window: 60 },
+      forgot: { max: 8, window: 60 },
+      reset: { max: 8, window: 60 }
     }
   : {
       "post-beacons": { max: 5, window: 600 },
@@ -62,7 +69,9 @@ const RATE = RATE_TEST
       "post-hope": { max: 10, window: 600 },
       "post-flags": { max: 15, window: 600 },
       signup: { max: 5, window: 3600 },
-      login: { max: 20, window: 900 }
+      login: { max: 20, window: 900 },
+      forgot: { max: 5, window: 3600 },
+      reset: { max: 10, window: 900 }
     };
 
 const CONTENT_BLOCK_WORDS =
@@ -136,6 +145,8 @@ let flagPosts = {};
 let users = {};
 /** @type {Record<string, string>} tokenHash -> email */
 let tokenIndex = {};
+/** @type {Record<string, string>} resetHash -> email */
+let resetIndex = {};
 /** rate limit: key -> { n, exp } */
 const rateMap = new Map();
 
@@ -169,6 +180,7 @@ function load() {
   flagPosts = loadJson(FLAGS_FILE, {});
   users = loadJson(USERS_FILE, {});
   tokenIndex = loadJson(TOKENS_FILE, {});
+  resetIndex = loadJson(RESETS_FILE, {});
   /* migrate plaintext tokens → hashed */
   let userDirty = false;
   for (const [email, u] of Object.entries(users)) {
@@ -185,6 +197,13 @@ function load() {
     }
     if (u.tokenHash && !tokenIndex[u.tokenHash]) {
       tokenIndex[u.tokenHash] = email;
+    }
+    if (u.resetToken) {
+      delete u.resetToken;
+      userDirty = true;
+    }
+    if (u.resetHash && !resetIndex[u.resetHash]) {
+      resetIndex[u.resetHash] = email;
     }
   }
   /* H5: drop legacy beacons without ownerHash */
@@ -232,6 +251,9 @@ function saveUsers() {
 }
 function saveTokens() {
   atomicWrite(TOKENS_FILE, tokenIndex);
+}
+function saveResets() {
+  atomicWrite(RESETS_FILE, resetIndex);
 }
 
 function pruneHope() {
@@ -436,8 +458,180 @@ function validEmail(e) {
 
 function validPassword(p) {
   const s = String(p || "");
-  /* 1.7.2: min 8 (was 6). Existing short passwords still login; client UI lags until next ship. */
-  return s.length >= 8 && s.length <= 72;
+  /* 10–72 for new passwords (signup and reset). Existing shorter accounts still login. */
+  return s.length >= 10 && s.length <= 72;
+}
+
+function appPublicUrl() {
+  return String(process.env.APP_PUBLIC_URL || APP_PUBLIC_DEFAULT)
+    .trim()
+    .replace(/\/$/, "");
+}
+
+function mailFrom() {
+  return String(process.env.MAIL_FROM || "").trim();
+}
+
+function parseFrom(from) {
+  const raw = String(from || "").trim();
+  const m = raw.match(/^(.*)<([^>]+)>\s*$/);
+  if (m) {
+    const name = m[1].trim().replace(/^"|"$/g, "") || "Heart and Hope";
+    return { name, email: m[2].trim() };
+  }
+  return { name: "Heart and Hope", email: raw };
+}
+
+function resendReady() {
+  return !!(String(process.env.RESEND_API_KEY || "").trim() && mailFrom());
+}
+
+function sendgridReady() {
+  return !!(String(process.env.SENDGRID_API_KEY || "").trim() && mailFrom());
+}
+
+function mailgunReady() {
+  return !!(
+    String(process.env.MAILGUN_API_KEY || "").trim() &&
+    String(process.env.MAILGUN_DOMAIN || "").trim() &&
+    mailFrom()
+  );
+}
+
+function mailSinkReady() {
+  return !!String(process.env.MAIL_SINK_URL || "").trim();
+}
+
+function mailConfigured() {
+  return resendReady() || sendgridReady() || mailgunReady() || mailSinkReady();
+}
+
+function resetEmailText(token) {
+  const link = appPublicUrl() + "/?reset=" + encodeURIComponent(token) + "#account";
+  return [
+    "A password reset was requested for this Heart and Hope account.",
+    "",
+    "Open this link and choose a new password (10 to 72 characters):",
+    link,
+    "",
+    "Or paste this code into Forgot password on the account screen:",
+    token,
+    "",
+    "The link and code expire in 30 minutes and work once.",
+    "If you did not request this, ignore this message. Your password will not change."
+  ].join("\n");
+}
+
+async function sendResetMail(to, text) {
+  const from = mailFrom();
+  const subject = "Reset your Heart and Hope password";
+  if (resendReady()) {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + String(process.env.RESEND_API_KEY).trim(),
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ from, to: [to], subject, text })
+    });
+    return res.ok;
+  }
+  if (sendgridReady()) {
+    const parsed = parseFrom(from);
+    const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + String(process.env.SENDGRID_API_KEY).trim(),
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        personalizations: [{ to: [{ email: to }] }],
+        from: { email: parsed.email, name: parsed.name },
+        subject,
+        content: [{ type: "text/plain", value: text }]
+      })
+    });
+    return res.ok;
+  }
+  if (mailgunReady()) {
+    const domain = String(process.env.MAILGUN_DOMAIN).trim();
+    const key = String(process.env.MAILGUN_API_KEY).trim();
+    const form = new URLSearchParams();
+    form.set("from", from);
+    form.set("to", to);
+    form.set("subject", subject);
+    form.set("text", text);
+    const res = await fetch("https://api.mailgun.net/v3/" + domain + "/messages", {
+      method: "POST",
+      headers: {
+        Authorization: "Basic " + Buffer.from("api:" + key).toString("base64"),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: form.toString()
+    });
+    return res.ok;
+  }
+  if (mailSinkReady()) {
+    const res = await fetch(String(process.env.MAIL_SINK_URL).trim(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        to,
+        from: from || "Heart and Hope <noreply@localhost>",
+        subject,
+        text
+      })
+    });
+    return res.ok;
+  }
+  return false;
+}
+
+function clearReset(email, user) {
+  if (user && user.resetHash) delete resetIndex[user.resetHash];
+  if (user) {
+    user.resetHash = null;
+    user.resetExp = 0;
+    delete user.resetToken;
+  }
+  if (email && user) users[email] = user;
+  saveResets();
+}
+
+function issueReset(email, user) {
+  clearReset(email, user);
+  const token = newOwnerSecret();
+  const th = hashToken(token);
+  user.resetHash = th;
+  user.resetExp = Date.now() + RESET_TTL_MS;
+  delete user.resetToken;
+  delete user.token;
+  resetIndex[th] = email;
+  users[email] = user;
+  saveUsers();
+  saveResets();
+  return token;
+}
+
+function findByResetToken(token) {
+  const th = hashToken(String(token || ""));
+  const email = resetIndex[th];
+  if (!email) return null;
+  const u = users[email];
+  const match = !!(u && u.resetHash && timingSafeEqualStr(u.resetHash, th));
+  if (!u || !match || !u.resetExp || u.resetExp <= Date.now()) {
+    delete resetIndex[th];
+    saveResets();
+    if (match) {
+      u.resetHash = null;
+      u.resetExp = 0;
+      delete u.resetToken;
+      users[email] = u;
+      saveUsers();
+    }
+    return null;
+  }
+  return u;
 }
 
 function hashPassword(password, saltBuf) {
@@ -665,6 +859,8 @@ app.get("/", (_req, res) => {
       "/auth/login",
       "/auth/logout",
       "/auth/me",
+      "/auth/forgot",
+      "/auth/reset",
       "/me/sync"
     ]
   });
@@ -947,6 +1143,61 @@ app.post("/auth/login", (req, res) => {
   }
   const token = issueToken(email, u);
   res.json({ token, user: publicUser(u), private: u.private || emptyPrivate() });
+});
+
+app.post("/auth/forgot", async (req, res) => {
+  noStore(res);
+  const limited = checkRate(req, "forgot");
+  if (limited) {
+    res.setHeader("Retry-After", String(limited.retryAfter));
+    return res.status(429).json({ error: "rate" });
+  }
+  const email = normEmail(req.body && req.body.email);
+  if (!validEmail(email)) return res.status(400).json({ error: "email" });
+  if (!mailConfigured()) {
+    sleepSync(200);
+    return res.status(503).json({ error: "unavailable" });
+  }
+  const existing = users[email];
+  sleepSync(200);
+  if (existing) {
+    const token = issueReset(email, existing);
+    let sent = false;
+    try {
+      sent = await sendResetMail(email, resetEmailText(token));
+    } catch (e) {
+      sent = false;
+    }
+    if (!sent) {
+      clearReset(email, existing);
+      saveUsers();
+      return res.status(503).json({ error: "unavailable" });
+    }
+  }
+  res.json({ ok: true });
+});
+
+app.post("/auth/reset", (req, res) => {
+  noStore(res);
+  const limited = checkRate(req, "reset");
+  if (limited) {
+    res.setHeader("Retry-After", String(limited.retryAfter));
+    return res.status(429).json({ error: "rate" });
+  }
+  const token = String((req.body && (req.body.token || req.body.code)) || "").trim();
+  const password = String((req.body && req.body.password) || "");
+  if (!token || token.length < 20 || token.length > 200) {
+    return res.status(400).json({ error: "token" });
+  }
+  const u = findByResetToken(token);
+  if (!u) return res.status(400).json({ error: "token" });
+  if (!validPassword(password)) return res.status(400).json({ error: "password" });
+  const { hash, salt } = hashPassword(password);
+  u.passHash = hash;
+  u.passSalt = salt;
+  clearReset(u.email, u);
+  const session = issueToken(u.email, u);
+  res.json({ token: session, user: publicUser(u), private: u.private || emptyPrivate() });
 });
 
 app.post("/auth/logout", (req, res) => {

@@ -9,6 +9,8 @@
   var LS_TOKEN = "heart_account_token";
   var LS_EMAIL = "heart_account_email";
   var LS_NUDGE = "heart_account_nudge_at";
+  var PASSWORD_MIN = 10;
+  var PASSWORD_MAX = 72;
 
   function $(id) { return document.getElementById(id); }
 
@@ -132,11 +134,21 @@
     return Object.assign({}, cloud, local);
   }
 
+  function passwordOk(pw) {
+    return pw.length >= PASSWORD_MIN && pw.length <= PASSWORD_MAX;
+  }
+
+  function passwordRuleMessage() {
+    return "Password must be 10 to 72 characters.";
+  }
+
   function refreshUI() {
     var signed = !!token();
+    var code = ($("account-reset-code") || {}).value || "";
+    var recovering = !!String(code).trim();
     var guest = $("account-guest");
     var pane = $("account-signed");
-    if (guest) guest.hidden = signed;
+    if (guest) guest.hidden = signed && !recovering;
     if (pane) pane.hidden = !signed;
     var em = $("account-email-display");
     if (em) em.textContent = email() || "Signed in";
@@ -149,7 +161,7 @@
     if (!base) return setStatus("Server offline — try again soon.", true);
     var em = ($("account-email") || {}).value || "";
     var pw = ($("account-password") || {}).value || "";
-    if (!em || pw.length < 6) return setStatus("Enter email and a password of at least 6 characters.", true);
+    if (!em || !passwordOk(pw)) return setStatus("Enter email and a password of 10 to 72 characters.", true);
     setStatus("Creating your account…");
     fetch(base + "/auth/signup", {
       method: "POST",
@@ -167,7 +179,7 @@
       .then(function () { setStatus("You’re set. Baby tracking will stay with your account."); })
       .catch(function (e) {
         var msg = (e && e.message) === "exists" ? "That email already has an account — try Sign in." :
-          (e && e.message) === "password" ? "Password must be at least 6 characters." :
+          (e && e.message) === "password" ? passwordRuleMessage() :
           (e && e.message) === "email" ? "Please use a real email address." :
           "Could not create account. Try again.";
         setStatus(msg, true);
@@ -197,6 +209,111 @@
       })
       .then(function () { setStatus("Welcome back — your private data is ready."); })
       .catch(function () { setStatus("Email or password didn’t match.", true); });
+  }
+
+  function forgot() {
+    var base = restBase();
+    if (!base) return setStatus("Server offline — try again soon. Nothing was sent.", true);
+    var em = (($("account-email") || {}).value || "").trim();
+    if (!em || em.indexOf("@") === -1) return setStatus("Enter the email on the account. Nothing was sent.", true);
+    setStatus("Requesting a password reset…");
+    fetch(base + "/auth/forgot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: em })
+    })
+      .then(function (r) {
+        return r.json().then(function (j) {
+          return { ok: r.ok, status: r.status, body: j || {} };
+        }, function () {
+          return { ok: r.ok, status: r.status, body: {} };
+        });
+      })
+      .then(function (res) {
+        if (res.ok && res.body && res.body.ok === true) {
+          setStatus("If that email has an account, a reset message was sent. Check your inbox for the link or code.");
+          return;
+        }
+        var err = res.body && res.body.error;
+        if (res.status === 429 || err === "rate") {
+          setStatus("Too many reset requests. Nothing was sent. Try again later.", true);
+          return;
+        }
+        if (err === "email") {
+          setStatus("Enter a valid email address. Nothing was sent.", true);
+          return;
+        }
+        setStatus("Password reset email is not set up, or it could not be sent. Nothing was sent.", true);
+      })
+      .catch(function () {
+        setStatus("Could not reach the server. Nothing was sent.", true);
+      });
+  }
+
+  function resetPassword() {
+    var base = restBase();
+    if (!base) return setStatus("Server offline — try again soon.", true);
+    var code = String((($("account-reset-code") || {}).value || "")).trim();
+    var pw = ($("account-new-password") || {}).value || "";
+    if (!code) return setStatus("Enter the reset code from the email.", true);
+    if (!passwordOk(pw)) return setStatus(passwordRuleMessage(), true);
+    setStatus("Updating password…");
+    fetch(base + "/auth/reset", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: code, password: pw })
+    })
+      .then(function (r) {
+        return r.json().then(function (j) {
+          if (!r.ok) throw new Error((j && j.error) || "reset");
+          return j;
+        });
+      })
+      .then(function (j) {
+        setToken(j.token);
+        setEmail((j.user && j.user.email) || "");
+        if (j.private) applyPrivate(j.private);
+        var codeEl = $("account-reset-code");
+        var pwEl = $("account-new-password");
+        var oldEl = $("account-password");
+        if (codeEl) codeEl.value = "";
+        if (pwEl) pwEl.value = "";
+        if (oldEl) oldEl.value = "";
+        refreshUI();
+        setStatus("Password updated. You are signed in to the same account.");
+        return pushPull();
+      })
+      .catch(function (e) {
+        var msg = (e && e.message) === "password" ? passwordRuleMessage() :
+          (e && e.message) === "token" ? "That reset code is invalid or expired." :
+          (e && e.message) === "rate" ? "Too many reset attempts. Try again later." :
+          "Could not update the password.";
+        setStatus(msg, true);
+      });
+  }
+
+  function takeResetFromUrl() {
+    var token = "";
+    try {
+      var params = new URLSearchParams(window.location.search);
+      token = params.get("reset") || "";
+      if (token) {
+        params.delete("reset");
+        var qs = params.toString();
+        var next = window.location.pathname + (qs ? "?" + qs : "") + (window.location.hash || "");
+        history.replaceState(null, "", next);
+      }
+    } catch (e) {}
+    token = String(token || "").trim();
+    if (!token) return;
+    var codeEl = $("account-reset-code");
+    if (codeEl) codeEl.value = token;
+    refreshUI();
+    if ((window.location.hash || "") !== "#account") {
+      window.location.hash = "#account";
+    }
+    var pwEl = $("account-new-password");
+    if (pwEl && pwEl.focus) pwEl.focus();
   }
 
   function logout() {
@@ -261,10 +378,15 @@
     var li = $("account-login");
     var lo = $("account-logout");
     var sy = $("account-sync-now");
+    var fg = $("account-forgot");
+    var rs = $("account-reset-submit");
     if (su) su.addEventListener("click", signup);
     if (li) li.addEventListener("click", login);
     if (lo) lo.addEventListener("click", logout);
     if (sy) sy.addEventListener("click", syncNow);
+    if (fg) fg.addEventListener("click", forgot);
+    if (rs) rs.addEventListener("click", resetPassword);
+    takeResetFromUrl();
     window.addEventListener("hashchange", function () {
       if ((location.hash || "") === "#account") onView();
     });

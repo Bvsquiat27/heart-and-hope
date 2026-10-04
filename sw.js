@@ -3,7 +3,7 @@
    Network-first with stale-while-revalidate for updates.
    Never invent medical content beyond what's cached.
 */
-const CACHE_VERSION = "heart-hope-v1.6.14.9";
+const CACHE_VERSION = "heart-hope-v1.6.14.10";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 
 const SHELL_ASSETS = [

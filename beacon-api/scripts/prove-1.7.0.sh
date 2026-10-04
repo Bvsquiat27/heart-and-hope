@@ -40,7 +40,7 @@ assert_true() {
   fi
 }
 
-echo "Starting Express 1.7.7 on port $PORT (RATE_TEST=1, data=$DATA)"
+echo "Starting Express 1.7.8 on port $PORT (RATE_TEST=1, data=$DATA)"
 cd "$ROOT"
 RATE_TEST=1 PORT="$PORT" DATA_DIR="$DATA" DATA_FILE="$DATA/beacons.json" \
   HOPE_FILE="$DATA/hope.json" USERS_FILE="$DATA/users.json" TOKENS_FILE="$DATA/tokens.json" \
@@ -55,13 +55,13 @@ done
 
 # --- health quiet + version ---
 HEALTH=$(curl -sf "$BASE/health")
-assert_eq "health.version" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.7"
+assert_eq "health.version" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.8"
 assert_eq "health.ok" "$(echo "$HEALTH" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("ok"))')" "True"
 HAS_ACCOUNTS=$(echo "$HEALTH" | python3 -c 'import sys,json;print("accounts" in json.load(sys.stdin))')
 assert_eq "health.no_accounts" "$HAS_ACCOUNTS" "False"
 
 ROOT_JSON=$(curl -sf "$BASE/")
-assert_eq "root.version" "$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.7"
+assert_eq "root.version" "$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("version",""))')" "1.7.8"
 ROOT_HAS_ACCOUNTS=$(echo "$ROOT_JSON" | python3 -c 'import sys,json;print("accounts" in json.load(sys.stdin))')
 assert_eq "root.no_accounts" "$ROOT_HAS_ACCOUNTS" "False"
 
